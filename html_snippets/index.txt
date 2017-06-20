@@ -15,7 +15,8 @@ Free Software and Open Source Software.
 <li>
 For the <a href="https://www.parallella.org/" target="blank">Parallella</a> board of <a href="http://www.adapteva.com" target="blank">Adapteva</a>.
 <li>
-Inspired by the <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a>.
+Inspired by the <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a> and 
+<a href="https://en.wikipedia.org/wiki/Concurrent_object-oriented_programming">Concurrent object-oriented programming</a>.
 </ol>
 
 <p>
@@ -39,46 +40,92 @@ Loads in parallel (loading tree definable in your code).
 <li>
 Your code can be partinioned in loadable modules that run in-core.
 <li>
-Deterministic behaviour (no indeterminism):
+Deterministic behaviour. No indeterminism. Unlike the <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a>. For a any pair of cells (A and B):
 	<ul>
 	<li>
-	A message sent is always received only once.
+	A message sent by A is always received by B only once.
 	<li>
-	Messages are received in the same order they are sent.
+	Messages are always received by B in the same order they are sent by A.
 	<li>
-	Always local core writing and remote core reading.
+	A (sending) always does local core writing and B (receiving) always does remote core reading.
 	</ul>
+<li>
+Cell references are just epiphany addresses (you must be address aware).
 <li>
 Optimized dynamic memory allocation/deallocation (pools of reusable classes).
 <li>
-Every library object is in-core dynamically groupable (see class binder).
+Every library object is local-core dynamically groupable (see class binder). Local core complex structures (trees, graphs) can be constructed with the base classes of the library.
 <li>
 Configurable in-core RAM memory usage from link script (see examples).
 <li>
 Designed for eMesh Network usage for messaging and synchronization (as opposed to off-core memory usage).
 <li>
-No locks at all for synchronization (no mutexes, no semaphores, etc). See <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a>.
+No locks at all for synchronization (no mutexes, no semaphores, etc). Like the <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a>.
 <li>
-Asynchronous massaging.
+Asynchronous massaging. Like the <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a>.
 <li>
 Single user epiphany usage oriented (it is assumed that your code will be the only one running in the epiphany architecture).
 <li>
 Debugging tools:
 	<ul>
 	<li>
-	Per-core synchronized logs (if it is not in the log it has not happened).
+	Per-core synchronized logs (if it is not in the log it has not happened in the core).
 	<li>
 	Epiphany backtrace function to know your stack state.
 	</ul>
 <li>
 Emulating library (based on threads) to develop and debug without the epiphany architecture. You can develop in a "normal" linux and then run in the Parallella.
+<li>
+Host side implementation of the system can/may do all io to the epiphany architecture in a consistent way. That is: Messaging cells in the host (Zynq side) can/may communicate back and forth with messaging cells in the epiphany (E3 side) to do all io to the epiphany.
 </ol>
 
+<h1>Bare metal programming</h1>
+
 <p>
-Despite all these wonderful features. You still are supposed to know exactly what is happening with your code even at machine level (epiphany assembler level) and how the emulating library works if you are using it. 
+Despite all these wonderful features. You still are supposed to understand the epiphany architecture. You still are supposed to know exactly what is happening with your code even at machine level (epiphany assembler level) and how the emulating library works if you are using it. 
+
+<p>
+The user is expected to be aware of the kind of addressing been used for a library object at any given time.
+
+Whether it is: 
+
+<ul>
+<li>
+From the epiphany side (hardware addresses).
+	<ol>
+	<li>
+	local-core. 
+		<ul>
+		<li>
+		Zero based (without core id).
+		<li>
+		With local core id.
+		</ul>
+	<li>
+	remote-core. 
+	<li>
+	off-core (outside of the epiphany system in the shared mem with the host)
+	</ol>
+<li>
+From the host side (linux virtual addresses mapped to hardware addresses).
+	<ol>
+	<li>
+	in-core. Inside the RAM of a core of the epiphany system (no register mem). 
+	<li>
+	off-core 
+	</ol>
+</ul>
+
+<p>
+The library provides functions to map all of these kinds of addressing, but the user must be aware of his own use of them and of course there is no protection against steping on your own toes (writing the wrong address).
 
 <p>
 It is bare metal programing with abstraction.
+
+<h1>Recommended Use</h1>
+
+<p>
+The recommended use for this library is in the implementation of concurrent discrete mathematical algorithms. 
 
 <h1>Download and Install</h1>
 
@@ -134,15 +181,19 @@ To run the modules example:
 	./modules.sh
 </pre>
 
+<p>
 See the output of the examples:
 <pre>
 	cat src/tests/bin/log_*
 </pre>
 
-See the source code of examples:
+<p>
+See the source code of examples with 
+
 <pre>
-	cd src/tests
-</pre>
+	<a href="https://github.com/messaging-cells/messaging-cells/tree/master/src/tests" target="blank">cd src/tests</a>
+</pre>.
+
 
 
 
