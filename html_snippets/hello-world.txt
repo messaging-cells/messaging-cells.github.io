@@ -1,0 +1,83 @@
+<!-- START_OF hello_world.txt -->
+
+<h1>Hello World example</h1>
+
+The basic functionality of the library is best shown by the bj-hello-world.c program:
+
+<p>
+<pre>
+
+#include "cell.hh"
+
+void mc_cores_main() {
+	kernel::init_sys();
+
+	bjk_slog2("HELLO_WORLD\n");	
+
+	kernel::finish_sys();
+}
+
+</pre>
+
+<p>
+This program just uses the debug function that writes to the log to see that it has runned.
+
+<p>
+Three functions are minimally needed to use the library:
+<ol>
+<li>
+<code>kernel::init_sys</code>
+<li>
+<code>kernel::finish_sys</code>
+</ol>
+
+But any "normal" program will call also <code>kernel::run_sys</code> (see other examples).
+
+<h2>Compiling Hello World</h2>
+
+<p>
+The files:
+<ul>
+<li>
+<code><a href="https://github.com/messaging-cells/messaging-cells/blob/master/src/tests/main.mk">messaging-cells/src/tests/main.mk</a></code>
+<li>
+<code><a href="https://github.com/messaging-cells/messaging-cells/blob/master/src/tests/nil_host/nil_host.mk">messaging-cells/src/tests/nil_host/nil_host.mk</a></code>
+<li>
+<code><a href="https://github.com/messaging-cells/messaging-cells/blob/master/src/tests/hello_world/hello_world.mk">messaging-cells/src/tests/hello_world/hello_world.mk</a></code>
+</ul>
+
+<p>
+are the ones needed to generate the files:
+
+<ul>
+<li>
+<code>messaging-cells/src/tests/bin/nil-host.elf</code>
+<li>
+<code>messaging-cells/src/tests/bin/hello_world.elf</code>
+</ul>
+
+<p>
+that get called by <code><a href="https://github.com/messaging-cells/messaging-cells/blob/master/hello_world.sh">messaging-cells/hello_world.sh</a></code>
+
+<h2>Running Hello World</h2>
+
+<p>
+Just call <code><a href="https://github.com/messaging-cells/messaging-cells/blob/master/hello_world.sh">messaging-cells/hello_world.sh</a></code>
+
+<p>
+The output will be written to the logs in: 
+
+<ul>
+<li>
+<code>messaging-cells/src/tests/bin/log_*</code> 
+</ul>
+
+<p>
+files. 
+
+<p>
+One per core.
+
+<br>
+<br>
+<br>

@@ -1,0 +1,151 @@
+<!-- START_OF index.txt -->
+
+<h1>Introduction</h1>
+
+<p>
+Messaging Cells is:
+
+<ol>
+<li>
+A GNU C/C++ software library.
+<li>
+A minimalistic asynchronous messaging aproach to <a href="https://en.wikipedia.org/wiki/Concurrency_(computer_science)" target="blank">concurrency</a> and parallelism.
+<li>
+Free Software and Open Source Software.
+<li>
+For the <a href="https://www.parallella.org/" target="blank">Parallella</a> board of <a href="http://www.adapteva.com" target="blank">Adapteva</a>.
+<li>
+Inspired by the <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a>.
+</ol>
+
+<p>
+The library is designed to be used as a support library for applications or libraries that need to comunicate concurrent pieces of software in the Parallella board. The expected user is a C/C++ programmer. 
+
+<p>
+The motivation for this software is to have a base librery to implement the new parallel algorithm of <a href="https://ben-jose.github.io/" target="blank">Ben-Jose SAT Solver</a>.
+
+<h1>Status</h1>
+
+<p>
+A first alpha version is running basic examples. It is planned to be refined and expanded as needed during the implementation of the parallel version of the <a href="https://ben-jose.github.io/" target="blank">Ben-Jose</a> algorithm. That means that, if futures or anything else are not needed for that algorithm, you are wellcome to implement your needed/wanted feature for the library.
+
+<h1>Features</h1>
+
+<ol>
+<li>
+Small in-core footprint (8Kb including code + stack).
+<li>
+Loads in parallel (loading tree definable in your code).
+<li>
+Your code can be partinioned in loadable modules that run in-core.
+<li>
+Deterministic behaviour (no indeterminism):
+	<ul>
+	<li>
+	A message sent is always received only once.
+	<li>
+	Messages are received in the same order they are sent.
+	<li>
+	Always local core writing and remote core reading.
+	</ul>
+<li>
+Optimized dynamic memory allocation/deallocation (pools of reusable classes).
+<li>
+Every library object is in-core dynamically groupable (see class binder).
+<li>
+Configurable in-core RAM memory usage from link script (see examples).
+<li>
+Designed for eMesh Network usage for messaging and synchronization (as opposed to off-core memory usage).
+<li>
+No locks at all for synchronization (no mutexes, no semaphores, etc). See <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a>.
+<li>
+Asynchronous massaging.
+<li>
+Single user epiphany usage oriented (it is assumed that your code will be the only one running in the epiphany architecture).
+<li>
+Debugging tools:
+	<ul>
+	<li>
+	Per-core synchronized logs (if it is not in the log it has not happened).
+	<li>
+	Epiphany backtrace function to know your stack state.
+	</ul>
+<li>
+Emulating library (based on threads) to develop and debug without the epiphany architecture. You can develop in a "normal" linux and then run in the Parallella.
+</ol>
+
+<p>
+Despite all these wonderful features. You still are supposed to know exactly what is happening with your code even at machine level (epiphany assembler level) and how the emulating library works if you are using it. 
+
+<p>
+It is bare metal programing with abstraction.
+
+<h1>Download and Install</h1>
+
+In the command line:
+<pre>
+	git clone https://github.com/messaging-cells/messaging-cells.git
+	cd messaging-cells
+	./build
+</pre>
+
+<p>
+These commands will compile, built, put the library directory in the PATH environment variable, list all files of the library and finally 'exit' the command line so the changes to the path take effect (.bashrc is ran again) the next time you open a command line.
+
+<h3>Required Software</h3>
+<ol>
+	<li>A Linux system.
+	<li>GNU C++ (g++). 
+	<li>GNU Make (Make). 
+</ol>
+
+<p>
+For Mint and in the command line (probably the same for other debian based distros):
+
+<pre>
+	sudo apt-get install gcc
+	sudo apt-get install g++
+	sudo apt-get install make
+</pre>
+
+<p>
+These commands are safe to be run even if the packages are already installed because it will just tell you so.
+
+<h1 id="Getting-Started">Getting Started</h1>
+
+<p>
+In the command line and in a Parallella system (after installing);
+
+<p>
+To run the hello world example:
+<pre>
+	./hello_world.sh
+</pre>
+
+<p>
+To run the eating philosophers example:
+<pre>
+	./philo.sh
+</pre>
+
+<p>
+To run the modules example:
+<pre>
+	./modules.sh
+</pre>
+
+See the output of the examples:
+<pre>
+	cat src/tests/bin/log_*
+</pre>
+
+See the source code of examples:
+<pre>
+	cd src/tests
+</pre>
+
+
+
+<br>
+<br>
+<br>

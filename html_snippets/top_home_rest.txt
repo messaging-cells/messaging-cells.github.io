@@ -1,0 +1,14 @@
+<!-- START_OF top_home_rest.txt -->
+
+<table border="0" width="100%" ID="Table2" style="background-color:black">
+<tr style="color:white">
+	<td width="5%">
+	</td>
+	<td width="95%">
+		<h1>Messaging Cells Library</h1>
+	</td>
+	<td><img src="images/the_logo.png" alt=""></td>
+</tr>
+</table>
+
+<div class="container">
