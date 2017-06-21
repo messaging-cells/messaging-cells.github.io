@@ -1,0 +1,54 @@
+\hypertarget{log_8h}{}\section{/home/jose/devel/messaging-\/cells/src/cells/log.h File Reference}
+\label{log_8h}\index{/home/jose/devel/messaging-\/cells/src/cells/log.\+h@{/home/jose/devel/messaging-\/cells/src/cells/log.\+h}}
+
+
+Defines log functions and macros.  
+
+
+{\ttfamily \#include $<$inttypes.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}attribute.\+h\char`\"{}}\\*
+Include dependency graph for log.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\+\_\+slog2}(msg)~\hyperlink{log_8h_aae5500dae9c5dfaec69a65d9703dc50a}{mck\+\_\+slog}(as\+\_\+pt\+\_\+char(msg))\hypertarget{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{}\label{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}
+
+\begin{DoxyCompactList}\small\item\em Sames as \hyperlink{log_8h_aae5500dae9c5dfaec69a65d9703dc50a}{mck\+\_\+slog} but it does a const\+\_\+cast$<$char$\ast$$>$ for you so you can use directly it in c++. \end{DoxyCompactList}\item 
+\#define \hyperlink{log_8h_addbe1979a58d9f84d5a009c5543818c2}{mck\+\_\+sprt2}(msg)~\hyperlink{log_8h_a350919ac512d977b146fb32be02dfecc}{mck\+\_\+sprt}(as\+\_\+pt\+\_\+char(msg))\hypertarget{log_8h_addbe1979a58d9f84d5a009c5543818c2}{}\label{log_8h_addbe1979a58d9f84d5a009c5543818c2}
+
+\begin{DoxyCompactList}\small\item\em Sames as \hyperlink{log_8h_a350919ac512d977b146fb32be02dfecc}{mck\+\_\+sprt} but it does a const\+\_\+cast$<$char$\ast$$>$ for you so you can use directly it in c++. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+mc\+\_\+inline\+\_\+fn void \hyperlink{log_8h_aae5500dae9c5dfaec69a65d9703dc50a}{mck\+\_\+slog} (char $\ast$msg)\hypertarget{log_8h_aae5500dae9c5dfaec69a65d9703dc50a}{}\label{log_8h_aae5500dae9c5dfaec69a65d9703dc50a}
+
+\begin{DoxyCompactList}\small\item\em Logs a string in this core log file. \end{DoxyCompactList}\item 
+mc\+\_\+inline\+\_\+fn void \hyperlink{log_8h_a350919ac512d977b146fb32be02dfecc}{mck\+\_\+sprt} (char $\ast$msg)\hypertarget{log_8h_a350919ac512d977b146fb32be02dfecc}{}\label{log_8h_a350919ac512d977b146fb32be02dfecc}
+
+\begin{DoxyCompactList}\small\item\em Prints a string to stdout in the host. \end{DoxyCompactList}\item 
+mc\+\_\+inline\+\_\+fn void \hyperlink{log_8h_a14e1de1564f270c82ff08d1b9ad41a66}{mck\+\_\+ilog} (int32\+\_\+t vv)\hypertarget{log_8h_a14e1de1564f270c82ff08d1b9ad41a66}{}\label{log_8h_a14e1de1564f270c82ff08d1b9ad41a66}
+
+\begin{DoxyCompactList}\small\item\em Logs an int32\+\_\+t in this core log file. \end{DoxyCompactList}\item 
+mc\+\_\+inline\+\_\+fn void \hyperlink{log_8h_ae0baafcfcbd01d4136efcc7f2605cfcf}{mck\+\_\+ulog} (uint32\+\_\+t vv)\hypertarget{log_8h_ae0baafcfcbd01d4136efcc7f2605cfcf}{}\label{log_8h_ae0baafcfcbd01d4136efcc7f2605cfcf}
+
+\begin{DoxyCompactList}\small\item\em Logs an uint32\+\_\+t in this core log file. \end{DoxyCompactList}\item 
+mc\+\_\+inline\+\_\+fn void \hyperlink{log_8h_aa4f0190d914cecf5db43914dc69f7129}{mck\+\_\+xlog} (uint32\+\_\+t vv)\hypertarget{log_8h_aa4f0190d914cecf5db43914dc69f7129}{}\label{log_8h_aa4f0190d914cecf5db43914dc69f7129}
+
+\begin{DoxyCompactList}\small\item\em Logs an uint32\+\_\+t as a hexadecimal in this core log file. \end{DoxyCompactList}\item 
+mc\+\_\+inline\+\_\+fn void \hyperlink{log_8h_a2d38dfdcdb36720d61e2ce089b3a1524}{mck\+\_\+iprt} (int32\+\_\+t vv)\hypertarget{log_8h_a2d38dfdcdb36720d61e2ce089b3a1524}{}\label{log_8h_a2d38dfdcdb36720d61e2ce089b3a1524}
+
+\begin{DoxyCompactList}\small\item\em Prints an int32\+\_\+t to stdout in the host. \end{DoxyCompactList}\item 
+mc\+\_\+inline\+\_\+fn void \hyperlink{log_8h_a4e6bae1c9db8d272256f926852007213}{mck\+\_\+uprt} (uint32\+\_\+t vv)\hypertarget{log_8h_a4e6bae1c9db8d272256f926852007213}{}\label{log_8h_a4e6bae1c9db8d272256f926852007213}
+
+\begin{DoxyCompactList}\small\item\em Prints an uint32\+\_\+t to stdout in the host. \end{DoxyCompactList}\item 
+mc\+\_\+inline\+\_\+fn void \hyperlink{log_8h_ad30d3b396a981772ee5d44dc332c2886}{mck\+\_\+xprt} (uint32\+\_\+t vv)\hypertarget{log_8h_ad30d3b396a981772ee5d44dc332c2886}{}\label{log_8h_ad30d3b396a981772ee5d44dc332c2886}
+
+\begin{DoxyCompactList}\small\item\em Prints an uint32\+\_\+t as a hexadecimal to stdout in the host. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Defines log functions and macros. 
+

@@ -94,14 +94,17 @@ A minimalistic asynchronous messaging aproach to <a href="https://en.wikipedia.o
 <li>
 Free Software and Open Source Software.
 <li>
-For the <a href="https://www.parallella.org/" target="blank">Parallella</a> board of <a href="http://www.adapteva.com" target="blank">Adapteva</a>.
+For the <a href="http://www.adapteva.com/epiphany-multicore-intellectual-property/">Epiphany</a> architecture (<a href="https://www.parallella.org/" target="blank">Parallella_E3</a> board only for now) of <a href="http://www.adapteva.com" target="blank">Adapteva</a>.
 <li>
 Inspired by the <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a> and 
 <a href="https://en.wikipedia.org/wiki/Concurrent_object-oriented_programming">Concurrent object-oriented programming</a>.
 </ol>
 
 <p>
-The library is designed to be used as a support library for applications or libraries that need to comunicate concurrent pieces of software in the Parallella board. The expected user is a C/C++ programmer. 
+The library is designed to be used as a support library for applications or libraries that need to comunicate concurrent pieces of software in an <a href="http://www.adapteva.com/epiphany-multicore-intellectual-property/">Epiphany</a> based system (<a href="https://www.parallella.org/" target="blank">Parallella_E3</a> board only for now). 
+
+<p>
+The expected user is a C/C++ programmer that needs to implement a parallel algorithm. 
 
 <p>
 The motivation for this software is to have a base librery to implement the new parallel algorithm of <a href="https://ben-jose.github.io/" target="blank">Ben-Jose SAT Solver</a>.
@@ -121,17 +124,17 @@ Loads in parallel (loading tree definable in your code).
 <li>
 Your code can be partinioned in loadable modules that run in-core.
 <li>
-Deterministic behaviour. No indeterminism. Unlike the <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a>. For a any pair of cells (A and B):
+Deterministic behaviour. No indeterminism. Unlike the <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a>. For a any pair of cells Cell_A and Cell_B:
 	<ul>
 	<li>
-	A message sent by A is always received by B only once.
+	A message sent by Cell_A is always received by Cell_B only once.
 	<li>
-	Messages are always received by B in the same order they are sent by A.
+	Messages are always received by Cell_B in the same order they are sent by Cell_A.
 	<li>
-	A (sending) always does local core writing and B (receiving) always does remote core reading.
+	Cell_A (sending) always does local core writing and Cell_B (receiving) always does remote core reading. No message copying.
 	</ul>
 <li>
-Cell references are just epiphany addresses (you must be address aware).
+Cell references are just Epiphany addresses (you must be address aware).
 <li>
 Optimized dynamic memory allocation/deallocation (pools of reusable classes).
 <li>
@@ -143,7 +146,7 @@ Designed for eMesh Network usage for messaging and synchronization (as opposed t
 <li>
 No locks at all for synchronization (no mutexes, no semaphores, etc). Like the <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a>.
 <li>
-Asynchronous massaging. Like the <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a>.
+Asynchronous massaging. Like the Actor Model.
 <li>
 Single user epiphany usage oriented (it is assumed that your code will be the only one running in the epiphany architecture).
 <li>
@@ -206,7 +209,7 @@ It is bare metal programing with abstraction.
 <h1>Recommended Use</h1>
 
 <p>
-The recommended use for this library is in the implementation of concurrent discrete mathematical algorithms. 
+The recommended use for this library is in the implementation of discrete mathematics parallel algorithms because these kind of algorithms will not need much use of memory outside of the Epiphany-system (neither in code nor in data). They can be implemented just using the Epiphany system (core's RAM and the eMesh Network) by partitioning them in loadable modules kept anywhere in memory (off-sys or form other core). And that means optimal parallel use of the system.
 
 <h1>Download and Install</h1>
 

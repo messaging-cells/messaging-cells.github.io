@@ -1,0 +1,11 @@
+digraph "/home/jose/devel/messaging-cells/src/tests/emu_tests" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_56a6428f15bbc5405e28294093c6a82c {
+    graph [ bgcolor="#ddddee", pencolor="black", label="tests" fontname="Helvetica", fontsize="10", URL="dir_56a6428f15bbc5405e28294093c6a82c.html"]
+  dir_f2ed9dd0e8c91693a130a7e234f6f37b [shape=box, label="emu_tests", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_f2ed9dd0e8c91693a130a7e234f6f37b.html"];
+  }
+  dir_0bcd1e4ad24263758f7efb2bcc284499 [shape=box label="cells" URL="dir_0bcd1e4ad24263758f7efb2bcc284499.html"];
+  dir_f2ed9dd0e8c91693a130a7e234f6f37b->dir_0bcd1e4ad24263758f7efb2bcc284499 [headlabel="1", labeldistance=1.5 headhref="dir_000009_000002.html"];
+}

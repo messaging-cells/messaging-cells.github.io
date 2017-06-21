@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>Doxygen-Documentation: Main Page</title>
+<title>Library-Documentation: &lt;h1&gt;Introduction&lt;/h1&gt;</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,9 +25,9 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><a href="../../index.html"><img alt="Logo" src="mc-logo.png"/></a></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname"><a href="../../index.html">Doxygen-Documentation</a>
+   <div id="projectname"><a href="../../index.html">Library-Documentation</a>
    </div>
-   <div id="projectbrief">Doxygen Generated Documentation for Messaging-Cells Library</div>
+   <div id="projectbrief">Selected Documentation for Messaging-Cells Library</div>
   </td>
  </tr>
  </tbody>
@@ -41,6 +41,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -77,13 +79,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Doxygen-Documentation Documentation</div>  </div>
+<div class="title"><h1>Introduction</h1>
+</div>  </div>
 </div><!--header-->
 <div class="contents">
-</div><!-- contents -->
+<div class="textblock"><p>This selected doxy generated documentation of the <a href="https://github.com/messaging-cells/messaging-cells" target="blank">Messaging Cells</a> Library is a description of the most releveant classes and functions that help in the understanding of the API and inner-workig of the library.</p>
+<p>It is divided according to:</p>
+<p><a class="el" href="d9/dbf/group__docgrp__debug__features.html">Debug features</a></p>
+<p>The debug features are basically two:</p>
+<ul>
+<li>
+You can log and print strings and numbers using functions like: <a class="el" href="d7/d7f/log_8h.html#aae5500dae9c5dfaec69a65d9703dc50a">mck_slog</a> and <a class="el" href="d7/d7f/log_8h.html#a8ec0c02a2d94dec909d9cdc8340f733f">mck_slog2</a>. See <a class="el" href="d7/d7f/log_8h.html">log.h</a>. </li>
+<li>
+You can get the stack trace when calling <a class="el" href="d1/d1b/trace_8h.html#a8090ce26e45526c1fd1947155a04398a">mck_get_call_stack_trace</a> and you can abort execution by calling <a class="el" href="d2/d49/global_8h.html#a6a6d1065bccc17077e1a6a0aeaa5f6dd">mck_abort</a> and get the stack trace printed in the host. </li>
+</ul>
+<p><a class="el" href="db/d5b/group__docgrp__messaging.html">Messaging</a></p>
+<p>Messagging is done beetween two <a class="el" href="d2/dbe/classcell.html">cell</a> s by sending <a class="el" href="d4/d9f/classmissive.html">missive</a> s. So no messages ;)</p>
+<p><a class="el" href="d9/d4f/group__docgrp__memory__features.html">Memory features</a></p>
+<p><a class="el" href="d4/dab/group__docgrp__addressing__features.html">Addressing features</a></p>
+<p><a class="el" href="d7/d36/group__docgrp__linking__features.html">Linking features</a> </p>
+<p>This group corresponds to two main areas:</p>
+<ul>
+<li>
+The values you can set in the link script. </li>
+<li>
+THe techniques used to partition your code in modules. </li>
+</ul>
+<p><a class="el" href="d4/d57/group__docgrp__loading__features.html">Loading features</a> </p>
+<p>This group corresponds to basically two main features: </p><ul>
+<li>
+The posibility to customize the tree that defines the order in which the library's kernel is loaded in the cores. </li>
+<li>
+The posibility to load different modules in different cores. </li>
+</ul>
+<p><a class="el" href="db/d40/group__docgrp__inner__working.html">Inner-working</a> </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 19 2017 20:34:30 for Doxygen-Documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jun 21 2017 16:29:25 for Library-Documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

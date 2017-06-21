@@ -1,0 +1,25 @@
+digraph "/home/jose/devel/messaging-cells/src/cells/cell.hh"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="/home/jose/devel/messaging\l-cells/src/cells/cell.hh",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="new",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="global.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d2/d49/global_8h.html",tooltip="Global functions. It is included in cell.hh. "];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="shared.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$da/db4/shared_8h.html",tooltip="C shared structures (by host and cores). It is included in global.h. "];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="stdint.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node4 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="stdbool.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node4 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="inttypes.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node4 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="log.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d7/d7f/log_8h.html",tooltip="Defines log functions and macros. "];
+  Node8 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="trace.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d1/d1b/trace_8h.html",tooltip="Trace functions. "];
+  Node9 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+}
