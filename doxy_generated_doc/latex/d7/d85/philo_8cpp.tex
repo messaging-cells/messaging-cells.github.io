@@ -1,0 +1,713 @@
+\hypertarget{philo_8cpp}{}\section{/home/jose/devel/messaging-\/cells/src/tests/eating\+\_\+philo/philo.cpp File Reference}
+\label{philo_8cpp}\index{/home/jose/devel/messaging-\/cells/src/tests/eating\+\_\+philo/philo.\+cpp@{/home/jose/devel/messaging-\/cells/src/tests/eating\+\_\+philo/philo.\+cpp}}
+
+
+The classical example of the \href{https://en.wikipedia.org/wiki/Dining_philosophers_problem}{\tt eating philosophers}.  
+
+
+{\ttfamily \#include $<$new$>$}\\*
+{\ttfamily \#include \char`\"{}attribute.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}cell.\+hh\char`\"{}}\\*
+Include dependency graph for philo.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{dd/dbe/philo_8cpp__incl}
+\end{center}
+\end{figure}
+
+
+\subsection{Detailed Description}
+The classical example of the \href{https://en.wikipedia.org/wiki/Dining_philosophers_problem}{\tt eating philosophers}. 
+
+
+\begin{DoxyCodeInclude}
+\textcolor{comment}{//----------------------------------------------------------------------------}
+\textcolor{comment}{}\textcolor{preprocessor}{#include <new>}
+\textcolor{preprocessor}{#include "attribute.h"}
+\textcolor{preprocessor}{#include "\hyperlink{cell_8hh}{cell.hh}"}
+
+\textcolor{comment}{//define PHILO\_EPH\_DBG}
+
+\textcolor{preprocessor}{#ifdef MC\_IS\_EMU\_CODE}
+\textcolor{preprocessor}{#define PHILO\_WITH\_DBG}
+\textcolor{preprocessor}{#endif}
+
+\textcolor{preprocessor}{#ifdef PHILO\_WITH\_DBG}
+\textcolor{preprocessor}{    #include "stdio.h"}
+
+    \textcolor{keywordtype}{bool} dbg\_all\_idle\_prt[16] mc\_external\_code\_ram = \{
+        \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, 
+        \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, 
+        \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, 
+        \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}
+    \};
+    \textcolor{keywordtype}{bool} dbg\_all\_full[16] mc\_external\_code\_ram = \{
+        \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, 
+        \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, 
+        \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, 
+        \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}
+    \};
+
+    \textcolor{keywordtype}{void} prt\_idle() mc\_external\_code\_ram;
+    \textcolor{keywordtype}{void} prt\_full() mc\_external\_code\_ram;
+    \textcolor{keywordtype}{void} prt\_all\_philo() mc\_external\_code\_ram;
+
+    \textcolor{keywordtype}{bool} prt\_recv\_msgs mc\_external\_code\_ram = false;
+    \textcolor{keywordtype}{bool} prt\_send\_msgs mc\_external\_code\_ram = false;
+
+    \textcolor{preprocessor}{#define PH\_DBG\_COD(prm) prm}
+\textcolor{preprocessor}{#else}
+\textcolor{preprocessor}{    #define PH\_DBG\_COD(prm) }
+\textcolor{preprocessor}{#endif}
+
+\textcolor{keyword}{class }chopstick;
+\textcolor{keyword}{class }philosopher;
+
+\textcolor{preprocessor}{#define MAX\_BITES 10}
+
+\textcolor{preprocessor}{#define PH\_DBG EMU\_PRT}
+
+\textcolor{keyword}{enum} philo\_tok\_t : uint8\_t \{
+    tok\_invalid,
+    tok\_eat,
+    tok\_take,
+    tok\_taken,
+    tok\_not\_taken,
+    tok\_drop,
+    tok\_droped,
+    tok\_not\_droped, 
+    tok\_yes\_full
+\};
+
+\textcolor{comment}{//ifdef PHILO\_WITH\_DBG}
+    \textcolor{keywordtype}{char}*
+    tok\_to\_str(philo\_tok\_t tok) mc\_external\_code\_ram;
+
+    \textcolor{keywordtype}{char}*
+    tok\_to\_str(philo\_tok\_t tok)\{
+        \textcolor{keywordflow}{switch}(tok)\{
+        \textcolor{keywordflow}{case} tok\_invalid:
+            \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"invalid"});
+        \textcolor{keywordflow}{break};
+        \textcolor{keywordflow}{case} tok\_eat:
+            \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"eat"});
+        \textcolor{keywordflow}{break};
+        \textcolor{keywordflow}{case} tok\_take:
+            \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"take"});
+        \textcolor{keywordflow}{break};
+        \textcolor{keywordflow}{case} tok\_taken:
+            \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"taken"});
+        \textcolor{keywordflow}{break};
+        \textcolor{keywordflow}{case} tok\_not\_taken:
+            \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"not\_taken"});
+        \textcolor{keywordflow}{break};
+        \textcolor{keywordflow}{case} tok\_drop:
+            \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"drop"});
+        \textcolor{keywordflow}{break};
+        \textcolor{keywordflow}{case} tok\_droped:
+            \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"droped"});
+        \textcolor{keywordflow}{break};
+        \textcolor{keywordflow}{case} tok\_not\_droped:
+            \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"not\_droped"});
+        \textcolor{keywordflow}{break};
+        \textcolor{keywordflow}{case} tok\_yes\_full:
+            \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"yes\_fll"});
+        \textcolor{keywordflow}{break};
+        \textcolor{keywordflow}{default}:
+            \hyperlink{global_8h_a6a6d1065bccc17077e1a6a0aeaa5f6dd}{mck\_abort}(1, const\_cast<char*>(\textcolor{stringliteral}{"BAD\_PHILO\_TOK"}));
+        \textcolor{keywordflow}{break};
+        \}
+        \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"NO\_TOK"});
+    \}
+\textcolor{comment}{//endif}
+
+\textcolor{keyword}{class }chopstick : \textcolor{keyword}{public} \hyperlink{classcell}{cell} \{
+\textcolor{keyword}{public}:
+    MCK\_DECLARE\_MEM\_METHODS(chopstick)
+
+    \hyperlink{classcell}{cell}* owner;
+
+    \hyperlink{classcell}{cell}* last\_src;
+    philo\_tok\_t last\_sent;
+    philo\_tok\_t last\_recv;
+
+    chopstick()\{
+        init\_chopstick();
+    \}
+
+    ~chopstick()\{\}
+
+    \textcolor{keywordtype}{void} init\_chopstick()\{
+        \hyperlink{classcell_a234bbd022db21480b428b2f63662fe95}{handler\_idx} = 1;
+        owner = mc\_null;
+
+        last\_src = mc\_null;
+        last\_sent = tok\_invalid;
+        last\_recv = tok\_invalid;
+    \}
+
+    \textcolor{keywordtype}{void} handler(\hyperlink{classmissive}{missive}* msv);
+\};
+
+\textcolor{keyword}{class }philosopher : \textcolor{keyword}{public} \hyperlink{classcell}{cell} \{
+\textcolor{keyword}{public}:
+    MCK\_DECLARE\_MEM\_METHODS(philosopher)
+
+    chopstick* left;
+    chopstick* right;
+
+    \textcolor{keywordtype}{int} num\_bites;
+    \textcolor{keywordtype}{bool} lft\_ph\_full;
+    \textcolor{keywordtype}{bool} rgt\_ph\_full;
+
+    mc\_core\_id\_t    lft\_stk\_id;
+    mc\_core\_id\_t    rgt\_stk\_id;
+    chopstick*      lft\_stick;
+    chopstick*      rgt\_stick;
+    mc\_core\_id\_t    lft\_phi\_id;
+    mc\_core\_id\_t    rgt\_phi\_id;
+    philosopher*    lft\_philo;
+    philosopher*    rgt\_philo;
+
+    philo\_tok\_t last\_sent;
+    philo\_tok\_t last\_sent\_lft;
+    philo\_tok\_t last\_sent\_rgt;
+    philo\_tok\_t last\_recv;
+    philo\_tok\_t last\_recv\_lft;
+    philo\_tok\_t last\_recv\_rgt;
+
+    philosopher()\{
+        init\_philosopher();
+    \}
+
+    ~philosopher()\{\}
+
+    \textcolor{keywordtype}{void} init\_philosopher()\{
+        handler\_idx = 2;
+
+        left = mc\_null;
+        right = mc\_null;
+
+        num\_bites = 0;
+        lft\_ph\_full = \textcolor{keyword}{false};
+        rgt\_ph\_full = \textcolor{keyword}{false};
+
+        lft\_stk\_id = ~0;
+        rgt\_stk\_id = ~0;
+        lft\_stick = mc\_null;
+        rgt\_stick = mc\_null;
+        lft\_phi\_id = ~0;
+        rgt\_phi\_id = ~0;
+        lft\_philo = mc\_null;
+        rgt\_philo = mc\_null;
+
+        last\_sent = tok\_invalid;
+        last\_sent\_lft = tok\_invalid;
+        last\_sent\_rgt = tok\_invalid;
+        last\_recv = tok\_invalid;
+        last\_recv\_lft = tok\_invalid;
+        last\_recv\_rgt = tok\_invalid;
+    \}
+
+    \textcolor{keywordtype}{void} handler(\hyperlink{classmissive}{missive}* msv);
+
+    \textcolor{keywordtype}{void} send(\hyperlink{classcell}{cell}* dst, philo\_tok\_t tok);
+
+    \textcolor{keywordtype}{void} send\_full();
+
+    \textcolor{keywordtype}{bool} can\_exit()\{
+        \textcolor{keywordflow}{return} ((left == mc\_null) && (right == mc\_null) && (num\_bites == MAX\_BITES) && rgt\_ph\_full && 
+      lft\_ph\_full);
+    \}
+
+    \textcolor{keywordtype}{void} call\_exit();
+\};
+
+\textcolor{comment}{// For global data. DO NOT USE GLOBAL VARIABLES IF YOU WANT THE EMULATOR (cores as threads) TO WORK.}
+\textcolor{keyword}{class }philo\_core \{
+\textcolor{keyword}{public}:
+    MCK\_DECLARE\_MEM\_METHODS(philo\_core)
+
+    philo\_core()\{       \textcolor{comment}{// NEED THIS SO THAT no memset func call}
+        init\_philo\_core();
+    \}       
+    ~philo\_core()\{\}     \textcolor{comment}{// NEED THIS SO THAT no memset func call}
+
+    chopstick stick;
+    philosopher philo;
+    grip ava\_chopstick;
+    grip ava\_philosopher;
+
+    mc\_size\_t from\_host\_work\_sz;
+    mc\_size\_t to\_host\_work\_sz;
+    mc\_size\_t in\_work\_sz;
+    mc\_size\_t local\_work\_sz;
+    mc\_size\_t out\_work\_sz;
+    mc\_size\_t sent\_work\_sz;
+    mc\_size\_t cls\_available\_cell\_sz;
+    mc\_size\_t cls\_available\_missive\_sz;
+    mc\_size\_t cls\_available\_agent\_ref\_sz;
+    mc\_size\_t cls\_available\_agent\_grp\_sz;
+
+    \textcolor{keywordtype}{void} init\_philo\_core()\{
+        from\_host\_work\_sz = 0;
+        to\_host\_work\_sz = 0;
+        in\_work\_sz = 0;
+        local\_work\_sz = 0;
+        out\_work\_sz = 0;
+        sent\_work\_sz = 0;
+        cls\_available\_cell\_sz = 0;
+        cls\_available\_missive\_sz = 0;
+        cls\_available\_agent\_ref\_sz = 0;
+        cls\_available\_agent\_grp\_sz = 0;
+    \}
+\};
+
+MCK\_DEFINE\_ACQUIRE\_ALLOC(philo\_core, 32)    \textcolor{comment}{// defines philo\_core::acquire\_alloc}
+
+\textcolor{preprocessor}{#define glb\_philo\_core ((philo\_core*)(mck\_get\_kernel()->user\_data))}
+
+\textcolor{preprocessor}{#define glb\_stick (&(glb\_philo\_core->stick))}
+\textcolor{preprocessor}{#define glb\_philo (&(glb\_philo\_core->philo))}
+
+\textcolor{preprocessor}{#define glb\_ava\_sticks (glb\_philo\_core->ava\_chopstick)}
+\textcolor{preprocessor}{#define glb\_ava\_philos (glb\_philo\_core->ava\_philosopher)}
+
+\textcolor{preprocessor}{#define left\_chp\_nn(nn) (nn)}
+\textcolor{preprocessor}{#define right\_chp\_nn(nn) ((nn == 15)?(0):(nn + 1))}
+
+\textcolor{preprocessor}{#define left\_phl\_nn(nn) ((nn == 0)?(15):(nn - 1))}
+\textcolor{preprocessor}{#define right\_phl\_nn(nn) ((nn == 15)?(0):(nn + 1))}
+
+\textcolor{preprocessor}{#define get\_stick(id) ((chopstick*)mc\_addr\_set\_id(id, glb\_stick))}
+\textcolor{preprocessor}{#define get\_philo(id) ((philosopher*)mc\_addr\_set\_id(id, glb\_philo))}
+
+MCK\_DEFINE\_MEM\_METHODS(chopstick, 32, glb\_ava\_sticks)
+MCK\_DEFINE\_MEM\_METHODS(philosopher, 32, glb\_ava\_philos)
+
+
+\textcolor{preprocessor}{#ifdef PHILO\_WITH\_DBG}
+philo\_core* 
+dbg\_all\_philo[16] mc\_external\_code\_ram = \{
+    mc\_null, mc\_null, mc\_null, mc\_null, 
+    mc\_null, mc\_null, mc\_null, mc\_null, 
+    mc\_null, mc\_null, mc\_null, mc\_null, 
+    mc\_null, mc\_null, mc\_null, mc\_null
+\};
+\textcolor{preprocessor}{#endif}
+
+\textcolor{keywordtype}{void} 
+philosopher\_handler(\hyperlink{classmissive}{missive}* msv)\{
+    MCK\_CALL\_HANDLER(philosopher, handler, msv);
+\}
+
+\textcolor{keywordtype}{void} 
+chopstick\_handler(\hyperlink{classmissive}{missive}* msv)\{
+    MCK\_CALL\_HANDLER(chopstick, handler, msv);
+\}
+
+\hyperlink{cell_8hh_ad48af79638ac0f2892ed41375e3aed54}{missive\_handler\_t} the\_handlers[] = \{
+    mc\_null,
+    chopstick\_handler,
+    philosopher\_handler
+\};
+
+\textcolor{keywordtype}{void}
+chopstick::handler(\hyperlink{classmissive}{missive}* msv)\{
+    \hyperlink{classcell}{cell}* msv\_src = msv->src;
+    philo\_tok\_t tok = (philo\_tok\_t)msv->tok;
+
+    last\_src = msv\_src;
+    last\_recv = tok;
+
+    mc\_core\_nn\_t nn = \hyperlink{cell_8hh_af1eb47800585646e0caf6cb269111731}{mck\_get\_kernel}()->get\_core\_nn();
+    PH\_DBG\_COD(
+        \textcolor{keywordflow}{if}(prt\_recv\_msgs)\{
+            PH\_DBG(\textcolor{stringliteral}{"CHOP %d RECV %s \(\backslash\)n"}, nn, tok\_to\_str(tok));
+        \}
+    )
+    \textcolor{keywordflow}{if}((nn == 0) || (nn >= 14))\{
+\textcolor{preprocessor}{        #ifdef PHILO\_EPH\_DBG}
+            mc\_core\_id\_t src\_id = mc\_addr\_get\_id(msv\_src);
+            \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"CHOP\_RECV\_\_\_\_"});
+            \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(tok\_to\_str(tok));
+            \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"\_\_\_"});
+            \hyperlink{log_8h_aa4f0190d914cecf5db43914dc69f7129}{mck\_xlog}((mc\_addr\_t)msv\_src);
+            \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"\_\_\_"});
+            \hyperlink{log_8h_a14e1de1564f270c82ff08d1b9ad41a66}{mck\_ilog}(mc\_id\_to\_nn(src\_id));
+            \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"\_\_\_\(\backslash\)n"});
+
+            \textcolor{keywordflow}{if}(nn == 15)\{
+                \textcolor{comment}{//kernel* ker = mck\_get\_kernel();}
+                \textcolor{keywordtype}{bool} ini0 = mck\_is\_id\_inited(mc\_nn\_to\_id(0));
+                \textcolor{comment}{//long osz = ker->out\_work.calc\_size();}
+                \textcolor{comment}{//mck\_ack\_t loc\_dst\_ack\_pt = (ker->pw0\_routed\_ack\_arr)[0];}
+                \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"ADDR\_INI\_\_\_\_"});
+                \hyperlink{log_8h_aa4f0190d914cecf5db43914dc69f7129}{mck\_xlog}((mc\_addr\_t)(&(MC\_CORE\_INFO->inited\_core)));
+                \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"\_\_\_\(\backslash\)n"});
+
+                \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"INI\_0\_\_\_\_"});
+                \hyperlink{log_8h_a14e1de1564f270c82ff08d1b9ad41a66}{mck\_ilog}(ini0);
+                \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"\_\_\_\(\backslash\)n"});
+            \}
+\textcolor{preprocessor}{        #endif}
+    \}
+
+    \textcolor{keywordflow}{switch}(tok)\{
+        \textcolor{keywordflow}{case} tok\_take:
+            EMU\_CK(owner != msv\_src);
+            \textcolor{keywordflow}{if}(owner == mc\_null)\{
+                owner = msv\_src;
+                last\_sent = tok\_taken;
+                respond(msv, tok\_taken);
+            \} \textcolor{keywordflow}{else} \{
+                EMU\_CK(owner != mc\_null);
+                last\_sent = tok\_not\_taken;
+                respond(msv, tok\_not\_taken);
+            \}
+        \textcolor{keywordflow}{break};
+        \textcolor{keywordflow}{case} tok\_drop:
+            EMU\_CK(owner == msv\_src);
+            owner = mc\_null;
+            last\_sent = tok\_droped;
+            respond(msv, tok\_droped);
+        \textcolor{keywordflow}{break};
+        \textcolor{keywordflow}{default}:
+            \hyperlink{global_8h_a6a6d1065bccc17077e1a6a0aeaa5f6dd}{mck\_abort}(1, const\_cast<char*>(\textcolor{stringliteral}{"BAD\_STICK\_TOK"}));
+        \textcolor{keywordflow}{break};
+    \}
+    
+    \textcolor{comment}{//mck\_get\_kernel()->set\_idle\_exit();}
+\}
+
+\textcolor{keywordtype}{void}
+philosopher::send(\hyperlink{classcell}{cell}* dst, philo\_tok\_t tok)\{
+    PH\_DBG\_COD(
+        \textcolor{keywordflow}{if}(prt\_send\_msgs)\{
+            PH\_DBG(\textcolor{stringliteral}{"PHIL SEND %d \(\backslash\)n"}, tok);
+        \}
+    )
+
+    last\_sent = tok;
+    \textcolor{keywordflow}{if}(dst == lft\_stick)\{ last\_sent\_lft = tok; \}
+    \textcolor{keywordflow}{if}(dst == rgt\_stick)\{ last\_sent\_rgt = tok; \}
+
+    \hyperlink{classmissive}{missive}* msv = \hyperlink{classmissive_a911a5d60180223ebff8d71966c483ee5}{missive::acquire}();
+    msv->src = \textcolor{keyword}{this};
+    msv->dst = dst;
+    msv->tok = tok;
+    msv->send();
+\}
+
+\textcolor{keywordtype}{void}
+philosopher::handler(\hyperlink{classmissive}{missive}* msv)\{
+    \hyperlink{classcell}{cell}* msv\_src = msv->src;
+    philo\_tok\_t tok = (philo\_tok\_t)msv->tok;
+    mc\_core\_nn\_t nn = \hyperlink{cell_8hh_af1eb47800585646e0caf6cb269111731}{mck\_get\_kernel}()->get\_core\_nn();
+    MC\_MARK\_USED(nn);
+
+    PH\_DBG\_COD(
+        \textcolor{keywordflow}{if}(prt\_recv\_msgs)\{
+            PH\_DBG(\textcolor{stringliteral}{"PHIL %d RECV %s \(\backslash\)n"}, nn, tok\_to\_str(tok));
+        \}
+    )
+
+    last\_recv = tok;
+
+    \textcolor{keywordflow}{if}(msv\_src == lft\_stick)\{ last\_recv\_lft = tok; \}
+    \textcolor{keywordflow}{if}(msv\_src == rgt\_stick)\{ last\_recv\_rgt = tok; \}
+
+    \textcolor{keywordflow}{switch}(tok)\{
+        \textcolor{keywordflow}{case} tok\_eat:
+            EMU\_CK(msv\_src == \textcolor{keyword}{this});
+            EMU\_CK(left == mc\_null);
+            EMU\_CK(right == mc\_null);
+            EMU\_CK(num\_bites < MAX\_BITES);
+            send(lft\_stick, tok\_take);
+        \textcolor{keywordflow}{break};
+        \textcolor{keywordflow}{case} tok\_taken:
+            EMU\_CK((msv\_src == lft\_stick) || (msv\_src == rgt\_stick));
+            \textcolor{keywordflow}{if}(msv\_src == lft\_stick)\{
+                EMU\_CK(left == mc\_null);
+                EMU\_CK(right == mc\_null);
+                left = lft\_stick;
+                send(rgt\_stick, tok\_take);
+    
+\textcolor{preprocessor}{                #ifdef PHILO\_EPH\_DBG}
+                    \textcolor{keywordflow}{if}(nn == 15)\{
+                        \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"SENT\_TAKE\_RIGHT"});
+                    \}
+\textcolor{preprocessor}{                #endif}
+            \}
+            \textcolor{keywordflow}{if}(msv\_src == rgt\_stick)\{
+                EMU\_CK(left == lft\_stick);
+                EMU\_CK(right == mc\_null);
+                right = rgt\_stick;
+
+                EMU\_CK(left != mc\_null);
+                EMU\_CK(right != mc\_null);
+                EMU\_CK(num\_bites < MAX\_BITES);
+                num\_bites++;
+                PH\_DBG(\textcolor{stringliteral}{"#BITES %d \(\backslash\)n"}, num\_bites);
+                EMU\_LOG(\textcolor{stringliteral}{"#BITES %d \(\backslash\)n"}, num\_bites);
+
+\textcolor{preprocessor}{                #ifdef PHILO\_EPH\_DBG}
+                    \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"#BITES\_\_\_\_"});
+                    \hyperlink{log_8h_a14e1de1564f270c82ff08d1b9ad41a66}{mck\_ilog}(num\_bites);
+                    \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"\_\_\_\(\backslash\)n"});
+\textcolor{preprocessor}{                #endif}
+
+                send(lft\_stick, tok\_drop);
+                send(rgt\_stick, tok\_drop);
+            \}
+        \textcolor{keywordflow}{break};
+        \textcolor{keywordflow}{case} tok\_not\_taken:
+            EMU\_CK((msv\_src == lft\_stick) || (msv\_src == rgt\_stick));
+            \textcolor{keywordflow}{if}(msv\_src == lft\_stick)\{
+                EMU\_CK(left == mc\_null);
+                EMU\_CK(right == mc\_null);
+                send(\textcolor{keyword}{this}, tok\_eat);
+            \}
+            \textcolor{keywordflow}{if}(msv\_src == rgt\_stick)\{
+                EMU\_CK(left == lft\_stick);
+                EMU\_CK(right == mc\_null);
+                send(lft\_stick, tok\_drop);
+            \}
+        \textcolor{keywordflow}{break};
+        \textcolor{keywordflow}{case} tok\_droped:
+            EMU\_CK((msv\_src == lft\_stick) || (msv\_src == rgt\_stick));
+            \textcolor{keywordflow}{if}(msv\_src == lft\_stick)\{
+                EMU\_CK(left == lft\_stick);
+                left = mc\_null;
+            \}
+            \textcolor{keywordflow}{if}(msv\_src == rgt\_stick)\{
+                EMU\_CK(right == rgt\_stick);
+                right = mc\_null;
+            \}
+            \textcolor{keywordflow}{if}((left == mc\_null) && (right == mc\_null))\{
+                \textcolor{keywordflow}{if}(num\_bites == MAX\_BITES)\{
+                    PH\_DBG(\textcolor{stringliteral}{"I AM FULL \(\backslash\)n"});
+                    EMU\_LOG(\textcolor{stringliteral}{"I AM FULL \(\backslash\)n"});
+                    \hyperlink{log_8h_addbe1979a58d9f84d5a009c5543818c2}{mck\_sprt2}(\textcolor{stringliteral}{"I AM FULL\_\_\_\_"});
+                    \hyperlink{log_8h_a2d38dfdcdb36720d61e2ce089b3a1524}{mck\_iprt}(\hyperlink{cell_8hh_af1eb47800585646e0caf6cb269111731}{mck\_get\_kernel}()->get\_core\_nn());
+                    \hyperlink{log_8h_addbe1979a58d9f84d5a009c5543818c2}{mck\_sprt2}(\textcolor{stringliteral}{"\_\_\_\(\backslash\)n"});
+
+                    PH\_DBG\_COD(mc\_set\_off\_chip\_var(dbg\_all\_full[nn], \textcolor{keyword}{true});)
+
+                    send(lft\_philo, tok\_yes\_full);
+                    send(rgt\_philo, tok\_yes\_full);
+
+                    \textcolor{keywordflow}{if}(can\_exit())\{
+                        call\_exit();
+                    \}
+                \} \textcolor{keywordflow}{else} \{
+                    send(\textcolor{keyword}{this}, tok\_eat);
+                \}
+            \}
+        \textcolor{keywordflow}{break};
+        \textcolor{keywordflow}{case} tok\_yes\_full:
+            EMU\_CK((msv\_src == lft\_philo) || (msv\_src == rgt\_philo));
+            \textcolor{keywordflow}{if}(msv\_src == lft\_philo)\{ 
+                EMU\_CK(! lft\_ph\_full);
+                lft\_ph\_full = \textcolor{keyword}{true}; 
+            \}
+            \textcolor{keywordflow}{if}(msv\_src == rgt\_philo)\{ 
+                EMU\_CK(! rgt\_ph\_full);
+                rgt\_ph\_full = \textcolor{keyword}{true}; 
+            \}
+            \textcolor{keywordflow}{if}(can\_exit())\{
+                call\_exit();
+            \}
+        \textcolor{keywordflow}{break};
+        \textcolor{keywordflow}{default}:
+            \hyperlink{global_8h_a6a6d1065bccc17077e1a6a0aeaa5f6dd}{mck\_abort}(1, const\_cast<char*>(\textcolor{stringliteral}{"BAD\_PHILO\_TOK"}));
+        \textcolor{keywordflow}{break};
+    \} 
+    
+\}
+
+\textcolor{keywordtype}{void}
+philosopher::call\_exit()\{
+    PH\_DBG\_COD(
+        prt\_idle();
+        prt\_full();
+        prt\_all\_philo();
+    )
+    EMU\_LOG(\textcolor{stringliteral}{"FINISHING \(\backslash\)n"});
+
+    \textcolor{comment}{//mck\_sprt2("CALLING\_EXIT\_\_\_\_");}
+    \textcolor{comment}{//mck\_iprt(mck\_get\_kernel()->get\_core\_nn());}
+    \textcolor{comment}{//mck\_sprt2("\_\_\_\(\backslash\)n");}
+
+    \hyperlink{cell_8hh_af1eb47800585646e0caf6cb269111731}{mck\_get\_kernel}()->set\_idle\_exit();
+\}
+
+\textcolor{preprocessor}{#ifdef PHILO\_WITH\_DBG}
+\textcolor{keywordtype}{void} prt\_idle()\{
+    \textcolor{keywordtype}{char} full\_str[500];
+    \textcolor{keywordtype}{char}* pt = full\_str;
+    pt += sprintf(pt, \textcolor{stringliteral}{"ALL\_IDLE=["});
+    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} aa = 0; aa < 16; aa++)\{
+        \textcolor{keywordtype}{bool} idl = dbg\_all\_idle\_prt[aa];
+        \textcolor{keywordflow}{if}(idl)\{
+            pt += sprintf(pt, \textcolor{stringliteral}{"%d,"}, aa);
+        \}
+    \}
+    pt += sprintf(pt, \textcolor{stringliteral}{"]\(\backslash\)n"});
+    PH\_DBG(\textcolor{stringliteral}{"%s"}, full\_str);
+\}
+
+\textcolor{keywordtype}{void} prt\_full()\{
+    \textcolor{keywordtype}{char} full\_str[500];
+    \textcolor{keywordtype}{char}* pt = full\_str;
+    pt += sprintf(pt, \textcolor{stringliteral}{"ALL\_FULL=["});
+    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} aa = 0; aa < 16; aa++)\{
+        \textcolor{keywordtype}{bool} fll = dbg\_all\_full[aa];
+        \textcolor{keywordflow}{if}(fll)\{
+            pt += sprintf(pt, \textcolor{stringliteral}{"%d,"}, aa);
+        \}
+    \}
+    pt += sprintf(pt, \textcolor{stringliteral}{"]\(\backslash\)n"});
+    PH\_DBG(\textcolor{stringliteral}{"%s"}, full\_str);
+\}
+
+\textcolor{keywordtype}{void} prt\_ph(\textcolor{keywordtype}{int} aa, philosopher* ph)\{
+    \textcolor{keywordtype}{char} full\_str[500];
+    \textcolor{keywordtype}{char}* pt = full\_str;
+    \textcolor{keywordtype}{bool} is\_fll = (ph->num\_bites == MAX\_BITES);
+    \textcolor{keywordtype}{bool} to\_exit = ph->can\_exit();
+    pt += sprintf(pt, \textcolor{stringliteral}{"PHILO (%p) %d=["}, ph, aa);
+    pt += sprintf(pt, \textcolor{stringliteral}{"F%d "}, is\_fll);
+    pt += sprintf(pt, \textcolor{stringliteral}{"X%d "}, to\_exit);
+    pt += sprintf(pt, \textcolor{stringliteral}{"L%d "}, (ph->left != mc\_null)?(1):(0));
+    pt += sprintf(pt, \textcolor{stringliteral}{"R%d "}, (ph->right != mc\_null)?(1):(0));
+    pt += sprintf(pt, \textcolor{stringliteral}{"N%d "}, ph->num\_bites);
+    pt += sprintf(pt, \textcolor{stringliteral}{"LF%d "}, ph->lft\_ph\_full);
+    pt += sprintf(pt, \textcolor{stringliteral}{"RF%d "}, ph->rgt\_ph\_full);
+    pt += sprintf(pt, \textcolor{stringliteral}{"Lsnt=%s "}, tok\_to\_str(ph->last\_sent\_lft));
+    pt += sprintf(pt, \textcolor{stringliteral}{"Lrcv=%s "}, tok\_to\_str(ph->last\_recv\_lft));
+    pt += sprintf(pt, \textcolor{stringliteral}{"Rsnt=%s "}, tok\_to\_str(ph->last\_sent\_rgt));
+    pt += sprintf(pt, \textcolor{stringliteral}{"Rrcv=%s "}, tok\_to\_str(ph->last\_recv\_rgt));
+    pt += sprintf(pt, \textcolor{stringliteral}{"]\(\backslash\)n"});
+    PH\_DBG(\textcolor{stringliteral}{"%s"}, full\_str);
+\}
+
+\textcolor{keywordtype}{void} prt\_ch(\textcolor{keywordtype}{int} aa, chopstick* ch)\{
+    \textcolor{keywordtype}{char} full\_str[500];
+    \textcolor{keywordtype}{char}* pt = full\_str;
+    pt += sprintf(pt, \textcolor{stringliteral}{"STICK (%p) %d=["}, ch, aa);
+    pt += sprintf(pt, \textcolor{stringliteral}{"lst\_sent=%s "}, tok\_to\_str(ch->last\_sent));
+    pt += sprintf(pt, \textcolor{stringliteral}{"lst\_recv=%s "}, tok\_to\_str(ch->last\_recv));
+    pt += sprintf(pt, \textcolor{stringliteral}{"lst\_src=%p "}, ch->last\_src);
+    pt += sprintf(pt, \textcolor{stringliteral}{"]\(\backslash\)n"});
+    PH\_DBG(full\_str);
+\}
+
+\textcolor{keywordtype}{void} prt\_pc(\textcolor{keywordtype}{int} aa, philo\_core* pc)\{
+    \textcolor{keywordtype}{char} full\_str[500];
+    \textcolor{keywordtype}{char}* pt = full\_str;
+    pt += sprintf(pt, \textcolor{stringliteral}{"CORE %d=["}, aa);
+    EMU\_CODE(
+        pt += sprintf(pt, \textcolor{stringliteral}{"out\_work\_sz=%ld "}, pc->out\_work\_sz);
+        pt += sprintf(pt, \textcolor{stringliteral}{"sent\_work\_sz=%ld "}, pc->sent\_work\_sz);
+    )
+    EPH\_CODE(
+        pt += sprintf(pt, "out\_work\_sz=%d ", pc->out\_work\_sz);
+        pt += sprintf(pt, "sent\_work\_sz=%d ", pc->sent\_work\_sz);
+    )
+    pt += sprintf(pt, "]\(\backslash\)n");
+    PH\_DBG(full\_str);
+\}
+
+\textcolor{keywordtype}{void} prt\_all\_philo()\{
+    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} aa = 0; aa < 16; aa++)\{
+        philo\_core* phl = dbg\_all\_philo[aa];
+        \textcolor{keywordflow}{if}(phl != mc\_null)\{
+            prt\_ch(aa, &(phl->stick));
+            prt\_ph(aa, &(phl->philo));
+            prt\_pc(aa, phl);
+        \}
+    \}
+\}
+
+\textcolor{keywordtype}{void} ker\_func()\{
+    \hyperlink{classkernel}{kernel}* ker = \hyperlink{cell_8hh_af1eb47800585646e0caf6cb269111731}{mck\_get\_kernel}();
+    mc\_core\_nn\_t nn = ker->get\_core\_nn();
+    \textcolor{keywordflow}{if}(! ker->did\_work && ! dbg\_all\_idle\_prt[nn])\{
+        mc\_set\_off\_chip\_var(dbg\_all\_idle\_prt[nn], \textcolor{keyword}{true});
+    \}
+    \textcolor{keywordflow}{if}(ker->did\_work && dbg\_all\_idle\_prt[nn])\{
+        mc\_set\_off\_chip\_var(dbg\_all\_idle\_prt[nn], \textcolor{keyword}{false});
+    \}
+    philo\_core* phl = dbg\_all\_philo[nn];
+
+    phl->to\_host\_work\_sz = ker->to\_host\_work.calc\_size();
+    phl->in\_work\_sz = ker->in\_work.calc\_size();
+    phl->local\_work\_sz = ker->local\_work.calc\_size();
+    phl->out\_work\_sz = ker->out\_work.calc\_size();
+    phl->sent\_work\_sz = ker->sent\_work.calc\_size();
+    phl->cls\_available\_cell\_sz = ker->cls\_available\_cell.calc\_size();
+    phl->cls\_available\_missive\_sz = ker->cls\_available\_missive.calc\_size();
+    phl->cls\_available\_agent\_ref\_sz = ker->cls\_available\_agent\_ref.calc\_size();
+    phl->cls\_available\_agent\_grp\_sz = ker->cls\_available\_agent\_grp.calc\_size();
+\}
+\textcolor{preprocessor}{#endif}
+
+\textcolor{keywordtype}{void} mc\_cores\_main() \{
+    \hyperlink{classkernel_a4ba03e734fb64b1215170531599a6754}{kernel::init\_sys}();
+    \hyperlink{classkernel}{kernel}* ker = \hyperlink{cell_8hh_af1eb47800585646e0caf6cb269111731}{mck\_get\_kernel}();
+    MC\_MARK\_USED(ker);
+
+    mc\_core\_nn\_t nn = ker->get\_core\_nn();
+
+    PH\_DBG\_COD(
+        mc\_set\_off\_chip\_var(dbg\_all\_idle\_prt[nn], \textcolor{keyword}{false});
+        mc\_set\_off\_chip\_var(dbg\_all\_full[nn], \textcolor{keyword}{false});
+    )
+
+    philo\_core* core\_dat = philo\_core::acquire\_alloc();
+    \textcolor{keywordflow}{if}(core\_dat == mc\_null)\{
+        \hyperlink{global_8h_a6a6d1065bccc17077e1a6a0aeaa5f6dd}{mck\_abort}(1, const\_cast<char*>(\textcolor{stringliteral}{"CAN NOT INIT GLB CORE DATA"}));
+    \}
+
+    ker->user\_data = core\_dat;
+
+    PH\_DBG\_COD(
+        ker->user\_func = ker\_func;
+        dbg\_all\_philo[nn] = core\_dat;
+    )
+
+    glb\_philo->lft\_stk\_id = mc\_nn\_to\_id(left\_chp\_nn(nn));
+    glb\_philo->rgt\_stk\_id = mc\_nn\_to\_id(right\_chp\_nn(nn));
+    glb\_philo->lft\_stick = get\_stick(glb\_philo->lft\_stk\_id);
+    glb\_philo->rgt\_stick = get\_stick(glb\_philo->rgt\_stk\_id);
+    glb\_philo->lft\_phi\_id = mc\_nn\_to\_id(left\_phl\_nn(nn));
+    glb\_philo->rgt\_phi\_id = mc\_nn\_to\_id(right\_phl\_nn(nn));
+    glb\_philo->lft\_philo = get\_philo(glb\_philo->lft\_phi\_id);
+    glb\_philo->rgt\_philo = get\_philo(glb\_philo->rgt\_phi\_id);
+
+    \hyperlink{classkernel}{kernel}::set\_handlers(3, the\_handlers);
+
+    \hyperlink{classmissive}{missive}::separate(mc\_out\_num\_cores);
+    \hyperlink{classagent__ref}{agent\_ref}::separate(mc\_out\_num\_cores);
+    \hyperlink{classagent__grp}{agent\_grp}::separate(mc\_out\_num\_cores);
+
+    chopstick::separate(1);
+    philosopher::separate(1);
+
+    PH\_DBG("started\(\backslash\)n");
+
+    glb\_philo->send(glb\_philo, tok\_eat);
+    \hyperlink{classkernel}{kernel}::run\_sys();
+
+    PH\_DBG("finished\(\backslash\)n");
+    EMU\_LOG("PHILOSOPHER %d FINISHED !!\(\backslash\)n", nn);
+    \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}("PHILOSOPHERS FINISHED !!\(\backslash\)n");   
+
+    \hyperlink{classkernel}{kernel}::finish\_sys();
+\}
+
+\end{DoxyCodeInclude}
+ 

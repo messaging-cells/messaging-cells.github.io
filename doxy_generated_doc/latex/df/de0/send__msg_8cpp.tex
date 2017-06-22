@@ -1,0 +1,113 @@
+\hypertarget{send__msg_8cpp}{}\section{/home/jose/devel/messaging-\/cells/src/tests/send\+\_\+msg/send\+\_\+msg.cpp File Reference}
+\label{send__msg_8cpp}\index{/home/jose/devel/messaging-\/cells/src/tests/send\+\_\+msg/send\+\_\+msg.\+cpp@{/home/jose/devel/messaging-\/cells/src/tests/send\+\_\+msg/send\+\_\+msg.\+cpp}}
+
+
+Simple send missive example.  
+
+
+{\ttfamily \#include \char`\"{}cell.\+hh\char`\"{}}\\*
+Include dependency graph for send\+\_\+msg.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{d5/dc5/send__msg_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{send__msg_8cpp_a62a0d4f39a307b53420dd89522b62a70}{recv\+\_\+cell\+\_\+handler} (\hyperlink{classmissive}{missive} $\ast$msg)\hypertarget{send__msg_8cpp_a62a0d4f39a307b53420dd89522b62a70}{}\label{send__msg_8cpp_a62a0d4f39a307b53420dd89522b62a70}
+
+\begin{DoxyCompactList}\small\item\em This function will handle messages for a \hyperlink{classcell}{cell} when it has zero in \hyperlink{classcell_a234bbd022db21480b428b2f63662fe95}{cell\+::handler\+\_\+idx} and \hyperlink{classkernel_a0a82a4b3bc2a0e2e93987f89732b6be8}{kernel\+::all\+\_\+handlers} has been set to \hyperlink{send__msg_8cpp_ade3c9ba0c2c2bff40e568b58bf28efa5}{the\+\_\+handlers} with \hyperlink{classkernel_a4af01f01c949a504cd3a6d574eced6a7}{kernel\+::set\+\_\+handlers}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{cell_8hh_ad48af79638ac0f2892ed41375e3aed54}{missive\+\_\+handler\+\_\+t} \hyperlink{send__msg_8cpp_ade3c9ba0c2c2bff40e568b58bf28efa5}{the\+\_\+handlers} \mbox{[}$\,$\mbox{]}\hypertarget{send__msg_8cpp_ade3c9ba0c2c2bff40e568b58bf28efa5}{}\label{send__msg_8cpp_ade3c9ba0c2c2bff40e568b58bf28efa5}
+
+\begin{DoxyCompactList}\small\item\em This will be \hyperlink{classkernel_a0a82a4b3bc2a0e2e93987f89732b6be8}{kernel\+::all\+\_\+handlers} when \hyperlink{classkernel_a4af01f01c949a504cd3a6d574eced6a7}{kernel\+::set\+\_\+handlers} gets called. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Simple send missive example. 
+
+
+\begin{DoxyCodeInclude}
+
+\textcolor{comment}{//----------------------------------------------------------------------------}
+\textcolor{comment}{}\textcolor{preprocessor}{#include "\hyperlink{cell_8hh}{cell.hh}"}
+
+\textcolor{keywordtype}{void} \hyperlink{send__msg_8cpp_a62a0d4f39a307b53420dd89522b62a70}{recv\_cell\_handler}(\hyperlink{classmissive}{missive}* msg);
+
+\textcolor{keywordtype}{void} 
+\hyperlink{send__msg_8cpp_a62a0d4f39a307b53420dd89522b62a70}{recv\_cell\_handler}(\hyperlink{classmissive}{missive}* msg)\{
+    \textcolor{comment}{//MCK\_UPDATE\_MIN\_SP();}
+    EMU\_CODE(
+        EMU\_CK(mc\_addr\_is\_local(msg->dst));
+        mc\_core\_id\_t koid = kernel::get\_core\_id();
+        MC\_MARK\_USED(koid);
+        mc\_core\_nn\_t konn = kernel::get\_core\_nn();
+        MC\_MARK\_USED(konn);
+        EMU\_LOG(\textcolor{stringliteral}{"recv\_cell\_handler. core\_id=%lx core\_nn=%d src=%p dst=%p \(\backslash\)n"}, 
+                koid, konn, msg->get\_source(), msg->dst);
+        EMU\_PRT(\textcolor{stringliteral}{"recv\_cell\_handler. core\_id=%lx core\_nn=%d src=%p dst=%p \(\backslash\)n"}, 
+                koid, konn, msg->get\_source(), msg->dst);
+    )
+
+    \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"GOT MISSIVE\(\backslash\)n"});
+    
+    \hyperlink{cell_8hh_af1eb47800585646e0caf6cb269111731}{mck\_get\_kernel}()->set\_idle\_exit();
+\}
+
+\hyperlink{cell_8hh_ad48af79638ac0f2892ed41375e3aed54}{missive\_handler\_t} the\_handlers[] = \{
+    \hyperlink{send__msg_8cpp_a62a0d4f39a307b53420dd89522b62a70}{recv\_cell\_handler}  \textcolor{comment}{// Index 0. Cells with zero in handler\_idx will handle missives
+       with this handler.}
+\};
+
+\textcolor{keywordtype}{void} mc\_cores\_main() \{
+    \hyperlink{classkernel_a4ba03e734fb64b1215170531599a6754}{kernel::init\_sys}();
+
+    \hyperlink{classkernel_a4af01f01c949a504cd3a6d574eced6a7}{kernel::set\_handlers}(1, the\_handlers);
+
+    \hyperlink{classcell_ad09500ef03d2ccb60de17f189ba59b9e}{cell::separate}(mc\_out\_num\_cores);
+    \hyperlink{classmissive_a9b9925cee46b73d4f9012ab72ce96c4c}{missive::separate}(mc\_out\_num\_cores);
+    \hyperlink{classagent__ref_a9cc42d67af5a3cf8ae01bfa6434489be}{agent\_ref::separate}(mc\_out\_num\_cores);
+    \hyperlink{classagent__grp_afa435a806a32ebba3554703581852db3}{agent\_grp::separate}(mc\_out\_num\_cores);
+
+    \hyperlink{classkernel}{kernel}* ker = \hyperlink{cell_8hh_af1eb47800585646e0caf6cb269111731}{mck\_get\_kernel}();
+    MC\_MARK\_USED(ker);
+
+    \textcolor{keywordflow}{if}(\hyperlink{global_8h_a76824b23f4a177c4535d83c3b89e2f54}{mck\_is\_ro\_co\_core}(0,0))\{
+        \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"CORE (0,0) started\(\backslash\)n"});
+
+        \textcolor{comment}{// Next line is just to remaind that every single cell should have a valid handler\_idx. It was
+       already 0.}
+        kernel::get\_core\_cell()->\hyperlink{classcell_a234bbd022db21480b428b2f63662fe95}{handler\_idx} = 0;    \textcolor{comment}{// This is recv\_cell\_handler's index in
+       the\_handlers.}
+
+        \hyperlink{classkernel_a438f0450a28abb54d058b88ef8cc3d3b}{kernel::run\_sys}();
+    \}
+    \textcolor{keywordflow}{if}(\hyperlink{global_8h_a76824b23f4a177c4535d83c3b89e2f54}{mck\_is\_ro\_co\_core}(0,1))\{
+        \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"CORE (0,1) started\(\backslash\)n"});
+        mc\_core\_id\_t dst = mc\_ro\_co\_to\_id(0, 0);
+        
+        \hyperlink{classcell}{cell}* act1 = kernel::get\_core\_cell();
+        \hyperlink{classcell}{cell}* act2 = kernel::get\_core\_cell(dst);
+
+        \hyperlink{classmissive}{missive}* msv = \hyperlink{classmissive_a911a5d60180223ebff8d71966c483ee5}{missive::acquire}();
+        msv->src = act1;
+        msv->dst = act2;
+        msv->send();
+        \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"SENT MISSIVE\(\backslash\)n"});
+
+        ker->set\_idle\_exit();
+        \hyperlink{classkernel_a438f0450a28abb54d058b88ef8cc3d3b}{kernel::run\_sys}();
+    \}
+
+    \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"FINISHED !!\(\backslash\)n"});    
+
+    \hyperlink{classkernel_a55fbe958137c0973a06da58fe491c9e6}{kernel::finish\_sys}();
+\}
+
+\end{DoxyCodeInclude}
+ 

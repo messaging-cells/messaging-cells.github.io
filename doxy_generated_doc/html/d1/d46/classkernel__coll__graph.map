@@ -1,0 +1,5 @@
+<map id="kernel" name="kernel">
+<area shape="rect" id="node2" href="$d2/dbe/classcell.html" title="The base class for any user processing class that wishes send missive s. " alt="" coords="5,81,48,108"/>
+<area shape="rect" id="node3" href="$d5/d08/classagent.html" title="The base class for any library object including cell s, missive s, agent_grp s and agent_ref s..." alt="" coords="47,5,102,32"/>
+<area shape="rect" id="node4" href="$d5/d7b/classagent__grp.html" title="A class that is used internally to group missive s, cell s or any agent derived class. You can use it too. " alt="" coords="73,81,151,108"/>
+</map>

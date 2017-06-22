@@ -12,15 +12,28 @@ The kernel of a core that is using the library.
 
 
 Collaboration diagram for kernel\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{d1/d46/classkernel__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static void \hyperlink{classkernel_a4ba03e734fb64b1215170531599a6754}{init\+\_\+sys} () mc\+\_\+external\+\_\+code\+\_\+ram\hypertarget{classkernel_a4ba03e734fb64b1215170531599a6754}{}\label{classkernel_a4ba03e734fb64b1215170531599a6754}
 
 \begin{DoxyCompactList}\small\item\em Static method that inits this core kernel. \end{DoxyCompactList}\item 
-static mc\+\_\+opt\+\_\+sz\+\_\+fn void \hyperlink{classkernel_a438f0450a28abb54d058b88ef8cc3d3b}{run\+\_\+sys} ()
-\begin{DoxyCompactList}\small\item\em The kernel function that starts handling messages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+static mc\+\_\+opt\+\_\+sz\+\_\+fn void \hyperlink{classkernel_a438f0450a28abb54d058b88ef8cc3d3b}{run\+\_\+sys} ()\hypertarget{classkernel_a438f0450a28abb54d058b88ef8cc3d3b}{}\label{classkernel_a438f0450a28abb54d058b88ef8cc3d3b}
+
+\begin{DoxyCompactList}\small\item\em Static method that starts handling \hyperlink{classmissive}{missive} s. No \hyperlink{classmissive}{missive} s are handled before. \end{DoxyCompactList}\item 
+static void \hyperlink{classkernel_a55fbe958137c0973a06da58fe491c9e6}{finish\+\_\+sys} () mc\+\_\+external\+\_\+code\+\_\+ram\hypertarget{classkernel_a55fbe958137c0973a06da58fe491c9e6}{}\label{classkernel_a55fbe958137c0973a06da58fe491c9e6}
+
+\begin{DoxyCompactList}\small\item\em Static method that finishes this core kernel. \end{DoxyCompactList}\item 
+static void \hyperlink{classkernel_a4af01f01c949a504cd3a6d574eced6a7}{set\+\_\+handlers} (uint8\+\_\+t tot\+\_\+hdlrs, \hyperlink{cell_8hh_ad48af79638ac0f2892ed41375e3aed54}{missive\+\_\+handler\+\_\+t} $\ast$hdlrs) mc\+\_\+external\+\_\+code\+\_\+ram\hypertarget{classkernel_a4af01f01c949a504cd3a6d574eced6a7}{}\label{classkernel_a4af01f01c949a504cd3a6d574eced6a7}
+
+\begin{DoxyCompactList}\small\item\em This methods sets \hyperlink{classkernel_a0a82a4b3bc2a0e2e93987f89732b6be8}{kernel\+::all\+\_\+handlers} to \textquotesingle{}hdlrs\textquotesingle{} and it must have size \textquotesingle{}tot\+\_\+hdlrs\textquotesingle{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -33,29 +46,6 @@ static mc\+\_\+opt\+\_\+sz\+\_\+fn void \hyperlink{classkernel_a438f0450a28abb54
 The kernel of a core that is using the library. 
 
 Every core must have one and only one kernel inited with \hyperlink{classkernel_a4ba03e734fb64b1215170531599a6754}{kernel\+::init\+\_\+sys}. 
-
-\subsection{Member Function Documentation}
-\index{kernel@{kernel}!run\+\_\+sys@{run\+\_\+sys}}
-\index{run\+\_\+sys@{run\+\_\+sys}!kernel@{kernel}}
-\subsubsection[{\texorpdfstring{run\+\_\+sys()}{run_sys()}}]{\setlength{\rightskip}{0pt plus 5cm}void kernel\+::run\+\_\+sys (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classkernel_a438f0450a28abb54d058b88ef8cc3d3b}{}\label{classkernel_a438f0450a28abb54d058b88ef8cc3d3b}
-
-
-The kernel function that starts handling messages. 
-
-Write here the details explaining this function \begin{DoxySeeAlso}{See also}
-\hyperlink{classkernel}{kernel} 
-\end{DoxySeeAlso}
-
-
-Here is the call graph for this function\+:
-% FIG 1
-
-
-
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

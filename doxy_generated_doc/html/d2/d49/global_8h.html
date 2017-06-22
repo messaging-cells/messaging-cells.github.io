@@ -89,6 +89,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">global.h File Reference</div>  </div>
@@ -108,7 +109,11 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d0/dbb/global_8h__incl.png" border="0" usemap="#_2home_2jose_2devel_2messaging-cells_2src_2cells_2global_8h" alt=""/></div>
-<!-- MAP 0 -->
+<map name="_2home_2jose_2devel_2messaging-cells_2src_2cells_2global_8h" id="_2home_2jose_2devel_2messaging-cells_2src_2cells_2global_8h">
+<area shape="rect" id="node2" href="../../da/db4/shared_8h.html" title="C shared structures (by host and cores). It is included in global.h and cell.hh. " alt="" coords="171,95,243,121"/>
+<area shape="rect" id="node7" href="../../d1/d1b/trace_8h.html" title="Trace functions. " alt="" coords="284,95,347,121"/>
+<area shape="rect" id="node6" href="../../d7/d7f/log_8h.html" title="Defines log functions and macros. " alt="" coords="245,169,295,196"/>
+</map>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
@@ -116,9 +121,29 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d5/d7f/global_8h__dep__incl.png" border="0" usemap="#_2home_2jose_2devel_2messaging-cells_2src_2cells_2global_8hdep" alt=""/></div>
-<!-- MAP 1 -->
+<map name="_2home_2jose_2devel_2messaging-cells_2src_2cells_2global_8hdep" id="_2home_2jose_2devel_2messaging-cells_2src_2cells_2global_8hdep">
+<area shape="rect" id="node2" href="../../da/d7a/cell_8hh.html" title="The one and only include file necessarry to use the Messagging Cells library. " alt="" coords="217,95,405,136"/>
+<area shape="rect" id="node3" href="../../d7/d85/philo_8cpp.html" title="The classical example of the eating philosophers. " alt="" coords="5,184,193,240"/>
+<area shape="rect" id="node4" href="../../d0/d67/hello__world_8cpp.html" title="Minimal library example. " alt="" coords="217,184,405,240"/>
+<area shape="rect" id="node5" href="../../df/de0/send__msg_8cpp.html" title="Simple send missive example. " alt="" coords="429,184,617,240"/>
+</map>
 </div>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a76824b23f4a177c4535d83c3b89e2f54"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a76824b23f4a177c4535d83c3b89e2f54"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d49/global_8h.html#a76824b23f4a177c4535d83c3b89e2f54">mck_is_ro_co_core</a>(ro,  co)&#160;&#160;&#160;((MC_CORE_INFO-&gt;the_core_ro == (ro)) &amp;&amp; (MC_CORE_INFO-&gt;the_core_co == (co)))</td></tr>
+<tr class="memdesc:a76824b23f4a177c4535d83c3b89e2f54"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if this core is in row 'ro' and column 'co'. <br /></td></tr>
+<tr class="separator:a76824b23f4a177c4535d83c3b89e2f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67668252473b4bc3b3bb8b8a0f1693cf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a67668252473b4bc3b3bb8b8a0f1693cf"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d49/global_8h.html#a67668252473b4bc3b3bb8b8a0f1693cf">mck_is_nn_core</a>(nn)&#160;&#160;&#160;(MC_CORE_INFO-&gt;the_core_nn == (nn))</td></tr>
+<tr class="memdesc:a67668252473b4bc3b3bb8b8a0f1693cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if this core has number 'nn'. <br /></td></tr>
+<tr class="separator:a67668252473b4bc3b3bb8b8a0f1693cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5979acc7af98be816a16fafefe66c5a6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5979acc7af98be816a16fafefe66c5a6"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d49/global_8h.html#a5979acc7af98be816a16fafefe66c5a6">mck_is_id_core</a>(id)&#160;&#160;&#160;(MC_CORE_INFO-&gt;the_core_id == (id))</td></tr>
+<tr class="memdesc:a5979acc7af98be816a16fafefe66c5a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if this core has id 'id'. <br /></td></tr>
+<tr class="separator:a5979acc7af98be816a16fafefe66c5a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a6a6d1065bccc17077e1a6a0aeaa5f6dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d49/global_8h.html#a6a6d1065bccc17077e1a6a0aeaa5f6dd">mck_abort</a> (mc_addr_t err, char *msg) mc_external_code_ram</td></tr>
@@ -158,7 +183,10 @@ Functions</h2></td></tr>
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d2/d49/global_8h_a6a6d1065bccc17077e1a6a0aeaa5f6dd_icgraph.png" border="0" usemap="#d2/d49/global_8h_a6a6d1065bccc17077e1a6a0aeaa5f6dd_icgraph" alt=""/></div>
-<!-- MAP 2 -->
+<map name="d2/d49/global_8h_a6a6d1065bccc17077e1a6a0aeaa5f6dd_icgraph" id="d2/d49/global_8h_a6a6d1065bccc17077e1a6a0aeaa5f6dd_icgraph">
+<area shape="rect" id="node2" href="../../d3/d9f/classkernel.html#a55fbe958137c0973a06da58fe491c9e6" title="Static method that finishes this core kernel. " alt="" coords="143,5,267,32"/>
+<area shape="rect" id="node3" href="../../d3/d9f/classkernel.html#a4af01f01c949a504cd3a6d574eced6a7" title="This methods sets kernel::all_handlers to &#39;hdlrs&#39; and it must have size &#39;tot_hdlrs&#39;. " alt="" coords="136,56,275,83"/>
+</map>
 </div>
 </p>
 
@@ -167,7 +195,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 21 2017 16:29:25 for Library-Documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 22 2017 16:32:35 for Library-Documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

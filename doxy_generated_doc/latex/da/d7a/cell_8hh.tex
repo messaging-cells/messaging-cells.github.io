@@ -11,3 +11,54 @@ The one and only include file necessarry to use the Messagging Cells library.
 {\ttfamily \#include \char`\"{}err\+\_\+msgs.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}global.\+h\char`\"{}}\\*
 Include dependency graph for cell.\+hh\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{d1/dfe/cell_8hh__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d4/d07/cell_8hh__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classkernel}{kernel}
+\begin{DoxyCompactList}\small\item\em The kernel of a core that is using the library. \end{DoxyCompactList}\item 
+class \hyperlink{classagent}{agent}
+\begin{DoxyCompactList}\small\item\em The base class for any library object including \hyperlink{classcell}{cell} s, \hyperlink{classmissive}{missive} s, \hyperlink{classagent__grp}{agent\+\_\+grp} s and \hyperlink{classagent__ref}{agent\+\_\+ref} s. \end{DoxyCompactList}\item 
+class \hyperlink{classcell}{cell}
+\begin{DoxyCompactList}\small\item\em The base class for any user processing class that wishes send \hyperlink{classmissive}{missive} s. \end{DoxyCompactList}\item 
+class \hyperlink{classmissive}{missive}
+\begin{DoxyCompactList}\small\item\em The base class for any user data class that wishes to be sent beetwen \hyperlink{classcell}{cell} s. \end{DoxyCompactList}\item 
+class \hyperlink{classagent__grp}{agent\+\_\+grp}
+\begin{DoxyCompactList}\small\item\em A class that is used internally to group \hyperlink{classmissive}{missive} s, \hyperlink{classcell}{cell} s or any \hyperlink{classagent}{agent} derived class. You can use it too. \end{DoxyCompactList}\item 
+class \hyperlink{classagent__ref}{agent\+\_\+ref}
+\begin{DoxyCompactList}\small\item\em A class that is used internally to hold a reference (local or remote ) to \hyperlink{classmissive}{missive} s, \hyperlink{classcell}{cell} s or any \hyperlink{classagent}{agent} derived class. You can use it too. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{cell_8hh_af1eb47800585646e0caf6cb269111731}{mck\+\_\+get\+\_\+kernel}()~M\+C\+K\+\_\+\+K\+E\+R\+N\+EL\hypertarget{cell_8hh_af1eb47800585646e0caf6cb269111731}{}\label{cell_8hh_af1eb47800585646e0caf6cb269111731}
+
+\begin{DoxyCompactList}\small\item\em Gets the local kernel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint8\+\_\+t \hyperlink{cell_8hh_a8c7a35c2bfc796f6d471a64886f8e58e}{mck\+\_\+handler\+\_\+idx\+\_\+t}\hypertarget{cell_8hh_a8c7a35c2bfc796f6d471a64886f8e58e}{}\label{cell_8hh_a8c7a35c2bfc796f6d471a64886f8e58e}
+
+\begin{DoxyCompactList}\small\item\em Type to identify a \hyperlink{classmissive}{missive} handler. \end{DoxyCompactList}\item 
+typedef void($\ast$ \hyperlink{cell_8hh_ad48af79638ac0f2892ed41375e3aed54}{missive\+\_\+handler\+\_\+t}) (\hyperlink{classmissive}{missive} $\ast$msg)\hypertarget{cell_8hh_ad48af79638ac0f2892ed41375e3aed54}{}\label{cell_8hh_ad48af79638ac0f2892ed41375e3aed54}
+
+\begin{DoxyCompactList}\small\item\em Type for functions that handle \hyperlink{classmissive}{missive} s (it is a pointer to the handler function). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+
+
+\subsection{Detailed Description}
+The one and only include file necessarry to use the Messagging Cells library. 
+

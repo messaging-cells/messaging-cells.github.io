@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$d5/d08/classagent.html" title="The base class for any library object including cell s, missive s, agent_grp s and agent_ref s..." alt="" coords="5,81,60,108"/>
+<area shape="rect" id="node2" href="$d5/d7b/classagent__grp.html" title="A class that is used internally to group missive s, cell s or any agent derived class. You can use it too. " alt="" coords="108,5,187,32"/>
+<area shape="rect" id="node3" href="$db/df1/classagent__ref.html" title="A class that is used internally to hold a reference (local or remote ) to missive s..." alt="" coords="109,56,185,83"/>
+<area shape="rect" id="node4" href="$d2/dbe/classcell.html" title="The base class for any user processing class that wishes send missive s. " alt="" coords="126,107,169,133"/>
+<area shape="rect" id="node5" href="$d4/d9f/classmissive.html" title="The base class for any user data class that wishes to be sent beetwen cell s. " alt="" coords="114,157,181,184"/>
+</map>
