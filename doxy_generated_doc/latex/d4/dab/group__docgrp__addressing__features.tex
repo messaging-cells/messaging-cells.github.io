@@ -7,6 +7,47 @@ Module describing addressing convertion functions.
 
 Module describing addressing convertion functions. 
 
+Addressing is handled with the help of macros and functions that help to map beetween the different kinds of addressing of the Epiphany architecture.
+
+Whether it is\+:
+
+
+\begin{DoxyItemize}
+\item From the epiphany side (hardware addresses). 
+\begin{DoxyEnumerate}
+\item local-\/core. 
+\begin{DoxyItemize}
+\item Zero based (without core id). 
+\item With local core id. 
+\end{DoxyItemize}
+\item remote-\/core. 
+\item off-\/core (outside of the epiphany system in the shared mem with the host) 
+\end{DoxyEnumerate}
+\item From the host side (linux virtual addresses mapped to hardware addresses). 
+\begin{DoxyEnumerate}
+\item in-\/core. Inside the R\+AM of a core of the epiphany system (no register mem). 
+\item off-\/core 
+\end{DoxyEnumerate}
+\end{DoxyItemize}
+
+The most used functions are in files \hyperlink{shared__eph3_8h}{shared\+\_\+eph3.\+h} and \hyperlink{shared_8h}{shared.\+h}
+
+\subsection*{Implicit addressing symmetry}
+
+In the examples it is used an implicit symmetry\+: The fact that two objects that are allocated in exactly the same order in different cores have the same local address.
+
+For example when in the mc\+\_\+cores\+\_\+main function of the  \hyperlink{philo_8cpp}{philo.\+cpp} program, the line\+:
+
+
+\begin{DoxyPre}
+    philo\_core* core\_dat = philo\_core::acquire\_alloc();
+\end{DoxyPre}
+
+
+allocates a global \textquotesingle{}core\+\_\+dat\textquotesingle{} variable it is done in every core, so all data inside will have the same local address in every core.
+
+So the macro \hyperlink{philo_8cpp_a80458da12ef75d2c9eb5f185b2e09d73}{glb\+\_\+stick} will return the same local pointer in every core and that is why by calling \hyperlink{shared__eph3_8h_a6894e5bde816e6d104c56ec5a8c8288a}{mc\+\_\+addr\+\_\+set\+\_\+id} with it and the id of another core as in the macro \hyperlink{philo_8cpp_a35a8b253ce444013c865600fd0694afa}{get\+\_\+stick} the \hyperlink{classchopstick}{chopstick} of an other core can be addressed in orther to send it \hyperlink{classmissive}{missive} s. The same happens for \hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\+\_\+philo}.
+
 ~\newline
 ~\newline
 ~\newline

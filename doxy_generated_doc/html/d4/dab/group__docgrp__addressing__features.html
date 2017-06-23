@@ -86,6 +86,42 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 <p>Module describing addressing convertion functions.  
 <a href="#details">More...</a></p>
 <p>Module describing addressing convertion functions. </p>
+<p>Addressing is handled with the help of macros and functions that help to map beetween the different kinds of addressing of the Epiphany architecture.</p>
+<p>Whether it is:</p>
+<ul>
+<li>
+From the epiphany side (hardware addresses). <ol>
+<li>
+local-core. <ul>
+<li>
+Zero based (without core id). </li>
+<li>
+With local core id. </li>
+</ul>
+</li>
+<li>
+remote-core. </li>
+<li>
+off-core (outside of the epiphany system in the shared mem with the host) </li>
+</ol>
+</li>
+<li>
+From the host side (linux virtual addresses mapped to hardware addresses). <ol>
+<li>
+in-core. Inside the RAM of a core of the epiphany system (no register mem). </li>
+<li>
+off-core </li>
+</ol>
+</li>
+</ul>
+<p>The most used functions are in files <a class="el" href="../../da/dd1/shared__eph3_8h.html">shared_eph3.h</a> and <a class="el" href="../../da/db4/shared_8h.html">shared.h</a></p>
+<h1>Implicit addressing symmetry</h1>
+<p>In the examples it is used an implicit symmetry: The fact that two objects that are allocated in exactly the same order in different cores have the same local address.</p>
+<p>For example when in the mc_cores_main function of the  <a class="el" href="../../d7/d85/philo_8cpp.html" title="Implementation of the classical concurrency example of the eating philosophers. ">philo.cpp</a> program, the line:</p>
+<pre>
+    philo_core* core_dat = philo_core::acquire_alloc();
+</pre><p>allocates a global 'core_dat' variable it is done in every core, so all data inside will have the same local address in every core.</p>
+<p>So the macro <a class="el" href="../../d7/d85/philo_8cpp.html#a80458da12ef75d2c9eb5f185b2e09d73">glb_stick</a> will return the same local pointer in every core and that is why by calling <a class="el" href="../../da/dd1/shared__eph3_8h.html#a6894e5bde816e6d104c56ec5a8c8288a">mc_addr_set_id</a> with it and the id of another core as in the macro <a class="el" href="../../d7/d85/philo_8cpp.html#a35a8b253ce444013c865600fd0694afa">get_stick</a> the <a class="el" href="../../d0/d2d/classchopstick.html">chopstick</a> of an other core can be addressed in orther to send it <a class="el" href="../../d4/d9f/classmissive.html">missive</a> s. The same happens for <a class="el" href="../../d7/d85/philo_8cpp.html#adcc662701c5f055b26a048484d17e2c6">glb_philo</a>.</p>
 <p><br />
 <br />
 <br />
@@ -94,7 +130,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 23 2017 15:00:21 for Library-Documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 23 2017 17:54:08 for Library-Documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

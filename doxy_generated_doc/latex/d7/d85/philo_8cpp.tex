@@ -13,6 +13,28 @@ Include dependency graph for philo.\+cpp\+:\nopagebreak
 \includegraphics[width=336pt]{dd/dbe/philo_8cpp__incl}
 \end{center}
 \end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classchopstick}{chopstick}
+\begin{DoxyCompactList}\small\item\em Class for chopsticks. \end{DoxyCompactList}\item 
+class \hyperlink{classphilosopher}{philosopher}
+\begin{DoxyCompactList}\small\item\em Class for philosophers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{philo_8cpp_a80458da12ef75d2c9eb5f185b2e09d73}{glb\+\_\+stick}~(\&(glb\+\_\+philo\+\_\+core-\/$>$stick))\hypertarget{philo_8cpp_a80458da12ef75d2c9eb5f185b2e09d73}{}\label{philo_8cpp_a80458da12ef75d2c9eb5f185b2e09d73}
+
+\begin{DoxyCompactList}\small\item\em Returns the local \hyperlink{classchopstick}{chopstick}. \end{DoxyCompactList}\item 
+\#define \hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\+\_\+philo}~(\&(glb\+\_\+philo\+\_\+core-\/$>$philo))\hypertarget{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{}\label{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}
+
+\begin{DoxyCompactList}\small\item\em Returns the local \hyperlink{classphilosopher}{philosopher}. \end{DoxyCompactList}\item 
+\#define \hyperlink{philo_8cpp_a35a8b253ce444013c865600fd0694afa}{get\+\_\+stick}(id)~((\hyperlink{classchopstick}{chopstick}$\ast$)\hyperlink{shared__eph3_8h_a6894e5bde816e6d104c56ec5a8c8288a}{mc\+\_\+addr\+\_\+set\+\_\+id}(id, \hyperlink{philo_8cpp_a80458da12ef75d2c9eb5f185b2e09d73}{glb\+\_\+stick}))\hypertarget{philo_8cpp_a35a8b253ce444013c865600fd0694afa}{}\label{philo_8cpp_a35a8b253ce444013c865600fd0694afa}
+
+\begin{DoxyCompactList}\small\item\em Returns the \hyperlink{classchopstick}{chopstick} in core with \textquotesingle{}id\textquotesingle{}. \end{DoxyCompactList}\item 
+\#define \hyperlink{philo_8cpp_a0ccca4eb20a8d8be83aeb5822cc2d30c}{get\+\_\+philo}(id)~((\hyperlink{classphilosopher}{philosopher}$\ast$)\hyperlink{shared__eph3_8h_a6894e5bde816e6d104c56ec5a8c8288a}{mc\+\_\+addr\+\_\+set\+\_\+id}(id, \hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\+\_\+philo}))\hypertarget{philo_8cpp_a0ccca4eb20a8d8be83aeb5822cc2d30c}{}\label{philo_8cpp_a0ccca4eb20a8d8be83aeb5822cc2d30c}
+
+\begin{DoxyCompactList}\small\item\em Returns the \hyperlink{classphilosopher}{philosopher} in core with \textquotesingle{}id\textquotesingle{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -57,7 +79,7 @@ Implementation of the classical concurrency example of the \href{https://en.wiki
 \textcolor{preprocessor}{    #define PH\_DBG\_COD(prm) }
 \textcolor{preprocessor}{#endif // END\_OF\_PHILO\_WITH\_DBG}
 
-\textcolor{keyword}{class }chopstick;
+\textcolor{keyword}{class }\hyperlink{classchopstick}{chopstick};
 \textcolor{keyword}{class }philosopher;
 
 \textcolor{preprocessor}{#define MAX\_BITES 10}
@@ -118,9 +140,9 @@ Implementation of the classical concurrency example of the \href{https://en.wiki
     \}
 \textcolor{comment}{//endif // END\_OF\_PHILO\_WITH\_DBG}
 
-\textcolor{keyword}{class }chopstick : \textcolor{keyword}{public} \hyperlink{classcell}{cell} \{
+\textcolor{keyword}{class }\hyperlink{classchopstick}{chopstick} : \textcolor{keyword}{public} \hyperlink{classcell}{cell} \{
 \textcolor{keyword}{public}:
-    \hyperlink{cell_8hh_ab43adc7961f0b5b06463b122ae598993}{MCK\_DECLARE\_MEM\_METHODS}(chopstick)
+    \hyperlink{cell_8hh_ab43adc7961f0b5b06463b122ae598993}{MCK\_DECLARE\_MEM\_METHODS}(\hyperlink{classchopstick}{chopstick})
 
     \hyperlink{classcell}{cell}* owner;
 
@@ -128,11 +150,11 @@ Implementation of the classical concurrency example of the \href{https://en.wiki
     philo\_tok\_t last\_sent;
     philo\_tok\_t last\_recv;
 
-    chopstick()\{
+    \hyperlink{classchopstick}{chopstick}()\{
         init\_chopstick();
     \}
 
-    ~chopstick()\{\}
+    ~\hyperlink{classchopstick}{chopstick}()\{\}
 
     \textcolor{keywordtype}{void} init\_chopstick()\{
         \hyperlink{classcell_a234bbd022db21480b428b2f63662fe95}{handler\_idx} = 1;
@@ -150,8 +172,8 @@ Implementation of the classical concurrency example of the \href{https://en.wiki
 \textcolor{keyword}{public}:
     \hyperlink{cell_8hh_ab43adc7961f0b5b06463b122ae598993}{MCK\_DECLARE\_MEM\_METHODS}(philosopher)
 
-    chopstick* left;
-    chopstick* right;
+    \hyperlink{classchopstick}{chopstick}* left;
+    \hyperlink{classchopstick}{chopstick}* right;
 
     \textcolor{keywordtype}{int} num\_bites;
     \textcolor{keywordtype}{bool} lft\_ph\_full;
@@ -159,8 +181,8 @@ Implementation of the classical concurrency example of the \href{https://en.wiki
 
     mc\_core\_id\_t    lft\_stk\_id;
     mc\_core\_id\_t    rgt\_stk\_id;
-    chopstick*      lft\_stick;
-    chopstick*      rgt\_stick;
+    \hyperlink{classchopstick}{chopstick}*     lft\_stick;
+    \hyperlink{classchopstick}{chopstick}*     rgt\_stick;
     mc\_core\_id\_t    lft\_phi\_id;
     mc\_core\_id\_t    rgt\_phi\_id;
     philosopher*    lft\_philo;
@@ -180,7 +202,7 @@ Implementation of the classical concurrency example of the \href{https://en.wiki
     ~philosopher()\{\}
 
     \textcolor{keywordtype}{void} init\_philosopher()\{
-        handler\_idx = 2;
+        \hyperlink{classcell_a234bbd022db21480b428b2f63662fe95}{handler\_idx} = 2;
 
         left = mc\_null;
         right = mc\_null;
@@ -230,7 +252,7 @@ Implementation of the classical concurrency example of the \href{https://en.wiki
     \}       
     ~philo\_core()\{\}     \textcolor{comment}{// NEED THIS SO THAT no memset func call}
 
-    chopstick stick;
+    \hyperlink{classchopstick}{chopstick} stick;
     philosopher philo;
     grip ava\_chopstick;
     grip ava\_philosopher;
@@ -260,11 +282,12 @@ Implementation of the classical concurrency example of the \href{https://en.wiki
     \}
 \};
 
-\hyperlink{cell_8hh_aad0dec1d661f1fdb5a2ccb767d712c75}{MCK\_DEFINE\_ACQUIRE\_ALLOC}(philo\_core, 32)    \textcolor{comment}{// defines philo\_core::acquire\_alloc}
+\hyperlink{cell_8hh_aad0dec1d661f1fdb5a2ccb767d712c75}{MCK\_DEFINE\_ACQUIRE\_ALLOC}(philo\_core, 32);   \textcolor{comment}{// defines philo\_core::acquire\_alloc}
 
 \textcolor{preprocessor}{#define glb\_philo\_core ((philo\_core*)(mck\_get\_kernel()->user\_data))}
 
 \textcolor{preprocessor}{#define glb\_stick (&(glb\_philo\_core->stick))}
+
 \textcolor{preprocessor}{#define glb\_philo (&(glb\_philo\_core->philo))}
 
 \textcolor{preprocessor}{#define glb\_ava\_sticks (glb\_philo\_core->ava\_chopstick)}
@@ -277,9 +300,10 @@ Implementation of the classical concurrency example of the \href{https://en.wiki
 \textcolor{preprocessor}{#define right\_phl\_nn(nn) ((nn == 15)?(0):(nn + 1))}
 
 \textcolor{preprocessor}{#define get\_stick(id) ((chopstick*)mc\_addr\_set\_id(id, glb\_stick))}
+
 \textcolor{preprocessor}{#define get\_philo(id) ((philosopher*)mc\_addr\_set\_id(id, glb\_philo))}
 
-\hyperlink{cell_8hh_a9095d9f262f63984c60799e4a3b135c5}{MCK\_DEFINE\_MEM\_METHODS}(chopstick, 32, glb\_ava\_sticks)
+\hyperlink{cell_8hh_a9095d9f262f63984c60799e4a3b135c5}{MCK\_DEFINE\_MEM\_METHODS}(\hyperlink{classchopstick}{chopstick}, 32, glb\_ava\_sticks)
 \hyperlink{cell_8hh_a9095d9f262f63984c60799e4a3b135c5}{MCK\_DEFINE\_MEM\_METHODS}(philosopher, 32, glb\_ava\_philos)
 
 
@@ -300,7 +324,7 @@ philosopher\_handler(\hyperlink{classmissive}{missive}* msv)\{
 
 \textcolor{keywordtype}{void} 
 chopstick\_handler(\hyperlink{classmissive}{missive}* msv)\{
-    MCK\_CALL\_HANDLER(chopstick, handler, msv);
+    MCK\_CALL\_HANDLER(\hyperlink{classchopstick}{chopstick}, handler, msv);
 \}
 
 \hyperlink{cell_8hh_ad48af79638ac0f2892ed41375e3aed54}{missive\_handler\_t} the\_handlers[] = \{
@@ -325,7 +349,7 @@ chopstick::handler(\hyperlink{classmissive}{missive}* msv)\{
     )
     \textcolor{keywordflow}{if}((nn == 0) || (nn >= 14))\{
 \textcolor{preprocessor}{        #ifdef PHILO\_EPH\_DBG}
-            mc\_core\_id\_t src\_id = mc\_addr\_get\_id(msv\_src);
+            mc\_core\_id\_t src\_id = \hyperlink{shared__eph3_8h_a7318efe779877691f45272404b4f14b8}{mc\_addr\_get\_id}(msv\_src);
             \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"CHOP\_RECV\_\_\_\_"});
             \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(tok\_to\_str(tok));
             \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"\_\_\_"});
@@ -589,7 +613,7 @@ philosopher::call\_exit()\{
         PH\_DBG(\textcolor{stringliteral}{"%s"}, full\_str);
     \}
 
-    \textcolor{keywordtype}{void} prt\_ch(\textcolor{keywordtype}{int} aa, chopstick* ch)\{
+    \textcolor{keywordtype}{void} prt\_ch(\textcolor{keywordtype}{int} aa, \hyperlink{classchopstick}{chopstick}* ch)\{
         \textcolor{keywordtype}{char} full\_str[500];
         \textcolor{keywordtype}{char}* pt = full\_str;
         pt += sprintf(pt, \textcolor{stringliteral}{"STICK (%p) %d=["}, ch, aa);
@@ -674,14 +698,14 @@ philosopher::call\_exit()\{
         dbg\_all\_philo[nn] = core\_dat;
     );
 
-    glb\_philo->lft\_stk\_id = mc\_nn\_to\_id(left\_chp\_nn(nn));
-    glb\_philo->rgt\_stk\_id = mc\_nn\_to\_id(right\_chp\_nn(nn));
-    glb\_philo->lft\_stick = get\_stick(glb\_philo->lft\_stk\_id);
-    glb\_philo->rgt\_stick = get\_stick(glb\_philo->rgt\_stk\_id);
-    glb\_philo->lft\_phi\_id = mc\_nn\_to\_id(left\_phl\_nn(nn));
-    glb\_philo->rgt\_phi\_id = mc\_nn\_to\_id(right\_phl\_nn(nn));
-    glb\_philo->lft\_philo = get\_philo(glb\_philo->lft\_phi\_id);
-    glb\_philo->rgt\_philo = get\_philo(glb\_philo->rgt\_phi\_id);
+    \hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\_philo}->lft\_stk\_id = mc\_nn\_to\_id(left\_chp\_nn(nn));
+    \hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\_philo}->rgt\_stk\_id = mc\_nn\_to\_id(right\_chp\_nn(nn));
+    \hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\_philo}->lft\_stick = \hyperlink{philo_8cpp_a35a8b253ce444013c865600fd0694afa}{get\_stick}(\hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\_philo}->lft\_stk\_id);
+    \hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\_philo}->rgt\_stick = \hyperlink{philo_8cpp_a35a8b253ce444013c865600fd0694afa}{get\_stick}(\hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\_philo}->rgt\_stk\_id);
+    \hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\_philo}->lft\_phi\_id = mc\_nn\_to\_id(left\_phl\_nn(nn));
+    \hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\_philo}->rgt\_phi\_id = mc\_nn\_to\_id(right\_phl\_nn(nn));
+    \hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\_philo}->lft\_philo = \hyperlink{philo_8cpp_a0ccca4eb20a8d8be83aeb5822cc2d30c}{get\_philo}(\hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\_philo}->lft\_phi\_id);
+    \hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\_philo}->rgt\_philo = \hyperlink{philo_8cpp_a0ccca4eb20a8d8be83aeb5822cc2d30c}{get\_philo}(\hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\_philo}->rgt\_phi\_id);
 
     \hyperlink{classkernel_a4af01f01c949a504cd3a6d574eced6a7}{kernel::set\_handlers}(3, the\_handlers);
 
@@ -694,7 +718,7 @@ philosopher::call\_exit()\{
 
     PH\_DBG(\textcolor{stringliteral}{"started\(\backslash\)n"});
 
-    glb\_philo->send(glb\_philo, tok\_eat);
+    \hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\_philo}->send(\hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\_philo}, tok\_eat);
     \hyperlink{classkernel_a438f0450a28abb54d058b88ef8cc3d3b}{kernel::run\_sys}();
 
     PH\_DBG(\textcolor{stringliteral}{"finished\(\backslash\)n"});

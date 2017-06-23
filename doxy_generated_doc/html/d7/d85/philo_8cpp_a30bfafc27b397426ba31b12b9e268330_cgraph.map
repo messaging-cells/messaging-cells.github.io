@@ -1,0 +1,20 @@
+<map id="MCK_DEFINE_ACQUIRE_ALLOC" name="MCK_DEFINE_ACQUIRE_ALLOC">
+<area shape="rect" id="node2" href="$d7/d7f/log_8h.html#aa4f0190d914cecf5db43914dc69f7129" title="Logs an uint32_t as a hexadecimal in this core log file. " alt="" coords="262,5,341,32"/>
+<area shape="rect" id="node3" href="$d7/d7f/log_8h.html#a14e1de1564f270c82ff08d1b9ad41a66" title="Logs an int32_t in this core log file. " alt="" coords="264,56,339,83"/>
+<area shape="rect" id="node4" href="$d2/d49/global_8h.html#a6a6d1065bccc17077e1a6a0aeaa5f6dd" title="mck_abort" alt="" coords="471,56,553,83"/>
+<area shape="rect" id="node5" href="$d4/d9f/classmissive.html#a911a5d60180223ebff8d71966c483ee5" title="acquires one or more missive s in dynamic memory. " alt="" coords="453,107,571,133"/>
+<area shape="rect" id="node6" href="$d7/d7f/log_8h.html#a2d38dfdcdb36720d61e2ce089b3a1524" title="Prints an int32_t to stdout in the host. " alt="" coords="265,360,337,387"/>
+<area shape="rect" id="node7" href="$d3/d9f/classkernel.html#a4ba03e734fb64b1215170531599a6754" title="Static method that inits this core kernel. " alt="" coords="457,360,567,387"/>
+<area shape="rect" id="node8" href="$d3/d9f/classkernel.html#a4af01f01c949a504cd3a6d574eced6a7" title="This methods sets kernel::all_handlers to &#39;hdlrs&#39; and it must have size &#39;tot_hdlrs&#39;. " alt="" coords="232,208,371,235"/>
+<area shape="rect" id="node12" href="$d4/d9f/classmissive.html#a9b9925cee46b73d4f9012ab72ce96c4c" title="separates missive s in memory for future missive::acquire. " alt="" coords="239,411,364,437"/>
+<area shape="rect" id="node13" href="$db/df1/classagent__ref.html#a9cc42d67af5a3cf8ae01bfa6434489be" title="separates agent_ref s in memory for future aget_ref::acquire. " alt="" coords="234,461,369,488"/>
+<area shape="rect" id="node14" href="$d5/d7b/classagent__grp.html#afa435a806a32ebba3554703581852db3" title="separates agent_grp s in memory for future aget_grp::acquire. " alt="" coords="233,512,370,539"/>
+<area shape="rect" id="node16" href="$d2/dbe/classcell.html#ad09500ef03d2ccb60de17f189ba59b9e" title="separates cell s in memory for future cell::acquire. " alt="" coords="251,563,351,589"/>
+<area shape="rect" id="node17" href="$d3/d9f/classkernel.html#a438f0450a28abb54d058b88ef8cc3d3b" title="Static method that starts handling missive s. No missive s are handled before. " alt="" coords="246,613,357,640"/>
+<area shape="rect" id="node18" href="$d3/d9f/classkernel.html#a55fbe958137c0973a06da58fe491c9e6" title="Static method that finishes this core kernel. " alt="" coords="239,259,363,285"/>
+<area shape="rect" id="node9" href="$db/df1/classagent__ref.html#ad991ac383cd9a7a851a78655138ad2ae" title="acquires one or more agent_ref s in dynamic memory. " alt="" coords="449,157,575,184"/>
+<area shape="rect" id="node10" href="$d5/d08/classagent.html#a10d8b14221d243aa3906c2d65d3fe7e8" title="Releases this agent so that it can latter be acquired again. " alt="" coords="460,208,564,235"/>
+<area shape="rect" id="node11" href="$d5/d7b/classagent__grp.html#aa961501cb36a83ffe2d0e56f8b4d205e" title="acquires one or more agent_grp s in dynamic memory. " alt="" coords="447,259,577,285"/>
+<area shape="rect" id="node15" href="$d2/dbe/classcell.html#ad710b11caf02e0a3d2e281cb0d46a44b" title="acquires one or more cell s in dynamic memory. " alt="" coords="466,512,558,539"/>
+<area shape="rect" id="node19" href="$da/db4/shared_8h.html#acecb9ae3c50cae104c904facc29524e0" title="Maps a host addresses to a core addresses. " alt="" coords="419,309,605,336"/>
+</map>

@@ -104,8 +104,8 @@ Dynamically allocatable memory. </li>
 <h3>First time heap allocation</h3>
 <p>The first time an object is allocated the library calls external code (off-core) of the <a href="https://github.com/dimonomid/umm_malloc" target="blank">umm_malloc</a> allocator.</p>
 <h3>Reusing objects</h3>
-<p>Objects are never really expected to be freed (umm_free call) under normal use of the library. They just get acquired (see for example <a class="el" href="../../d2/dbe/classcell.html#ad710b11caf02e0a3d2e281cb0d46a44b">cell::acquire</a>) and when finisehd using them they get inited and put in a pre-class double linked list by the <a class="el" href="../../d5/d08/classagent.html#a10d8b14221d243aa3906c2d65d3fe7e8">agent::release</a> method.</p>
-<p>The per-class acquire and <a class="el" href="../../d5/d08/classagent.html#a10d8b14221d243aa3906c2d65d3fe7e8">agent::release</a> are small footprint methods runned from in-core memory (as opposed to the umm_malloc functions) that can be used in the user's high performance code.</p>
+<p>Objects are never really expected to be freed (umm_free call) under normal use of the library. They just get acquired (see for example <a class="el" href="../../d2/dbe/classcell.html#ad710b11caf02e0a3d2e281cb0d46a44b">cell::acquire</a>) ; and when finisehd using them, they should call the <a class="el" href="../../d5/d08/classagent.html#a10d8b14221d243aa3906c2d65d3fe7e8">agent::release</a> method to get inited and put in a one-per-class double linked list (grip) of available objects (see <a class="el" href="../../d5/d08/classagent.html#af4bd30d8eb23b3f09e115e4efda993da">agent::get_available</a> virtual method).</p>
+<p>The one-per-class acquire and the <a class="el" href="../../d5/d08/classagent.html#a10d8b14221d243aa3906c2d65d3fe7e8">agent::release</a> are small footprint methods runned from in-core memory (as opposed to the umm_malloc functions) that can be used in the user's high performance code.</p>
 <p>This double folded approach to memory managment also helps to avoid bad referencing of objects because a <a class="el" href="../../d2/dbe/classcell.html">cell</a> might have been <a class="el" href="../../d5/d08/classagent.html#a10d8b14221d243aa3906c2d65d3fe7e8">agent::release</a> d but the reference is still valid, so the code will not behave as expected (there is an error) but it will not hang.</p>
 <p>Functions like <a class="el" href="../../d2/dbe/classcell.html#ad09500ef03d2ccb60de17f189ba59b9e">cell::separate</a> <a class="el" href="../../d2/dbe/classcell.html#ad710b11caf02e0a3d2e281cb0d46a44b">cell::acquire</a> are provided for base classes but the user is expected to use macro <a class="el" href="../../da/d7a/cell_8hh.html#ab43adc7961f0b5b06463b122ae598993">MCK_DECLARE_MEM_METHODS</a> and macro <a class="el" href="../../da/d7a/cell_8hh.html#a9095d9f262f63984c60799e4a3b135c5">MCK_DEFINE_MEM_METHODS</a> to declare and define these functions for derived classes. The macro <a class="el" href="../../da/d7a/cell_8hh.html#aad0dec1d661f1fdb5a2ccb767d712c75">MCK_DEFINE_ACQUIRE_ALLOC</a> can also be used for classes of objects that will not get <a class="el" href="../../d5/d08/classagent.html#a10d8b14221d243aa3906c2d65d3fe7e8">agent::release</a> d and therefore do not declare an available list.</p>
 <h3>Eating Philosophers</h3>
@@ -118,7 +118,7 @@ Dynamically allocatable memory. </li>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 23 2017 15:00:21 for Library-Documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 23 2017 17:54:08 for Library-Documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

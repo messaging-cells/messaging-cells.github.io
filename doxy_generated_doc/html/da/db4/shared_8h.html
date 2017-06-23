@@ -89,7 +89,8 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">shared.h File Reference</div>  </div>
 </div><!--header-->
@@ -133,17 +134,165 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:adfe18012a9c4655dbd0a0d2f6b95e8f4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adfe18012a9c4655dbd0a0d2f6b95e8f4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db4/shared_8h.html#adfe18012a9c4655dbd0a0d2f6b95e8f4">mc_addr_in_host</a>(addr)&#160;&#160;&#160;(! <a class="el" href="../../da/db4/shared_8h.html#ab23d8aee5985304d89557972be4d9fe5">mc_addr_in_sys</a>(addr))</td></tr>
+<tr class="memdesc:adfe18012a9c4655dbd0a0d2f6b95e8f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if 'addr' is in the host. <br /></td></tr>
+<tr class="separator:adfe18012a9c4655dbd0a0d2f6b95e8f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae56b9fcaa32d5bbef3648a5f4b964363"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db4/shared_8h.html#ae56b9fcaa32d5bbef3648a5f4b964363">mc_dref</a>(typ_nam,  glb_pt,  pt_field)&#160;&#160;&#160;((typ_nam*)<a class="el" href="../../da/dd1/shared__eph3_8h.html#a6894e5bde816e6d104c56ec5a8c8288a">mc_addr_set_id</a>(<a class="el" href="../../da/dd1/shared__eph3_8h.html#a7318efe779877691f45272404b4f14b8">mc_addr_get_id</a>(glb_pt), (glb_pt)-&gt;pt_field))</td></tr>
+<tr class="separator:ae56b9fcaa32d5bbef3648a5f4b964363"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc3b6b8c7e98bd2f71365571ee65f27e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db4/shared_8h.html#acc3b6b8c7e98bd2f71365571ee65f27e">mc_dref_field</a>(cls_base,  base,  cls_field,  field)&#160;&#160;&#160;((cls_field*)(uint8_t*)(((uint8_t*)base) + mc_offsetof(&amp;cls_base::field)))</td></tr>
+<tr class="separator:acc3b6b8c7e98bd2f71365571ee65f27e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94ea4caeb18b0e5ae7535f96e2f29ae5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94ea4caeb18b0e5ae7535f96e2f29ae5"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db4/shared_8h.html#a94ea4caeb18b0e5ae7535f96e2f29ae5">MC_IS_ALIGNED_16</a>(ptr)&#160;&#160;&#160;((((uintptr_t)ptr) &amp; 0x1) == 0)</td></tr>
+<tr class="memdesc:a94ea4caeb18b0e5ae7535f96e2f29ae5"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if ptr is 16 aligned. <br /></td></tr>
+<tr class="separator:a94ea4caeb18b0e5ae7535f96e2f29ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad09dab1e61aa8a22789908a8ce81f096"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad09dab1e61aa8a22789908a8ce81f096"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db4/shared_8h.html#ad09dab1e61aa8a22789908a8ce81f096">MC_IS_ALIGNED_32</a>(ptr)&#160;&#160;&#160;((((uintptr_t)ptr) &amp; 0x3) == 0)</td></tr>
+<tr class="memdesc:ad09dab1e61aa8a22789908a8ce81f096"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if ptr is 32 aligned. <br /></td></tr>
+<tr class="separator:ad09dab1e61aa8a22789908a8ce81f096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea4d37dafbd166cf46651295bcc642c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aea4d37dafbd166cf46651295bcc642c7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db4/shared_8h.html#aea4d37dafbd166cf46651295bcc642c7">MC_IS_ALIGNED_64</a>(ptr)&#160;&#160;&#160;((((uintptr_t)ptr) &amp; 0x7) == 0)</td></tr>
+<tr class="memdesc:aea4d37dafbd166cf46651295bcc642c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if ptr is 64 aligned. <br /></td></tr>
+<tr class="separator:aea4d37dafbd166cf46651295bcc642c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93f939625cf4afc446aa8836e1fecae9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a93f939625cf4afc446aa8836e1fecae9"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db4/shared_8h.html#a93f939625cf4afc446aa8836e1fecae9">mc_set_off_core_var</a>(var,  val)</td></tr>
 <tr class="memdesc:a93f939625cf4afc446aa8836e1fecae9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Warranted set of an off-core variable (loops until reading the value). Use only if needed. <br /></td></tr>
 <tr class="separator:a93f939625cf4afc446aa8836e1fecae9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6d233c1a9b6eafd7eff6fe36d6f29e2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6d233c1a9b6eafd7eff6fe36d6f29e2"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db4/shared_8h.html#ae6d233c1a9b6eafd7eff6fe36d6f29e2">mc_init_arr_objs</a>(sz,  arr,  cls)</td></tr>
+<tr class="memdesc:ae6d233c1a9b6eafd7eff6fe36d6f29e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inits an array 'arr' of objects of class 'cls' and size 'sz' with 'new'. <br /></td></tr>
+<tr class="separator:ae6d233c1a9b6eafd7eff6fe36d6f29e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16a1f1c32f08227ccb4396b7e213bc1a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a16a1f1c32f08227ccb4396b7e213bc1a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db4/shared_8h.html#a16a1f1c32f08227ccb4396b7e213bc1a">mc_init_arr_vals</a>(sz,  arr,  val)</td></tr>
+<tr class="memdesc:a16a1f1c32f08227ccb4396b7e213bc1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inits an array 'arr' of objects of size 'sz' with 'val'. <br /></td></tr>
+<tr class="separator:a16a1f1c32f08227ccb4396b7e213bc1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a435824ddf21d1cf90aa82f49dd5145b6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a435824ddf21d1cf90aa82f49dd5145b6"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db4/shared_8h.html#a435824ddf21d1cf90aa82f49dd5145b6">mc_host_pt_to_core_pt</a>(pt)&#160;&#160;&#160;(<a class="el" href="../../da/db4/shared_8h.html#acecb9ae3c50cae104c904facc29524e0">mc_host_addr_to_core_addr</a>((<a class="el" href="../../da/dd1/shared__eph3_8h.html#ac03d1f3968bb5c52cf1de5cd9f250e66">mc_addr_t</a>)(pt)))</td></tr>
+<tr class="memdesc:a435824ddf21d1cf90aa82f49dd5145b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps a host pointer to a core pointer. <br /></td></tr>
+<tr class="separator:a435824ddf21d1cf90aa82f49dd5145b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e08ea44e8f62251fe4b53180bbfa32d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9e08ea44e8f62251fe4b53180bbfa32d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db4/shared_8h.html#a9e08ea44e8f62251fe4b53180bbfa32d">mc_core_pt_to_host_pt</a>(pt)&#160;&#160;&#160;(<a class="el" href="../../da/db4/shared_8h.html#ae2021049308d2ae58f97c99af7cb2dec">mc_core_addr_to_host_addr</a>((<a class="el" href="../../da/dd1/shared__eph3_8h.html#ac03d1f3968bb5c52cf1de5cd9f250e66">mc_addr_t</a>)(pt)))</td></tr>
+<tr class="memdesc:a9e08ea44e8f62251fe4b53180bbfa32d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps a core pointer to a host pointer. <br /></td></tr>
+<tr class="separator:a9e08ea44e8f62251fe4b53180bbfa32d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:abaff3f227d382122a6a6fa1497d9100d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abaff3f227d382122a6a6fa1497d9100d"></a>
+bool mc_inline_fn&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db4/shared_8h.html#abaff3f227d382122a6a6fa1497d9100d">mc_addr_in_core</a> (<a class="el" href="../../da/dd1/shared__eph3_8h.html#ac03d1f3968bb5c52cf1de5cd9f250e66">mc_addr_t</a> addr, <a class="el" href="../../da/dd1/shared__eph3_8h.html#a78c58d809b35d7f23f6e553f63501abc">mc_core_id_t</a> koid)</td></tr>
+<tr class="memdesc:abaff3f227d382122a6a6fa1497d9100d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if 'addr' is local to the core with id 'koid'. <br /></td></tr>
+<tr class="separator:abaff3f227d382122a6a6fa1497d9100d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab23d8aee5985304d89557972be4d9fe5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab23d8aee5985304d89557972be4d9fe5"></a>
+bool mc_inline_fn&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db4/shared_8h.html#ab23d8aee5985304d89557972be4d9fe5">mc_addr_in_sys</a> (<a class="el" href="../../da/dd1/shared__eph3_8h.html#ac03d1f3968bb5c52cf1de5cd9f250e66">mc_addr_t</a> addr)</td></tr>
+<tr class="memdesc:ab23d8aee5985304d89557972be4d9fe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if 'addr' is in any of the cores of the epiphany system. <br /></td></tr>
+<tr class="separator:ab23d8aee5985304d89557972be4d9fe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd403e76dcaeb9cb5453552c9f8b76dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd403e76dcaeb9cb5453552c9f8b76dc"></a>
+mc_opt_sz_fn uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db4/shared_8h.html#afd403e76dcaeb9cb5453552c9f8b76dc">mc_memset</a> (uint8_t *dest, uint8_t val, mc_size_t sz) mc_external_code_ram</td></tr>
+<tr class="memdesc:afd403e76dcaeb9cb5453552c9f8b76dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Library EXTERNAL RAM running version of memset. <br /></td></tr>
+<tr class="separator:afd403e76dcaeb9cb5453552c9f8b76dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5130fadda073d4cbfb9164932f0c2406"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5130fadda073d4cbfb9164932f0c2406"></a>
+mc_opt_sz_fn uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db4/shared_8h.html#a5130fadda073d4cbfb9164932f0c2406">mc_memcpy</a> (uint8_t *dest, const uint8_t *src, mc_size_t sz) mc_external_code_ram</td></tr>
+<tr class="memdesc:a5130fadda073d4cbfb9164932f0c2406"><td class="mdescLeft">&#160;</td><td class="mdescRight">Library EXTERNAL RAM running version of memcpy. <br /></td></tr>
+<tr class="separator:a5130fadda073d4cbfb9164932f0c2406"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a669060a906a0d03c767661937c12dd7a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a669060a906a0d03c767661937c12dd7a"></a>
+mc_opt_sz_fn uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db4/shared_8h.html#a669060a906a0d03c767661937c12dd7a">mc_memmove</a> (uint8_t *dest, const uint8_t *src, mc_size_t sz) mc_external_code_ram</td></tr>
+<tr class="memdesc:a669060a906a0d03c767661937c12dd7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Library EXTERNAL RAM running version of memmove. <br /></td></tr>
+<tr class="separator:a669060a906a0d03c767661937c12dd7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb64f4dac086f0c74e6b5a9a53b3237e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb64f4dac086f0c74e6b5a9a53b3237e"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db4/shared_8h.html#aeb64f4dac086f0c74e6b5a9a53b3237e">mc_strlen</a> (char *str) mc_external_code_ram</td></tr>
+<tr class="memdesc:aeb64f4dac086f0c74e6b5a9a53b3237e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Library EXTERNAL RAM running version of strlen. <br /></td></tr>
+<tr class="separator:aeb64f4dac086f0c74e6b5a9a53b3237e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba7d037fc0a155179c44d5ba470e1f3c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba7d037fc0a155179c44d5ba470e1f3c"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db4/shared_8h.html#aba7d037fc0a155179c44d5ba470e1f3c">mc_strcmp</a> (char *str1, char *str2) mc_external_code_ram</td></tr>
+<tr class="memdesc:aba7d037fc0a155179c44d5ba470e1f3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Library EXTERNAL RAM running version of strcmp. <br /></td></tr>
+<tr class="separator:aba7d037fc0a155179c44d5ba470e1f3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acecb9ae3c50cae104c904facc29524e0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acecb9ae3c50cae104c904facc29524e0"></a>
+<a class="el" href="../../da/dd1/shared__eph3_8h.html#ac03d1f3968bb5c52cf1de5cd9f250e66">mc_addr_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db4/shared_8h.html#acecb9ae3c50cae104c904facc29524e0">mc_host_addr_to_core_addr</a> (<a class="el" href="../../da/dd1/shared__eph3_8h.html#ac03d1f3968bb5c52cf1de5cd9f250e66">mc_addr_t</a> h_addr) mc_external_code_ram</td></tr>
+<tr class="memdesc:acecb9ae3c50cae104c904facc29524e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps a host addresses to a core addresses. <br /></td></tr>
+<tr class="separator:acecb9ae3c50cae104c904facc29524e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2021049308d2ae58f97c99af7cb2dec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae2021049308d2ae58f97c99af7cb2dec"></a>
+<a class="el" href="../../da/dd1/shared__eph3_8h.html#ac03d1f3968bb5c52cf1de5cd9f250e66">mc_addr_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/db4/shared_8h.html#ae2021049308d2ae58f97c99af7cb2dec">mc_core_addr_to_host_addr</a> (<a class="el" href="../../da/dd1/shared__eph3_8h.html#ac03d1f3968bb5c52cf1de5cd9f250e66">mc_addr_t</a> c_addr) mc_external_code_ram</td></tr>
+<tr class="memdesc:ae2021049308d2ae58f97c99af7cb2dec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps a core addresses to a host addresses. <br /></td></tr>
+<tr class="separator:ae2021049308d2ae58f97c99af7cb2dec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>C shared structures (by host and cores). It is included in <a class="el" href="../../d2/d49/global_8h.html" title="Global functions. It is included in cell.hh. ">global.h</a> and <a class="el" href="../../da/d7a/cell_8hh.html">cell.hh</a>. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="ae56b9fcaa32d5bbef3648a5f4b964363"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define mc_dref</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">typ_nam, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">glb_pt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pt_field&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;((typ_nam*)<a class="el" href="../../da/dd1/shared__eph3_8h.html#a6894e5bde816e6d104c56ec5a8c8288a">mc_addr_set_id</a>(<a class="el" href="../../da/dd1/shared__eph3_8h.html#a7318efe779877691f45272404b4f14b8">mc_addr_get_id</a>(glb_pt), (glb_pt)-&gt;pt_field))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Remote dereference of a 'pt_field' of remote object pointer 'glb_pt' (with id) and returns it as a 'typ_nam' pointer </p>
+
+</div>
+</div>
+<a class="anchor" id="acc3b6b8c7e98bd2f71365571ee65f27e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define mc_dref_field</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cls_base, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">base, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cls_field, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">field&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;((cls_field*)(uint8_t*)(((uint8_t*)base) + mc_offsetof(&amp;cls_base::field)))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Remote dereference of a 'field' of class 'cls_field' in a remote object structure 'base' (not a pointer) of class 'cls_base'. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 23 2017 15:00:21 for Library-Documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 23 2017 17:54:07 for Library-Documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

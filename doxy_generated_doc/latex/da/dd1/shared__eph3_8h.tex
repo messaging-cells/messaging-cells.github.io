@@ -1,0 +1,54 @@
+\hypertarget{shared__eph3_8h}{}\section{/home/jose/devel/messaging-\/cells/src/cells/shared\+\_\+eph3.h File Reference}
+\label{shared__eph3_8h}\index{/home/jose/devel/messaging-\/cells/src/cells/shared\+\_\+eph3.\+h@{/home/jose/devel/messaging-\/cells/src/cells/shared\+\_\+eph3.\+h}}
+
+
+Addressing functions of the epiphany 3 architecture.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{shared__eph3_8h_acfac777017dc7e5711ba1bbcd607f1ac}{mc\+\_\+addr\+\_\+mask\+\_\+id}(addr)~(((\hyperlink{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{mc\+\_\+addr\+\_\+t})(addr)) \& mc\+\_\+glb\+\_\+id\+\_\+mask)\hypertarget{shared__eph3_8h_acfac777017dc7e5711ba1bbcd607f1ac}{}\label{shared__eph3_8h_acfac777017dc7e5711ba1bbcd607f1ac}
+
+\begin{DoxyCompactList}\small\item\em Masks the id part of \textquotesingle{}addr\textquotesingle{}. \end{DoxyCompactList}\item 
+\#define \hyperlink{shared__eph3_8h_a5a38f49ed3413ef19a0d58665038d51f}{mc\+\_\+addr\+\_\+mask\+\_\+ad}(addr)~(((\hyperlink{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{mc\+\_\+addr\+\_\+t})(addr)) \& mc\+\_\+glb\+\_\+addr\+\_\+mask)\hypertarget{shared__eph3_8h_a5a38f49ed3413ef19a0d58665038d51f}{}\label{shared__eph3_8h_a5a38f49ed3413ef19a0d58665038d51f}
+
+\begin{DoxyCompactList}\small\item\em Masks the displacement (local-\/addr) part of \textquotesingle{}addr\textquotesingle{}. \end{DoxyCompactList}\item 
+\#define \hyperlink{shared__eph3_8h_a6c65a868a865e5a5335406052ce6b7e3}{mc\+\_\+addr\+\_\+has\+\_\+id}(addr)~\hyperlink{shared__eph3_8h_acfac777017dc7e5711ba1bbcd607f1ac}{mc\+\_\+addr\+\_\+mask\+\_\+id}(addr)\hypertarget{shared__eph3_8h_a6c65a868a865e5a5335406052ce6b7e3}{}\label{shared__eph3_8h_a6c65a868a865e5a5335406052ce6b7e3}
+
+\begin{DoxyCompactList}\small\item\em True \textquotesingle{}addr\textquotesingle{} has \textquotesingle{}id\textquotesingle{} (not zero id) \end{DoxyCompactList}\item 
+\#define \hyperlink{shared__eph3_8h_a7318efe779877691f45272404b4f14b8}{mc\+\_\+addr\+\_\+get\+\_\+id}(addr)~((\hyperlink{shared__eph3_8h_a78c58d809b35d7f23f6e553f63501abc}{mc\+\_\+core\+\_\+id\+\_\+t})(\hyperlink{shared__eph3_8h_acfac777017dc7e5711ba1bbcd607f1ac}{mc\+\_\+addr\+\_\+mask\+\_\+id}(addr) $>$$>$ mc\+\_\+glb\+\_\+addr\+\_\+sz))\hypertarget{shared__eph3_8h_a7318efe779877691f45272404b4f14b8}{}\label{shared__eph3_8h_a7318efe779877691f45272404b4f14b8}
+
+\begin{DoxyCompactList}\small\item\em Returns the id part of \textquotesingle{}addr\textquotesingle{} as mc\+\_\+core\+\_\+id\+\_\+t value. \end{DoxyCompactList}\item 
+\#define \hyperlink{shared__eph3_8h_a6894e5bde816e6d104c56ec5a8c8288a}{mc\+\_\+addr\+\_\+set\+\_\+id}(id,  addr)~((\hyperlink{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{mc\+\_\+addr\+\_\+t})((((\hyperlink{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{mc\+\_\+addr\+\_\+t})(id)) $<$$<$ mc\+\_\+glb\+\_\+addr\+\_\+sz) $\vert$ \hyperlink{shared__eph3_8h_a5a38f49ed3413ef19a0d58665038d51f}{mc\+\_\+addr\+\_\+mask\+\_\+ad}(addr)))\hypertarget{shared__eph3_8h_a6894e5bde816e6d104c56ec5a8c8288a}{}\label{shared__eph3_8h_a6894e5bde816e6d104c56ec5a8c8288a}
+
+\begin{DoxyCompactList}\small\item\em Sets the id part of \textquotesingle{}addr\textquotesingle{} with \textquotesingle{}id\textquotesingle{}. \end{DoxyCompactList}\item 
+\#define \hyperlink{shared__eph3_8h_ace1f7f6e2b80a1389eca8b6c2f603803}{mc\+\_\+addr\+\_\+get\+\_\+disp}(addr)~((\hyperlink{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{mc\+\_\+addr\+\_\+t})\hyperlink{shared__eph3_8h_a5a38f49ed3413ef19a0d58665038d51f}{mc\+\_\+addr\+\_\+mask\+\_\+ad}(addr))\hypertarget{shared__eph3_8h_ace1f7f6e2b80a1389eca8b6c2f603803}{}\label{shared__eph3_8h_ace1f7f6e2b80a1389eca8b6c2f603803}
+
+\begin{DoxyCompactList}\small\item\em Returns the displacement (local-\/addr) part of \textquotesingle{}addr\textquotesingle{} as mc\+\_\+addr\+\_\+t value. \end{DoxyCompactList}\item 
+\#define \hyperlink{shared__eph3_8h_ab32ee1fae8a7957f09b7f4c8761bbbad}{mc\+\_\+addr\+\_\+set\+\_\+disp}(disp,  addr)~((\hyperlink{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{mc\+\_\+addr\+\_\+t})(\hyperlink{shared__eph3_8h_acfac777017dc7e5711ba1bbcd607f1ac}{mc\+\_\+addr\+\_\+mask\+\_\+id}(addr) $\vert$ \hyperlink{shared__eph3_8h_a5a38f49ed3413ef19a0d58665038d51f}{mc\+\_\+addr\+\_\+mask\+\_\+ad}(disp)))\hypertarget{shared__eph3_8h_ab32ee1fae8a7957f09b7f4c8761bbbad}{}\label{shared__eph3_8h_ab32ee1fae8a7957f09b7f4c8761bbbad}
+
+\begin{DoxyCompactList}\small\item\em Sets the displacement (local-\/addr) part of \textquotesingle{}addr\textquotesingle{} with \textquotesingle{}disp\textquotesingle{}. \end{DoxyCompactList}\item 
+\#define \hyperlink{shared__eph3_8h_aeafb1f7c4523be04133f3bb83d3aa51f}{mc\+\_\+addr\+\_\+same\+\_\+id}(addr1,  addr2)~(\hyperlink{shared__eph3_8h_acfac777017dc7e5711ba1bbcd607f1ac}{mc\+\_\+addr\+\_\+mask\+\_\+id}(addr1) == \hyperlink{shared__eph3_8h_acfac777017dc7e5711ba1bbcd607f1ac}{mc\+\_\+addr\+\_\+mask\+\_\+id}(addr2))\hypertarget{shared__eph3_8h_aeafb1f7c4523be04133f3bb83d3aa51f}{}\label{shared__eph3_8h_aeafb1f7c4523be04133f3bb83d3aa51f}
+
+\begin{DoxyCompactList}\small\item\em True if \textquotesingle{}addr1\textquotesingle{} and \textquotesingle{}addr2\textquotesingle{} have the same id part value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint32\+\_\+t \hyperlink{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{mc\+\_\+addr\+\_\+t}\hypertarget{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{}\label{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}
+
+\begin{DoxyCompactList}\small\item\em Type for epiphany addresses. \end{DoxyCompactList}\item 
+typedef uint16\+\_\+t \hyperlink{shared__eph3_8h_a78c58d809b35d7f23f6e553f63501abc}{mc\+\_\+core\+\_\+id\+\_\+t}\hypertarget{shared__eph3_8h_a78c58d809b35d7f23f6e553f63501abc}{}\label{shared__eph3_8h_a78c58d809b35d7f23f6e553f63501abc}
+
+\begin{DoxyCompactList}\small\item\em Type for core ids. \end{DoxyCompactList}\item 
+typedef uint16\+\_\+t \hyperlink{shared__eph3_8h_a5195d85d43fe92b801691270ac17ab80}{mc\+\_\+core\+\_\+co\+\_\+t}\hypertarget{shared__eph3_8h_a5195d85d43fe92b801691270ac17ab80}{}\label{shared__eph3_8h_a5195d85d43fe92b801691270ac17ab80}
+
+\begin{DoxyCompactList}\small\item\em Type for core coordinates (row and col) \end{DoxyCompactList}\item 
+typedef uint16\+\_\+t \hyperlink{shared__eph3_8h_a5e655de52cd3f3159d373c25daf3811e}{mc\+\_\+core\+\_\+nn\+\_\+t}\hypertarget{shared__eph3_8h_a5e655de52cd3f3159d373c25daf3811e}{}\label{shared__eph3_8h_a5e655de52cd3f3159d373c25daf3811e}
+
+\begin{DoxyCompactList}\small\item\em Type for core numbers (starts in 0) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Addressing functions of the epiphany 3 architecture. 
+

@@ -28,11 +28,92 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
+\#define \hyperlink{shared_8h_adfe18012a9c4655dbd0a0d2f6b95e8f4}{mc\+\_\+addr\+\_\+in\+\_\+host}(addr)~(! \hyperlink{shared_8h_ab23d8aee5985304d89557972be4d9fe5}{mc\+\_\+addr\+\_\+in\+\_\+sys}(addr))\hypertarget{shared_8h_adfe18012a9c4655dbd0a0d2f6b95e8f4}{}\label{shared_8h_adfe18012a9c4655dbd0a0d2f6b95e8f4}
+
+\begin{DoxyCompactList}\small\item\em Returns true if \textquotesingle{}addr\textquotesingle{} is in the host. \end{DoxyCompactList}\item 
+\#define \hyperlink{shared_8h_ae56b9fcaa32d5bbef3648a5f4b964363}{mc\+\_\+dref}(typ\+\_\+nam,  glb\+\_\+pt,  pt\+\_\+field)~((typ\+\_\+nam$\ast$)\hyperlink{shared__eph3_8h_a6894e5bde816e6d104c56ec5a8c8288a}{mc\+\_\+addr\+\_\+set\+\_\+id}(\hyperlink{shared__eph3_8h_a7318efe779877691f45272404b4f14b8}{mc\+\_\+addr\+\_\+get\+\_\+id}(glb\+\_\+pt), (glb\+\_\+pt)-\/$>$pt\+\_\+field))
+\item 
+\#define \hyperlink{shared_8h_acc3b6b8c7e98bd2f71365571ee65f27e}{mc\+\_\+dref\+\_\+field}(cls\+\_\+base,  base,  cls\+\_\+field,  field)~((cls\+\_\+field$\ast$)(uint8\+\_\+t$\ast$)(((uint8\+\_\+t$\ast$)base) + mc\+\_\+offsetof(\&cls\+\_\+base\+::field)))
+\item 
+\#define \hyperlink{shared_8h_a94ea4caeb18b0e5ae7535f96e2f29ae5}{M\+C\+\_\+\+I\+S\+\_\+\+A\+L\+I\+G\+N\+E\+D\+\_\+16}(ptr)~((((uintptr\+\_\+t)ptr) \& 0x1) == 0)\hypertarget{shared_8h_a94ea4caeb18b0e5ae7535f96e2f29ae5}{}\label{shared_8h_a94ea4caeb18b0e5ae7535f96e2f29ae5}
+
+\begin{DoxyCompactList}\small\item\em True if ptr is 16 aligned. \end{DoxyCompactList}\item 
+\#define \hyperlink{shared_8h_ad09dab1e61aa8a22789908a8ce81f096}{M\+C\+\_\+\+I\+S\+\_\+\+A\+L\+I\+G\+N\+E\+D\+\_\+32}(ptr)~((((uintptr\+\_\+t)ptr) \& 0x3) == 0)\hypertarget{shared_8h_ad09dab1e61aa8a22789908a8ce81f096}{}\label{shared_8h_ad09dab1e61aa8a22789908a8ce81f096}
+
+\begin{DoxyCompactList}\small\item\em True if ptr is 32 aligned. \end{DoxyCompactList}\item 
+\#define \hyperlink{shared_8h_aea4d37dafbd166cf46651295bcc642c7}{M\+C\+\_\+\+I\+S\+\_\+\+A\+L\+I\+G\+N\+E\+D\+\_\+64}(ptr)~((((uintptr\+\_\+t)ptr) \& 0x7) == 0)\hypertarget{shared_8h_aea4d37dafbd166cf46651295bcc642c7}{}\label{shared_8h_aea4d37dafbd166cf46651295bcc642c7}
+
+\begin{DoxyCompactList}\small\item\em True if ptr is 64 aligned. \end{DoxyCompactList}\item 
 \#define \hyperlink{shared_8h_a93f939625cf4afc446aa8836e1fecae9}{mc\+\_\+set\+\_\+off\+\_\+core\+\_\+var}(var,  val)\hypertarget{shared_8h_a93f939625cf4afc446aa8836e1fecae9}{}\label{shared_8h_a93f939625cf4afc446aa8836e1fecae9}
 
-\begin{DoxyCompactList}\small\item\em Warranted set of an off-\/core variable (loops until reading the value). Use only if needed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Warranted set of an off-\/core variable (loops until reading the value). Use only if needed. \end{DoxyCompactList}\item 
+\#define \hyperlink{shared_8h_ae6d233c1a9b6eafd7eff6fe36d6f29e2}{mc\+\_\+init\+\_\+arr\+\_\+objs}(sz,  arr,  cls)\hypertarget{shared_8h_ae6d233c1a9b6eafd7eff6fe36d6f29e2}{}\label{shared_8h_ae6d233c1a9b6eafd7eff6fe36d6f29e2}
+
+\begin{DoxyCompactList}\small\item\em Inits an array \textquotesingle{}arr\textquotesingle{} of objects of class \textquotesingle{}cls\textquotesingle{} and size \textquotesingle{}sz\textquotesingle{} with \textquotesingle{}new\textquotesingle{}. \end{DoxyCompactList}\item 
+\#define \hyperlink{shared_8h_a16a1f1c32f08227ccb4396b7e213bc1a}{mc\+\_\+init\+\_\+arr\+\_\+vals}(sz,  arr,  val)\hypertarget{shared_8h_a16a1f1c32f08227ccb4396b7e213bc1a}{}\label{shared_8h_a16a1f1c32f08227ccb4396b7e213bc1a}
+
+\begin{DoxyCompactList}\small\item\em Inits an array \textquotesingle{}arr\textquotesingle{} of objects of size \textquotesingle{}sz\textquotesingle{} with \textquotesingle{}val\textquotesingle{}. \end{DoxyCompactList}\item 
+\#define \hyperlink{shared_8h_a435824ddf21d1cf90aa82f49dd5145b6}{mc\+\_\+host\+\_\+pt\+\_\+to\+\_\+core\+\_\+pt}(pt)~(\hyperlink{shared_8h_acecb9ae3c50cae104c904facc29524e0}{mc\+\_\+host\+\_\+addr\+\_\+to\+\_\+core\+\_\+addr}((\hyperlink{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{mc\+\_\+addr\+\_\+t})(pt)))\hypertarget{shared_8h_a435824ddf21d1cf90aa82f49dd5145b6}{}\label{shared_8h_a435824ddf21d1cf90aa82f49dd5145b6}
+
+\begin{DoxyCompactList}\small\item\em Maps a host pointer to a core pointer. \end{DoxyCompactList}\item 
+\#define \hyperlink{shared_8h_a9e08ea44e8f62251fe4b53180bbfa32d}{mc\+\_\+core\+\_\+pt\+\_\+to\+\_\+host\+\_\+pt}(pt)~(\hyperlink{shared_8h_ae2021049308d2ae58f97c99af7cb2dec}{mc\+\_\+core\+\_\+addr\+\_\+to\+\_\+host\+\_\+addr}((\hyperlink{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{mc\+\_\+addr\+\_\+t})(pt)))\hypertarget{shared_8h_a9e08ea44e8f62251fe4b53180bbfa32d}{}\label{shared_8h_a9e08ea44e8f62251fe4b53180bbfa32d}
+
+\begin{DoxyCompactList}\small\item\em Maps a core pointer to a host pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool mc\+\_\+inline\+\_\+fn \hyperlink{shared_8h_abaff3f227d382122a6a6fa1497d9100d}{mc\+\_\+addr\+\_\+in\+\_\+core} (\hyperlink{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{mc\+\_\+addr\+\_\+t} addr, \hyperlink{shared__eph3_8h_a78c58d809b35d7f23f6e553f63501abc}{mc\+\_\+core\+\_\+id\+\_\+t} koid)\hypertarget{shared_8h_abaff3f227d382122a6a6fa1497d9100d}{}\label{shared_8h_abaff3f227d382122a6a6fa1497d9100d}
+
+\begin{DoxyCompactList}\small\item\em Returns true if \textquotesingle{}addr\textquotesingle{} is local to the core with id \textquotesingle{}koid\textquotesingle{}. \end{DoxyCompactList}\item 
+bool mc\+\_\+inline\+\_\+fn \hyperlink{shared_8h_ab23d8aee5985304d89557972be4d9fe5}{mc\+\_\+addr\+\_\+in\+\_\+sys} (\hyperlink{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{mc\+\_\+addr\+\_\+t} addr)\hypertarget{shared_8h_ab23d8aee5985304d89557972be4d9fe5}{}\label{shared_8h_ab23d8aee5985304d89557972be4d9fe5}
+
+\begin{DoxyCompactList}\small\item\em Returns true if \textquotesingle{}addr\textquotesingle{} is in any of the cores of the epiphany system. \end{DoxyCompactList}\item 
+mc\+\_\+opt\+\_\+sz\+\_\+fn uint8\+\_\+t $\ast$ \hyperlink{shared_8h_afd403e76dcaeb9cb5453552c9f8b76dc}{mc\+\_\+memset} (uint8\+\_\+t $\ast$dest, uint8\+\_\+t val, mc\+\_\+size\+\_\+t sz) mc\+\_\+external\+\_\+code\+\_\+ram\hypertarget{shared_8h_afd403e76dcaeb9cb5453552c9f8b76dc}{}\label{shared_8h_afd403e76dcaeb9cb5453552c9f8b76dc}
+
+\begin{DoxyCompactList}\small\item\em Library E\+X\+T\+E\+R\+N\+AL R\+AM running version of memset. \end{DoxyCompactList}\item 
+mc\+\_\+opt\+\_\+sz\+\_\+fn uint8\+\_\+t $\ast$ \hyperlink{shared_8h_a5130fadda073d4cbfb9164932f0c2406}{mc\+\_\+memcpy} (uint8\+\_\+t $\ast$dest, const uint8\+\_\+t $\ast$src, mc\+\_\+size\+\_\+t sz) mc\+\_\+external\+\_\+code\+\_\+ram\hypertarget{shared_8h_a5130fadda073d4cbfb9164932f0c2406}{}\label{shared_8h_a5130fadda073d4cbfb9164932f0c2406}
+
+\begin{DoxyCompactList}\small\item\em Library E\+X\+T\+E\+R\+N\+AL R\+AM running version of memcpy. \end{DoxyCompactList}\item 
+mc\+\_\+opt\+\_\+sz\+\_\+fn uint8\+\_\+t $\ast$ \hyperlink{shared_8h_a669060a906a0d03c767661937c12dd7a}{mc\+\_\+memmove} (uint8\+\_\+t $\ast$dest, const uint8\+\_\+t $\ast$src, mc\+\_\+size\+\_\+t sz) mc\+\_\+external\+\_\+code\+\_\+ram\hypertarget{shared_8h_a669060a906a0d03c767661937c12dd7a}{}\label{shared_8h_a669060a906a0d03c767661937c12dd7a}
+
+\begin{DoxyCompactList}\small\item\em Library E\+X\+T\+E\+R\+N\+AL R\+AM running version of memmove. \end{DoxyCompactList}\item 
+uint16\+\_\+t \hyperlink{shared_8h_aeb64f4dac086f0c74e6b5a9a53b3237e}{mc\+\_\+strlen} (char $\ast$str) mc\+\_\+external\+\_\+code\+\_\+ram\hypertarget{shared_8h_aeb64f4dac086f0c74e6b5a9a53b3237e}{}\label{shared_8h_aeb64f4dac086f0c74e6b5a9a53b3237e}
+
+\begin{DoxyCompactList}\small\item\em Library E\+X\+T\+E\+R\+N\+AL R\+AM running version of strlen. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{shared_8h_aba7d037fc0a155179c44d5ba470e1f3c}{mc\+\_\+strcmp} (char $\ast$str1, char $\ast$str2) mc\+\_\+external\+\_\+code\+\_\+ram\hypertarget{shared_8h_aba7d037fc0a155179c44d5ba470e1f3c}{}\label{shared_8h_aba7d037fc0a155179c44d5ba470e1f3c}
+
+\begin{DoxyCompactList}\small\item\em Library E\+X\+T\+E\+R\+N\+AL R\+AM running version of strcmp. \end{DoxyCompactList}\item 
+\hyperlink{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{mc\+\_\+addr\+\_\+t} \hyperlink{shared_8h_acecb9ae3c50cae104c904facc29524e0}{mc\+\_\+host\+\_\+addr\+\_\+to\+\_\+core\+\_\+addr} (\hyperlink{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{mc\+\_\+addr\+\_\+t} h\+\_\+addr) mc\+\_\+external\+\_\+code\+\_\+ram\hypertarget{shared_8h_acecb9ae3c50cae104c904facc29524e0}{}\label{shared_8h_acecb9ae3c50cae104c904facc29524e0}
+
+\begin{DoxyCompactList}\small\item\em Maps a host addresses to a core addresses. \end{DoxyCompactList}\item 
+\hyperlink{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{mc\+\_\+addr\+\_\+t} \hyperlink{shared_8h_ae2021049308d2ae58f97c99af7cb2dec}{mc\+\_\+core\+\_\+addr\+\_\+to\+\_\+host\+\_\+addr} (\hyperlink{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{mc\+\_\+addr\+\_\+t} c\+\_\+addr) mc\+\_\+external\+\_\+code\+\_\+ram\hypertarget{shared_8h_ae2021049308d2ae58f97c99af7cb2dec}{}\label{shared_8h_ae2021049308d2ae58f97c99af7cb2dec}
+
+\begin{DoxyCompactList}\small\item\em Maps a core addresses to a host addresses. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 C shared structures (by host and cores). It is included in \hyperlink{global_8h}{global.\+h} and \hyperlink{cell_8hh}{cell.\+hh}. 
 
+
+
+\subsection{Macro Definition Documentation}
+\index{shared.\+h@{shared.\+h}!mc\+\_\+dref@{mc\+\_\+dref}}
+\index{mc\+\_\+dref@{mc\+\_\+dref}!shared.\+h@{shared.\+h}}
+\subsubsection[{\texorpdfstring{mc\+\_\+dref}{mc_dref}}]{\setlength{\rightskip}{0pt plus 5cm}\#define mc\+\_\+dref(
+\begin{DoxyParamCaption}
+\item[{}]{typ\+\_\+nam, }
+\item[{}]{glb\+\_\+pt, }
+\item[{}]{pt\+\_\+field}
+\end{DoxyParamCaption}
+)~((typ\+\_\+nam$\ast$){\bf mc\+\_\+addr\+\_\+set\+\_\+id}({\bf mc\+\_\+addr\+\_\+get\+\_\+id}(glb\+\_\+pt), (glb\+\_\+pt)-\/$>$pt\+\_\+field))}\hypertarget{shared_8h_ae56b9fcaa32d5bbef3648a5f4b964363}{}\label{shared_8h_ae56b9fcaa32d5bbef3648a5f4b964363}
+Remote dereference of a \textquotesingle{}pt\+\_\+field\textquotesingle{} of remote object pointer \textquotesingle{}glb\+\_\+pt\textquotesingle{} (with id) and returns it as a \textquotesingle{}typ\+\_\+nam\textquotesingle{} pointer \index{shared.\+h@{shared.\+h}!mc\+\_\+dref\+\_\+field@{mc\+\_\+dref\+\_\+field}}
+\index{mc\+\_\+dref\+\_\+field@{mc\+\_\+dref\+\_\+field}!shared.\+h@{shared.\+h}}
+\subsubsection[{\texorpdfstring{mc\+\_\+dref\+\_\+field}{mc_dref_field}}]{\setlength{\rightskip}{0pt plus 5cm}\#define mc\+\_\+dref\+\_\+field(
+\begin{DoxyParamCaption}
+\item[{}]{cls\+\_\+base, }
+\item[{}]{base, }
+\item[{}]{cls\+\_\+field, }
+\item[{}]{field}
+\end{DoxyParamCaption}
+)~((cls\+\_\+field$\ast$)(uint8\+\_\+t$\ast$)(((uint8\+\_\+t$\ast$)base) + mc\+\_\+offsetof(\&cls\+\_\+base\+::field)))}\hypertarget{shared_8h_acc3b6b8c7e98bd2f71365571ee65f27e}{}\label{shared_8h_acc3b6b8c7e98bd2f71365571ee65f27e}
+Remote dereference of a \textquotesingle{}field\textquotesingle{} of class \textquotesingle{}cls\+\_\+field\textquotesingle{} in a remote object structure \textquotesingle{}base\textquotesingle{} (not a pointer) of class \textquotesingle{}cls\+\_\+base\textquotesingle{}. 

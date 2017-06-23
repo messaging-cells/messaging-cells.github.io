@@ -1,6 +1,22 @@
 var searchData=
 [
-  ['recv_5fcell_5fhandler',['recv_cell_handler',['../df/de0/send__msg_8cpp.html#a62a0d4f39a307b53420dd89522b62a70',1,'send_msg.cpp']]],
-  ['release',['release',['../d5/d08/classagent.html#a10d8b14221d243aa3906c2d65d3fe7e8',1,'agent']]],
-  ['run_5fsys',['run_sys',['../d3/d9f/classkernel.html#a438f0450a28abb54d058b88ef8cc3d3b',1,'kernel']]]
+  ['mc_5faddr_5fin_5fcore',['mc_addr_in_core',['../da/db4/shared_8h.html#abaff3f227d382122a6a6fa1497d9100d',1,'shared.h']]],
+  ['mc_5faddr_5fin_5fsys',['mc_addr_in_sys',['../da/db4/shared_8h.html#ab23d8aee5985304d89557972be4d9fe5',1,'shared.h']]],
+  ['mc_5fcore_5faddr_5fto_5fhost_5faddr',['mc_core_addr_to_host_addr',['../da/db4/shared_8h.html#ae2021049308d2ae58f97c99af7cb2dec',1,'shared_emu.cpp']]],
+  ['mc_5fhost_5faddr_5fto_5fcore_5faddr',['mc_host_addr_to_core_addr',['../da/db4/shared_8h.html#acecb9ae3c50cae104c904facc29524e0',1,'shared_emu.cpp']]],
+  ['mc_5fmemcpy',['mc_memcpy',['../da/db4/shared_8h.html#a5130fadda073d4cbfb9164932f0c2406',1,'shared.c']]],
+  ['mc_5fmemmove',['mc_memmove',['../da/db4/shared_8h.html#a669060a906a0d03c767661937c12dd7a',1,'shared.c']]],
+  ['mc_5fmemset',['mc_memset',['../da/db4/shared_8h.html#afd403e76dcaeb9cb5453552c9f8b76dc',1,'shared.c']]],
+  ['mc_5fstrcmp',['mc_strcmp',['../da/db4/shared_8h.html#aba7d037fc0a155179c44d5ba470e1f3c',1,'shared.c']]],
+  ['mc_5fstrlen',['mc_strlen',['../da/db4/shared_8h.html#aeb64f4dac086f0c74e6b5a9a53b3237e',1,'shared.c']]],
+  ['mck_5fabort',['mck_abort',['../d2/d49/global_8h.html#a6a6d1065bccc17077e1a6a0aeaa5f6dd',1,'global_emu.cpp']]],
+  ['mck_5fget_5fcall_5fstack_5ftrace',['mck_get_call_stack_trace',['../d1/d1b/trace_8h.html#a8090ce26e45526c1fd1947155a04398a',1,'trace_emu.cpp']]],
+  ['mck_5filog',['mck_ilog',['../d7/d7f/log_8h.html#a14e1de1564f270c82ff08d1b9ad41a66',1,'log.h']]],
+  ['mck_5fiprt',['mck_iprt',['../d7/d7f/log_8h.html#a2d38dfdcdb36720d61e2ce089b3a1524',1,'log.h']]],
+  ['mck_5fslog',['mck_slog',['../d7/d7f/log_8h.html#aae5500dae9c5dfaec69a65d9703dc50a',1,'log.h']]],
+  ['mck_5fsprt',['mck_sprt',['../d7/d7f/log_8h.html#a350919ac512d977b146fb32be02dfecc',1,'log.h']]],
+  ['mck_5fulog',['mck_ulog',['../d7/d7f/log_8h.html#ae0baafcfcbd01d4136efcc7f2605cfcf',1,'log.h']]],
+  ['mck_5fuprt',['mck_uprt',['../d7/d7f/log_8h.html#a4e6bae1c9db8d272256f926852007213',1,'log.h']]],
+  ['mck_5fxlog',['mck_xlog',['../d7/d7f/log_8h.html#aa4f0190d914cecf5db43914dc69f7129',1,'log.h']]],
+  ['mck_5fxprt',['mck_xprt',['../d7/d7f/log_8h.html#ad30d3b396a981772ee5d44dc332c2886',1,'log.h']]]
 ];

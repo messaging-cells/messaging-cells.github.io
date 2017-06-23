@@ -90,6 +90,7 @@ Despite all these wonderful features. You still are supposed to understand the e
 <p>
 The user is expected to be aware of the kind of addressing been used for a library object at any given time.
 
+<p>
 Whether it is: 
 
 <ul>
