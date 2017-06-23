@@ -101,11 +101,25 @@ Classes</h2></td></tr>
 <p>Module describing messaging. </p>
 <p>Messagging is done beetween two <a class="el" href="../../d2/dbe/classcell.html">cell</a> s by sending <a class="el" href="../../d4/d9f/classmissive.html">missive</a> s. So no messages ;)</p>
 <p>The most simple example of messaging usage is the  <a class="el" href="../../df/de0/send__msg_8cpp.html" title="Simple send missive example. ">send_msg.cpp</a> program.</p>
-<p>The classical more complex example of the <a href="https://en.wikipedia.org/wiki/Dining_philosophers_problem">eating philosophers</a> is coded in the  <a class="el" href="../../d7/d85/philo_8cpp.html" title="The classical example of the eating philosophers. ">philo.cpp</a> program and shows some <a class="el" href="../../d4/dab/group__docgrp__addressing__features.html">Addressing features</a> and <a class="el" href="../../d9/d4f/group__docgrp__memory__features.html">Memory features</a> of the library. </p>
+<p>The classical more complex example of the <a href="https://en.wikipedia.org/wiki/Dining_philosophers_problem" target="blank">eating philosophers</a> is coded in the  <a class="el" href="../../d7/d85/philo_8cpp.html" title="Implementation of the classical concurrency example of the eating philosophers. ">philo.cpp</a> program and shows some <a class="el" href="../../d4/dab/group__docgrp__addressing__features.html">Addressing features</a> and <a class="el" href="../../d9/d4f/group__docgrp__memory__features.html">Memory features</a> of the library.</p>
+<p>Messaging has deterministic behaviour. No indeterminism. Unlike the <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a>.</p>
+<p>For a any pair of cells Cell_A and Cell_B: </p><ul>
+<li>
+A message sent by Cell_A is always received by Cell_B only once. </li>
+<li>
+Messages are always received by Cell_B in the same order they are sent by Cell_A. </li>
+<li>
+Cell_A (sending) always does local core writing and Cell_B (receiving) always does remote core reading. No message copying. </li>
+</ul>
+<p><br />
+<br />
+<br />
+<br />
+ </p>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 22 2017 16:32:35 for Library-Documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jun 23 2017 15:00:21 for Library-Documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

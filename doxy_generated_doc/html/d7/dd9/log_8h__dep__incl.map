@@ -1,8 +1,11 @@
 <map id="/home/jose/devel/messaging&#45;cells/src/cells/log.h" name="/home/jose/devel/messaging&#45;cells/src/cells/log.h">
-<area shape="rect" id="node2" href="$da/db4/shared_8h.html" title="C shared structures (by host and cores). It is included in global.h and cell.hh. " alt="" coords="217,95,405,136"/>
-<area shape="rect" id="node3" href="$d2/d49/global_8h.html" title="Global functions. It is included in cell.hh. " alt="" coords="217,184,405,225"/>
-<area shape="rect" id="node4" href="$da/d7a/cell_8hh.html" title="The one and only include file necessarry to use the Messagging Cells library. " alt="" coords="217,273,405,315"/>
-<area shape="rect" id="node5" href="$d7/d85/philo_8cpp.html" title="The classical example of the eating philosophers. " alt="" coords="5,363,193,419"/>
+<area shape="rect" id="node2" href="$da/db4/shared_8h.html" title="C shared structures (by host and cores). It is included in global.h and cell.hh. " alt="" coords="535,95,723,136"/>
+<area shape="rect" id="node3" href="$d2/d49/global_8h.html" title="Global functions. It is included in cell.hh. " alt="" coords="535,184,723,225"/>
+<area shape="rect" id="node4" href="$da/d7a/cell_8hh.html" title="The one and only include file necessarry to use the Messagging Cells library. " alt="" coords="535,273,723,315"/>
+<area shape="rect" id="node5" href="$d7/d85/philo_8cpp.html" title="Implementation of the classical concurrency example of the eating philosophers. " alt="" coords="5,363,193,419"/>
 <area shape="rect" id="node6" href="$d0/d67/hello__world_8cpp.html" title="Minimal library example. " alt="" coords="217,363,405,419"/>
-<area shape="rect" id="node7" href="$df/de0/send__msg_8cpp.html" title="Simple send missive example. " alt="" coords="429,363,617,419"/>
+<area shape="rect" id="node7" href="$d9/df9/common_8cpp.html" title="Common file for all modules of the modules example example. " alt="" coords="429,363,617,419"/>
+<area shape="rect" id="node8" href="$d1/dff/mods__test_8cpp.html" title="Main file for the modules example. " alt="" coords="641,363,829,419"/>
+<area shape="rect" id="node9" href="$da/d8f/pru__1_8cpp.html" title="This is first module of the modules example example. " alt="" coords="853,363,1041,419"/>
+<area shape="rect" id="node10" href="$df/de0/send__msg_8cpp.html" title="Simple send missive example. " alt="" coords="1065,363,1253,419"/>
 </map>

@@ -1,0 +1,75 @@
+\hypertarget{common_8cpp}{}\section{/home/jose/devel/messaging-\/cells/src/tests/modules/common.cpp File Reference}
+\label{common_8cpp}\index{/home/jose/devel/messaging-\/cells/src/tests/modules/common.\+cpp@{/home/jose/devel/messaging-\/cells/src/tests/modules/common.\+cpp}}
+
+
+Common file for all modules of the \hyperlink{group__docgrp__modules}{modules example} example.  
+
+
+{\ttfamily \#include \char`\"{}cell.\+hh\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\\*
+Include dependency graph for common.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{d0/d14/common_8cpp__incl}
+\end{center}
+\end{figure}
+
+
+\subsection{Detailed Description}
+Common file for all modules of the \hyperlink{group__docgrp__modules}{modules example} example. 
+
+
+\begin{DoxyCodeInclude}
+\textcolor{comment}{//----------------------------------------------------------------------------}
+\textcolor{comment}{}\textcolor{preprocessor}{#include "\hyperlink{cell_8hh}{cell.hh}"}
+\textcolor{preprocessor}{#include "common.h"}
+
+\textcolor{keywordtype}{long} some\_glb\_val mc\_comm\_dat = 6;
+
+
+\textcolor{comment}{// THE FOLLOWING COMMENTED LINE generates code of all }
+\textcolor{comment}{//      *static\_initialization\_and\_destruction* functions}
+\textcolor{comment}{//      *\_GLOBAL\_\_sub\_I\_main* functions (wrappers to the first)}
+\textcolor{comment}{//}
+\textcolor{comment}{// NEVER USE GLOBAL VARIABLES (EMULATOR WILL NOT WORK)}
+
+\textcolor{comment}{//comm\_cla some\_comm\_obj mc\_comm\_dat;  }
+
+\textcolor{comment}{// INSTED USE GLOBAL POINTER AND EXPLICITLY INITIALIZE A START UP TIME}
+
+comm\_cla* some\_comm\_obj mc\_comm\_dat = mc\_null;
+
+\textcolor{keywordtype}{void} comm\_f1\_core()\{
+    \textcolor{comment}{//comm\_cla oo;}
+    prts(\textcolor{stringliteral}{"comm\_f1\_core \(\backslash\)n"});
+    comm\_f2\_core();
+\}
+
+\textcolor{keywordtype}{void} comm\_f2\_core()\{
+    \textcolor{comment}{//cell a;}
+    prts(\textcolor{stringliteral}{"comm\_f2\_core \(\backslash\)n"});
+\}
+
+\textcolor{keywordtype}{void} comm\_prt(\textcolor{keywordtype}{char}* val)\{
+\}
+
+\textcolor{keywordtype}{void}
+comm\_cla::method1()\{
+\}
+
+comm\_cla::comm\_cla()\{
+    init\_comm\_cla();
+\}
+
+comm\_cla::~comm\_cla()\{
+\}
+
+\textcolor{keywordtype}{void}
+comm\_cla::init\_comm\_cla()\{
+    aa = 7;
+    bb = 33;
+\}
+
+\end{DoxyCodeInclude}
+ 

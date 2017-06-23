@@ -1,36 +1,60 @@
 <!-- START_OF index.txt -->
 
-<h1>Proofs</h1>
+<h1>Modules example</h1>
 
 <p>
-ben-jose can generate proofs for unsatisfiable formulas. 
+An example in how to partition your code in as many modules as you can fit in the 
+configurable (in the link script) shared external RAM memory. Usually 16 MB for the Parallella board.
+
+<h2>Compiling the Moudles Example</h2>
 
 <p>
-Assuming the program ''bj-batch-solver'' is in the path, and from the source tree directory:
-
-<pre>
-	cd ben-jose-master/src/programs/tests/solver
-	sh clean_sh
-	bj-solver-debug ./h4.cnf -proof -root .
-	firefox ./SKELETON/CNF/Show_Proof.htm &
-</pre>
-
-<p>
-the bj-batch-solver program will use the bjp_write_proofs library option to generate the proof of the unsatisfiable instance ''h4.cnf'' in JSON format. 
-
-<p>
-Then:
-<ol>
+The files:
+<ul>
 <li>
-<p>
-Copy the (very long) path printed in the standard output under "LAST_PROOF_PATH=" to the text area field in the Show_Proof.htm HTML page.
-
-<p>
-Paths must begin with ''/SKELETON'', so get rid of the prefix before it.
-
+<code><a href="https://github.com/messaging-cells/messaging-cells/blob/master/src/tests/main.mk">messaging-cells/src/tests/main.mk</a></code>
 <li>
-Click ''LOAD\_FILE''
-</ol>
+<code><a href="https://github.com/messaging-cells/messaging-cells/blob/master/src/tests/nil_host/nil_host.mk">messaging-cells/src/tests/nil_host/nil_host.mk</a></code>
+<li>
+<code><a href="https://github.com/messaging-cells/messaging-cells/blob/master/src/tests/modules/modules.mk">messaging-cells/src/tests/modules/modules.mk</a></code>
+</ul>
+
+<p>
+are the ones needed to generate the files:
+
+<ul>
+<li>
+<code>messaging-cells/src/tests/bin/nil-host.elf</code>
+<li>
+<code>messaging-cells/src/tests/bin/modules/modules.elf</code>
+</ul>
+
+<p>
+that get called by <code><a href="https://github.com/messaging-cells/messaging-cells/blob/master/modules.sh">messaging-cells/modules.sh</a></code>
+
+<h2>Running the Moudles Example</h2>
+
+<p>
+Just call <code><a href="https://github.com/messaging-cells/messaging-cells/blob/master/modules.sh">messaging-cells/modules.sh</a></code>
+
+<p>
+The output will be written to the logs in: 
+
+<ul>
+<li>
+<code>messaging-cells/src/tests/bin/log_*</code> 
+</ul>
+
+<p>
+files. 
+
+<p>
+One per core.
+
+<h2>Understanding</h2>
+
+<p>
+Do not forget to read the example documentation in the <a href="doxy_generated_doc/html/index.html">Library Documentation</a>.
 
 <br>
 <br>

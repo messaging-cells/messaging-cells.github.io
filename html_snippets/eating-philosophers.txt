@@ -1,42 +1,66 @@
 <!-- START_OF index.txt -->
 
-<H1> bj-phi </h1>
+<h1>Eating Philosophers example</h1>
 
 <p>
-Tha bj-phi program that comes with the library generates HTML pages with 
-<a href="http://js.cytoscape.org/">cytoscape.js</a> graphs to visualize the solving of 
-Pigeon Hole Principle (PHP) instances.
+The classical concurrency example of the 
+<a href="https://en.wikipedia.org/wiki/Dining_philosophers_problem" target="blank">eating philosophers</a>
+is compiled as part of a normal build of the library.
+
+
+<h2>Compiling Eating Philosophers</h2>
 
 <p>
-Assuming the program ''bj-phi'' is in the path, and from the source tree directory, do:
-
-<pre>
-	cd ben-jose/src/programs/tests/phi
-	sh clean_sh
-	bj-phi 4
-	firefox ./phi_hole_4/phi_hole_4_all_steps.htm &
-</pre>
-
-<p>
-will execute the bj-phi program for PHP-4 and it will use the file 
-
-<pre>
-	./dbg_ben_jose.conf
-</pre>
+The files:
+<ul>
+<li>
+<code><a href="https://github.com/messaging-cells/messaging-cells/blob/master/src/tests/main.mk">messaging-cells/src/tests/main.mk</a></code>
+<li>
+<code><a href="https://github.com/messaging-cells/messaging-cells/blob/master/src/tests/nil_host/nil_host.mk">messaging-cells/src/tests/nil_host/nil_host.mk</a></code>
+<li>
+<code><a href="https://github.com/messaging-cells/messaging-cells/blob/master/src/tests/eating_philo/philo_eph.mk">messaging-cells/src/tests/eating_philo/philo_eph.mk</a></code>
+<li>
+And optionally <code><a href="https://github.com/messaging-cells/messaging-cells/blob/master/src/tests/eating_philo/philo_emu.mk">messaging-cells/src/tests/eating_philo/philo_emu.mk</a></code>
+</ul>
 
 <p>
-to configure the debugging system to generate an HTML log file of the the solving process for PHP-4. 
+are the ones needed to generate the files:
 
-<div class="alert alert-warning" role="alert">
-The second run generates different HTML because it does only <strong>one</strong> backtrack.
-</div>
+<ul>
+<li>
+<code>messaging-cells/src/tests/bin/nil-host.elf</code>
+<li>
+<code>messaging-cells/src/tests/bin/philo_eph.elf</code>
+<li>
+And optionally <code>messaging-cells/src/tests/bin/philo_emu.elf</code>
+</ul>
 
 <p>
-In order to restart the original state before the first run: that is to delete the {\skeleton} and the generated files by bj-phi simply run:
+that get called by <code><a href="https://github.com/messaging-cells/messaging-cells/blob/master/philo.sh">messaging-cells/philo.sh</a></code> and optionally <code><a href="https://github.com/messaging-cells/messaging-cells/blob/master/emu_philo.sh">messaging-cells/emu_philo.sh</a></code>
 
-<pre>
-	sh ./clean_sh
-</pre>
+<h2>Running Eating Philosophers</h2>
+
+<p>
+Just call <code><a href="https://github.com/messaging-cells/messaging-cells/blob/master/philo.sh">messaging-cells/philo.sh</a></code>
+
+<p>
+The output will be written to the logs in: 
+
+<ul>
+<li>
+<code>messaging-cells/src/tests/bin/log_*</code> 
+</ul>
+
+<p>
+files. 
+
+<p>
+One per core.
+
+<h2>Understanding</h2>
+
+<p>
+Do not forget to read the example documentation in the <a href="doxy_generated_doc/html/index.html">Library Documentation</a>.
 
 <br>
 <br>

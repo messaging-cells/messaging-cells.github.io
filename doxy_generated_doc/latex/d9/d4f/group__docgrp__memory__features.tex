@@ -7,3 +7,44 @@ Module describing memory features.
 
 Module describing memory features. 
 
+\subsubsection*{In-\/core R\+AM partitions}
+
+The R\+AM memory of each core is divided in\+:
+
+
+\begin{DoxyEnumerate}
+\item Kernel code. 
+\item Stack. 
+\item Module code. See \hyperlink{group__docgrp__loading__features}{Loading features} 
+\item Dynamically allocatable memory. 
+\end{DoxyEnumerate}
+
+The sizes and location are configurable in the G\+NU link script. See \hyperlink{group__docgrp__linking__features}{Linking features}.
+
+\subsubsection*{Dynamic memory}
+
+The in-\/core dynamic memory is handled in a two fold way\+:
+
+\paragraph*{First time heap allocation}
+
+The first time an object is allocated the library calls external code (off-\/core) of the \href{https://github.com/dimonomid/umm_malloc}{\tt umm\+\_\+malloc} allocator.
+
+\paragraph*{Reusing objects}
+
+Objects are never really expected to be freed (umm\+\_\+free call) under normal use of the library. They just get acquired (see for example \hyperlink{classcell_ad710b11caf02e0a3d2e281cb0d46a44b}{cell\+::acquire}) and when finisehd using them they get inited and put in a pre-\/class double linked list by the \hyperlink{classagent_a10d8b14221d243aa3906c2d65d3fe7e8}{agent\+::release} method.
+
+The per-\/class acquire and \hyperlink{classagent_a10d8b14221d243aa3906c2d65d3fe7e8}{agent\+::release} are small footprint methods runned from in-\/core memory (as opposed to the umm\+\_\+malloc functions) that can be used in the user\textquotesingle{}s high performance code.
+
+This double folded approach to memory managment also helps to avoid bad referencing of objects because a \hyperlink{classcell}{cell} might have been \hyperlink{classagent_a10d8b14221d243aa3906c2d65d3fe7e8}{agent\+::release} d but the reference is still valid, so the code will not behave as expected (there is an error) but it will not hang.
+
+Functions like \hyperlink{classcell_ad09500ef03d2ccb60de17f189ba59b9e}{cell\+::separate} \hyperlink{classcell_ad710b11caf02e0a3d2e281cb0d46a44b}{cell\+::acquire} are provided for base classes but the user is expected to use macro \hyperlink{cell_8hh_ab43adc7961f0b5b06463b122ae598993}{M\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+\_\+\+M\+E\+T\+H\+O\+DS} and macro \hyperlink{cell_8hh_a9095d9f262f63984c60799e4a3b135c5}{M\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+M\+E\+M\+\_\+\+M\+E\+T\+H\+O\+DS} to declare and define these functions for derived classes. The macro \hyperlink{cell_8hh_aad0dec1d661f1fdb5a2ccb767d712c75}{M\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+A\+C\+Q\+U\+I\+R\+E\+\_\+\+A\+L\+L\+OC} can also be used for classes of objects that will not get \hyperlink{classagent_a10d8b14221d243aa3906c2d65d3fe7e8}{agent\+::release} d and therefore do not declare an available list.
+
+\paragraph*{Eating Philosophers}
+
+The classical example \href{https://en.wikipedia.org/wiki/Dining_philosophers_problem}{\tt eating philosophers} for synchronizing concurrency is given in the  \hyperlink{philo_8cpp}{philo.\+cpp} example program.
+
+~\newline
+~\newline
+~\newline
+~\newline
+ 

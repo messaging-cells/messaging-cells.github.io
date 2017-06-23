@@ -21,4 +21,19 @@ Messagging is done beetween two \hyperlink{classcell}{cell} s by sending \hyperl
 
 The most simple example of messaging usage is the  \hyperlink{send__msg_8cpp}{send\+\_\+msg.\+cpp} program.
 
-The classical more complex example of the \href{https://en.wikipedia.org/wiki/Dining_philosophers_problem}{\tt eating philosophers} is coded in the  \hyperlink{philo_8cpp}{philo.\+cpp} program and shows some \hyperlink{group__docgrp__addressing__features}{Addressing features} and \hyperlink{group__docgrp__memory__features}{Memory features} of the library. 
+The classical more complex example of the \href{https://en.wikipedia.org/wiki/Dining_philosophers_problem}{\tt eating philosophers} is coded in the  \hyperlink{philo_8cpp}{philo.\+cpp} program and shows some \hyperlink{group__docgrp__addressing__features}{Addressing features} and \hyperlink{group__docgrp__memory__features}{Memory features} of the library.
+
+Messaging has deterministic behaviour. No indeterminism. Unlike the \href{https://en.wikipedia.org/wiki/Actor_model}{\tt Actor Model}.
+
+For a any pair of cells Cell\+\_\+A and Cell\+\_\+B\+: 
+\begin{DoxyItemize}
+\item A message sent by Cell\+\_\+A is always received by Cell\+\_\+B only once. 
+\item Messages are always received by Cell\+\_\+B in the same order they are sent by Cell\+\_\+A. 
+\item Cell\+\_\+A (sending) always does local core writing and Cell\+\_\+B (receiving) always does remote core reading. No message copying. 
+\end{DoxyItemize}
+
+~\newline
+~\newline
+~\newline
+~\newline
+ 

@@ -1,5 +1,8 @@
 <map id="/home/jose/devel/messaging&#45;cells/src/cells/cell.hh" name="/home/jose/devel/messaging&#45;cells/src/cells/cell.hh">
-<area shape="rect" id="node2" href="$d7/d85/philo_8cpp.html" title="The classical example of the eating philosophers. " alt="" coords="5,95,193,151"/>
+<area shape="rect" id="node2" href="$d7/d85/philo_8cpp.html" title="Implementation of the classical concurrency example of the eating philosophers. " alt="" coords="5,95,193,151"/>
 <area shape="rect" id="node3" href="$d0/d67/hello__world_8cpp.html" title="Minimal library example. " alt="" coords="217,95,405,151"/>
-<area shape="rect" id="node4" href="$df/de0/send__msg_8cpp.html" title="Simple send missive example. " alt="" coords="429,95,617,151"/>
+<area shape="rect" id="node4" href="$d9/df9/common_8cpp.html" title="Common file for all modules of the modules example example. " alt="" coords="429,95,617,151"/>
+<area shape="rect" id="node5" href="$d1/dff/mods__test_8cpp.html" title="Main file for the modules example. " alt="" coords="641,95,829,151"/>
+<area shape="rect" id="node6" href="$da/d8f/pru__1_8cpp.html" title="This is first module of the modules example example. " alt="" coords="853,95,1041,151"/>
+<area shape="rect" id="node7" href="$df/de0/send__msg_8cpp.html" title="Simple send missive example. " alt="" coords="1065,95,1253,151"/>
 </map>
