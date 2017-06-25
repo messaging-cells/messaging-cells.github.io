@@ -1,7 +1,8 @@
 <map id="/home/jose/devel/messaging&#45;cells/src/tests/modules/pru_1.cpp" name="/home/jose/devel/messaging&#45;cells/src/tests/modules/pru_1.cpp">
 <area shape="rect" id="node2" href="$da/d7a/cell_8hh.html" title="The one and only include file necessarry to use the Messagging Cells library. " alt="" coords="189,109,249,136"/>
 <area shape="rect" id="node4" href="$d2/d49/global_8h.html" title="Global functions. It is included in cell.hh. " alt="" coords="227,184,294,211"/>
-<area shape="rect" id="node5" href="$da/db4/shared_8h.html" title="C shared structures (by host and cores). It is included in global.h and cell.hh. " alt="" coords="171,259,243,285"/>
-<area shape="rect" id="node10" href="$d1/d1b/trace_8h.html" title="Trace functions. " alt="" coords="284,259,347,285"/>
-<area shape="rect" id="node9" href="$d7/d7f/log_8h.html" title="Defines log functions and macros. " alt="" coords="245,333,295,360"/>
+<area shape="rect" id="node5" href="$da/db4/shared_8h.html" title="C shared structures (by host and cores). It is included in global.h and cell.hh. " alt="" coords="162,333,234,360"/>
+<area shape="rect" id="node10" href="$db/db8/loader_8h.html" title="Macros to access the linker script values. " alt="" coords="227,259,295,285"/>
+<area shape="rect" id="node11" href="$d1/d1b/trace_8h.html" title="Trace functions. " alt="" coords="301,333,364,360"/>
+<area shape="rect" id="node9" href="$d7/d7f/log_8h.html" title="Defines log functions and macros. " alt="" coords="245,408,295,435"/>
 </map>

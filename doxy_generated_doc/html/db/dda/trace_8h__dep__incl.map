@@ -1,10 +1,11 @@
 <map id="/home/jose/devel/messaging&#45;cells/src/cells/trace.h" name="/home/jose/devel/messaging&#45;cells/src/cells/trace.h">
-<area shape="rect" id="node2" href="$d2/d49/global_8h.html" title="Global functions. It is included in cell.hh. " alt="" coords="535,95,723,136"/>
-<area shape="rect" id="node3" href="$da/d7a/cell_8hh.html" title="The one and only include file necessarry to use the Messagging Cells library. " alt="" coords="535,184,723,225"/>
-<area shape="rect" id="node4" href="$d7/d85/philo_8cpp.html" title="Implementation of the classical concurrency example of the eating philosophers. " alt="" coords="5,273,193,329"/>
-<area shape="rect" id="node5" href="$d0/d67/hello__world_8cpp.html" title="Minimal library example. " alt="" coords="217,273,405,329"/>
-<area shape="rect" id="node6" href="$d9/df9/common_8cpp.html" title="Common file for all modules of the modules example example. " alt="" coords="429,273,617,329"/>
-<area shape="rect" id="node7" href="$d1/dff/mods__test_8cpp.html" title="Main file for the modules example. " alt="" coords="641,273,829,329"/>
-<area shape="rect" id="node8" href="$da/d8f/pru__1_8cpp.html" title="This is first module of the modules example example. " alt="" coords="853,273,1041,329"/>
-<area shape="rect" id="node9" href="$df/de0/send__msg_8cpp.html" title="Simple send missive example. " alt="" coords="1065,273,1253,329"/>
+<area shape="rect" id="node2" href="$d2/d49/global_8h.html" title="Global functions. It is included in cell.hh. " alt="" coords="428,95,616,136"/>
+<area shape="rect" id="node3" href="$d6/d5d/broadcast__maps__eph_8c.html" title="Standard parallel broadcast maps (they are also used a parallel loading maps). " alt="" coords="323,184,511,240"/>
+<area shape="rect" id="node4" href="$da/d7a/cell_8hh.html" title="The one and only include file necessarry to use the Messagging Cells library. " alt="" coords="535,191,723,233"/>
+<area shape="rect" id="node5" href="$d7/d85/philo_8cpp.html" title="Implementation of the classical concurrency example of the eating philosophers. " alt="" coords="5,288,193,344"/>
+<area shape="rect" id="node6" href="$d0/d67/hello__world_8cpp.html" title="Minimal library example. " alt="" coords="217,288,405,344"/>
+<area shape="rect" id="node7" href="$d9/df9/common_8cpp.html" title="Common file for all modules of the modules example example. " alt="" coords="429,288,617,344"/>
+<area shape="rect" id="node8" href="$d1/dff/mods__test_8cpp.html" title="Main file for the modules example. " alt="" coords="641,288,829,344"/>
+<area shape="rect" id="node9" href="$da/d8f/pru__1_8cpp.html" title="This is first module of the modules example example. " alt="" coords="853,288,1041,344"/>
+<area shape="rect" id="node10" href="$df/de0/send__msg_8cpp.html" title="Simple send missive example. " alt="" coords="1065,288,1253,344"/>
 </map>

@@ -1,6 +1,7 @@
 <map id="/home/jose/devel/messaging&#45;cells/src/cells/cell.hh" name="/home/jose/devel/messaging&#45;cells/src/cells/cell.hh">
 <area shape="rect" id="node3" href="$d2/d49/global_8h.html" title="Global functions. It is included in cell.hh. " alt="" coords="227,95,294,121"/>
-<area shape="rect" id="node4" href="$da/db4/shared_8h.html" title="C shared structures (by host and cores). It is included in global.h and cell.hh. " alt="" coords="171,169,243,196"/>
-<area shape="rect" id="node9" href="$d1/d1b/trace_8h.html" title="Trace functions. " alt="" coords="284,169,347,196"/>
-<area shape="rect" id="node8" href="$d7/d7f/log_8h.html" title="Defines log functions and macros. " alt="" coords="245,244,295,271"/>
+<area shape="rect" id="node4" href="$da/db4/shared_8h.html" title="C shared structures (by host and cores). It is included in global.h and cell.hh. " alt="" coords="162,244,234,271"/>
+<area shape="rect" id="node9" href="$db/db8/loader_8h.html" title="Macros to access the linker script values. " alt="" coords="227,169,295,196"/>
+<area shape="rect" id="node10" href="$d1/d1b/trace_8h.html" title="Trace functions. " alt="" coords="301,244,364,271"/>
+<area shape="rect" id="node8" href="$d7/d7f/log_8h.html" title="Defines log functions and macros. " alt="" coords="245,319,295,345"/>
 </map>

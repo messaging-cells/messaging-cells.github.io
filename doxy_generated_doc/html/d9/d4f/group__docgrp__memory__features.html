@@ -109,7 +109,7 @@ Dynamically allocatable memory. </li>
 <p>This double folded approach to memory managment also helps to avoid bad referencing of objects because a <a class="el" href="../../d2/dbe/classcell.html">cell</a> might have been <a class="el" href="../../d5/d08/classagent.html#a10d8b14221d243aa3906c2d65d3fe7e8">agent::release</a> d but the reference is still valid, so the code will not behave as expected (there is an error) but it will not hang.</p>
 <p>Functions like <a class="el" href="../../d2/dbe/classcell.html#ad09500ef03d2ccb60de17f189ba59b9e">cell::separate</a> <a class="el" href="../../d2/dbe/classcell.html#ad710b11caf02e0a3d2e281cb0d46a44b">cell::acquire</a> are provided for base classes but the user is expected to use macro <a class="el" href="../../da/d7a/cell_8hh.html#ab43adc7961f0b5b06463b122ae598993">MCK_DECLARE_MEM_METHODS</a> and macro <a class="el" href="../../da/d7a/cell_8hh.html#a9095d9f262f63984c60799e4a3b135c5">MCK_DEFINE_MEM_METHODS</a> to declare and define these functions for derived classes. The macro <a class="el" href="../../da/d7a/cell_8hh.html#aad0dec1d661f1fdb5a2ccb767d712c75">MCK_DEFINE_ACQUIRE_ALLOC</a> can also be used for classes of objects that will not get <a class="el" href="../../d5/d08/classagent.html#a10d8b14221d243aa3906c2d65d3fe7e8">agent::release</a> d and therefore do not declare an available list.</p>
 <h3>Eating Philosophers</h3>
-<p>The classical example <a href="https://en.wikipedia.org/wiki/Dining_philosophers_problem" target="blank">eating philosophers</a> for synchronizing concurrency is given in the  <a class="el" href="../../d7/d85/philo_8cpp.html" title="Implementation of the classical concurrency example of the eating philosophers. ">philo.cpp</a> example program.</p>
+<p>The classical example <a href="https://en.wikipedia.org/wiki/Dining_philosophers_problem" target="blank">eating philosophers</a> for synchronizing concurrency is given in the <a class="el" href="../../d7/d85/philo_8cpp.html">philo.cpp</a> example program.</p>
 <p><br />
 <br />
 <br />
@@ -118,7 +118,7 @@ Dynamically allocatable memory. </li>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 23 2017 17:54:08 for Library-Documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 25 2017 14:40:47 for Library-Documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

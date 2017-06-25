@@ -1,0 +1,190 @@
+\hypertarget{mc-linker-script_8ldf}{}\section{/home/jose/devel/messaging-\/cells/src/tests/mc-\/linker-\/script.ldf File Reference}
+\label{mc-linker-script_8ldf}\index{/home/jose/devel/messaging-\/cells/src/tests/mc-\/linker-\/script.\+ldf@{/home/jose/devel/messaging-\/cells/src/tests/mc-\/linker-\/script.\+ldf}}
+
+
+Examples link script.  
+
+
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{mc-linker-script_8ldf_a1e42067d0ff1bd155172de57b3cb1d31}{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+R\+A\+M\+\_\+\+S\+I\+ZE} = 32M
+\item 
+\hyperlink{mc-linker-script_8ldf_a7ffb2a4d11dc3f8525118fda05b7ea6f}{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+C\+O\+D\+E\+\_\+\+S\+I\+ZE} = 8M
+\item 
+\hyperlink{mc-linker-script_8ldf_a473bdda595a0d9c1cd9203c5921f375b}{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+L\+O\+A\+D\+\_\+\+S\+I\+ZE} = 8M
+\item 
+\hyperlink{mc-linker-script_8ldf_a4e1cc83fd4bdc2f8d4043d234ccec467}{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+H\+O\+S\+T\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+ZE} = 8M
+\item 
+\hyperlink{mc-linker-script_8ldf_a3d73df27a342f2baa037692223d1c554}{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+H\+O\+S\+T\+\_\+\+A\+L\+L\+O\+C\+\_\+\+S\+I\+ZE} = 8M
+\item 
+\hyperlink{mc-linker-script_8ldf_a45d7e0f4e6a8c511db2e1abb759b99e2}{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+I\+V\+T\+\_\+\+S\+I\+ZE} = 0x30
+\item 
+\hyperlink{mc-linker-script_8ldf_afa39e4e7de05fdfdc5a17517d9bc8cfb}{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+C\+O\+D\+E\+\_\+\+S\+I\+ZE} = 5k -\/ L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+I\+V\+T\+\_\+\+S\+I\+ZE
+\item 
+\hyperlink{mc-linker-script_8ldf_a492ce128797ec1c3e8b14f55135540c5}{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE} = 8k -\/ L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+C\+O\+D\+E\+\_\+\+S\+I\+Z\+E -\/ L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+I\+V\+T\+\_\+\+S\+I\+ZE
+\item 
+\hyperlink{mc-linker-script_8ldf_a3e26dabbe57c89615c49524a784785e7}{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+I\+ZE} = 12k
+\item 
+\hyperlink{mc-linker-script_8ldf_a4fd8385ed9642eeb8782b348cc628d61}{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+A\+L\+L\+O\+C\+\_\+\+S\+I\+ZE} = 12k
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Examples link script. 
+
+These variables are used inside the user program using the macros defined in file \hyperlink{loader_8h}{loader.\+h}
+
+
+\begin{DoxyCodeInclude}
+
+OUTPUT\_FORMAT(\textcolor{stringliteral}{"elf32-epiphany"}, \textcolor{stringliteral}{"elf32-epiphany"}, \textcolor{stringliteral}{"elf32-epiphany"})
+OUTPUT\_ARCH(epiphany)
+ENTRY(\_start)
+
+PROVIDE (\_\_\_bss\_start = \_\_bss\_start);
+
+\textcolor{comment}{/* =============================================================================================== }
+\textcolor{comment}{USER DEFINED SIZES}
+\textcolor{comment}{*/}
+
+\hyperlink{loader_8h_a82488e8ce821bbf5d60a0d72118979c4}{LD\_EXTERNAL\_RAM\_SIZE} = 32M; 
+LD\_EXTERNAL\_CODE\_SIZE = 8M; 
+LD\_EXTERNAL\_LOAD\_SIZE = 8M; 
+LD\_EXTERNAL\_HOST\_DATA\_SIZE = 8M;    
+\hyperlink{loader_8h_a5ada5743900ad78089fb924fa17124f0}{LD\_EXTERNAL\_HOST\_ALLOC\_SIZE} = 8M;    
+
+LD\_CORE\_IVT\_SIZE = 0x30;
+LD\_CORE\_CODE\_SIZE = 5k - LD\_CORE\_IVT\_SIZE;
+LD\_CORE\_STACK\_SIZE = 8k - LD\_CORE\_CODE\_SIZE - LD\_CORE\_IVT\_SIZE;
+LD\_CORE\_MODULE\_SIZE = 12k;
+LD\_CORE\_ALLOC\_SIZE = 12k;
+
+\textcolor{comment}{/* =============================================================================================== */}
+
+LD\_EXTERNAL\_RAM\_ORIG = 0x8e000000;
+LD\_EXTERNAL\_CODE\_ORIG = LD\_EXTERNAL\_RAM\_ORIG;
+LD\_EXTERNAL\_LOAD\_ORIG = LD\_EXTERNAL\_CODE\_ORIG + LD\_EXTERNAL\_CODE\_SIZE;
+LD\_EXTERNAL\_HOST\_DATA\_ORIG = LD\_EXTERNAL\_LOAD\_ORIG + LD\_EXTERNAL\_LOAD\_SIZE;
+LD\_EXTERNAL\_HOST\_ALLOC\_ORIG = LD\_EXTERNAL\_HOST\_DATA\_ORIG + LD\_EXTERNAL\_HOST\_DATA\_SIZE;
+
+LD\_CORE\_IVT\_ORIG = 0;
+LD\_CORE\_CODE\_ORIG = LD\_CORE\_IVT\_ORIG + LD\_CORE\_IVT\_SIZE;
+LD\_CORE\_STACK\_ORIG = LD\_CORE\_CODE\_ORIG + LD\_CORE\_CODE\_SIZE;
+LD\_CORE\_MODULE\_ORIG = LD\_CORE\_STACK\_ORIG + LD\_CORE\_STACK\_SIZE;
+LD\_CORE\_ALLOC\_ORIG = LD\_CORE\_MODULE\_ORIG + LD\_CORE\_MODULE\_SIZE;
+
+LD\_CORE\_STACK\_END = LD\_CORE\_MODULE\_ORIG;
+LD\_CORE\_ALLOC\_END = LD\_CORE\_ALLOC\_ORIG + LD\_CORE\_ALLOC\_SIZE;
+LD\_CORE\_STACK\_TOP = LD\_CORE\_STACK\_END - 8;
+
+MEMORY
+\{
+    IVT\_RAM (WXAI) : ORIGIN = LD\_CORE\_IVT\_ORIG, LENGTH = LD\_CORE\_IVT\_SIZE
+
+    CODE\_RAM (WXAI) : ORIGIN = LD\_CORE\_CODE\_ORIG, LENGTH = LD\_CORE\_CODE\_SIZE
+
+    MODULE\_1 (WXAI) : ORIGIN = LD\_CORE\_MODULE\_ORIG, LENGTH = LD\_CORE\_MODULE\_SIZE
+    MODULE\_2 (WXAI) : ORIGIN = LD\_CORE\_MODULE\_ORIG, LENGTH = LD\_CORE\_MODULE\_SIZE
+    MODULE\_3 (WXAI) : ORIGIN = LD\_CORE\_MODULE\_ORIG, LENGTH = LD\_CORE\_MODULE\_SIZE
+    MODULE\_4 (WXAI) : ORIGIN = LD\_CORE\_MODULE\_ORIG, LENGTH = LD\_CORE\_MODULE\_SIZE
+    MODULE\_5 (WXAI) : ORIGIN = LD\_CORE\_MODULE\_ORIG, LENGTH = LD\_CORE\_MODULE\_SIZE
+    MODULE\_6 (WXAI) : ORIGIN = LD\_CORE\_MODULE\_ORIG, LENGTH = LD\_CORE\_MODULE\_SIZE
+    MODULE\_7 (WXAI) : ORIGIN = LD\_CORE\_MODULE\_ORIG, LENGTH = LD\_CORE\_MODULE\_SIZE
+    MODULE\_8 (WXAI) : ORIGIN = LD\_CORE\_MODULE\_ORIG, LENGTH = LD\_CORE\_MODULE\_SIZE
+    MODULE\_9 (WXAI) : ORIGIN = LD\_CORE\_MODULE\_ORIG, LENGTH = LD\_CORE\_MODULE\_SIZE
+
+    ALLOC\_RAM (WXAI) : ORIGIN = LD\_CORE\_ALLOC\_ORIG, LENGTH = LD\_CORE\_ALLOC\_SIZE
+
+    LD\_EXTERNAL\_CODE\_RAM (WXAI)   : ORIGIN = LD\_EXTERNAL\_CODE\_ORIG, LENGTH = LD\_EXTERNAL\_CODE\_SIZE
+    LD\_EXTERNAL\_LOAD\_RAM (WXAI)   : ORIGIN = LD\_EXTERNAL\_LOAD\_ORIG, LENGTH = LD\_EXTERNAL\_LOAD\_SIZE
+    LD\_EXTERNAL\_HOST\_DATA\_RAM (WXAI)   : ORIGIN = LD\_EXTERNAL\_HOST\_DATA\_ORIG, LENGTH = 
+      LD\_EXTERNAL\_HOST\_DATA\_SIZE
+    LD\_EXTERNAL\_HOST\_ALLOC\_RAM (WXAI)   : ORIGIN = LD\_EXTERNAL\_HOST\_ALLOC\_ORIG, LENGTH = 
+      \hyperlink{loader_8h_a5ada5743900ad78089fb924fa17124f0}{LD\_EXTERNAL\_HOST\_ALLOC\_SIZE}
+\}
+
+
+SECTIONS
+\{
+    link\_symbols\_data : \{ *(link\_symbols\_data*) \} > LD\_EXTERNAL\_CODE\_RAM
+
+    ivt\_reset               0x00 : \{*.o(IVT\_RESET)\}                    > IVT\_RAM
+    ivt\_software\_exception  0x04 : \{*.o(ivt\_entry\_software\_exception)\} > IVT\_RAM
+    ivt\_page\_miss           0x08 : \{*.o(ivt\_entry\_page\_miss)\}          > IVT\_RAM
+    ivt\_timer0              0x0c : \{*.o(ivt\_entry\_timer0)\}             > IVT\_RAM
+    ivt\_timer1              0x10 : \{*.o(ivt\_entry\_timer1)\}             > IVT\_RAM
+    ivt\_message             0x14 : \{*.o(ivt\_entry\_message)\}            > IVT\_RAM
+    ivt\_dma0                0x18 : \{*.o(ivt\_entry\_dma0)\}               > IVT\_RAM
+    ivt\_dma1                0x1c : \{*.o(ivt\_entry\_dma1)\}               > IVT\_RAM
+    ivt\_wand                0x20 : \{*.o(ivt\_entry\_wand)\}               > IVT\_RAM
+    ivt\_user                0x24 : \{*.o(ivt\_entry\_user)\}               > IVT\_RAM
+
+    external\_code\_ram : \{ *(external\_code\_ram external\_data\_ram) \} > LD\_EXTERNAL\_CODE\_RAM
+    external\_load\_ram : \{ *(external\_load\_ram) \} > LD\_EXTERNAL\_LOAD\_RAM
+    external\_host\_data\_ram : \{ *(external\_host\_data\_ram) \} > LD\_EXTERNAL\_HOST\_DATA\_RAM 
+    external\_host\_alloc\_ram : \{ *(external\_host\_alloc\_ram) \} > LD\_EXTERNAL\_HOST\_ALLOC\_RAM 
+
+    NEW\_LIB\_RO            : \{lib\_a-*.o(.text  .rodata)  *.o(libgloss\_epiphany) \} > LD\_EXTERNAL\_CODE\_RAM
+    NEW\_LIB\_WR            : \{lib\_a-*.o(.data)                                  \} > LD\_EXTERNAL\_CODE\_RAM
+    GNU\_C\_BUILTIN\_LIB\_RO  :
+    \{
+        *mulsi3.o(.text  .rodata)   *modsi3.o(.text  .rodata)
+        *divsi3.o(.text  .rodata)   *udivsi3.o(.text .rodata)
+        *umodsi3.o(.text .rodata)  \_*.o(.text  .rodata)
+    \} > LD\_EXTERNAL\_CODE\_RAM
+
+    .text : \{ *(.text*) \} > CODE\_RAM
+    .data : \{ *(.data*) \} > CODE\_RAM
+    .rodata : \{ *(.rodata*) \} > CODE\_RAM 
+    .bss : \{ *(.bss*) \} > CODE\_RAM 
+
+    module1 : \{ *(module1*) \} > MODULE\_1
+    module2 : \{ *(module2*) \} > MODULE\_2
+    module3 : \{ *(module3*) \} > MODULE\_3
+    module4 : \{ *(module4*) \} > MODULE\_4
+    module5 : \{ *(module5*) \} > MODULE\_5
+    module6 : \{ *(module6*) \} > MODULE\_6
+    module7 : \{ *(module7*) \} > MODULE\_7
+    module8 : \{ *(module8*) \} > MODULE\_8
+    module9 : \{ *(module9*) \} > MODULE\_9
+
+    alloc\_ram   : \{*.o(alloc\_ram)\} > ALLOC\_RAM
+
+    .comment  0 : \{ *(.comment*) \}
+\}
+\end{DoxyCodeInclude}
+ 
+
+\subsection{Variable Documentation}
+\index{mc-\/linker-\/script.\+ldf@{mc-\/linker-\/script.\+ldf}!L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+R\+A\+M\+\_\+\+S\+I\+ZE@{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+R\+A\+M\+\_\+\+S\+I\+ZE}}
+\index{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+R\+A\+M\+\_\+\+S\+I\+ZE@{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+R\+A\+M\+\_\+\+S\+I\+ZE}!mc-\/linker-\/script.\+ldf@{mc-\/linker-\/script.\+ldf}}
+\subsubsection[{\texorpdfstring{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+R\+A\+M\+\_\+\+S\+I\+ZE}{LD_EXTERNAL_RAM_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+R\+A\+M\+\_\+\+S\+I\+ZE = 32M}\hypertarget{mc-linker-script_8ldf_a1e42067d0ff1bd155172de57b3cb1d31}{}\label{mc-linker-script_8ldf_a1e42067d0ff1bd155172de57b3cb1d31}
+Full external epiphany system R\+AM size (shared with the host) \index{mc-\/linker-\/script.\+ldf@{mc-\/linker-\/script.\+ldf}!L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+C\+O\+D\+E\+\_\+\+S\+I\+ZE@{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+C\+O\+D\+E\+\_\+\+S\+I\+ZE}}
+\index{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+C\+O\+D\+E\+\_\+\+S\+I\+ZE@{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+C\+O\+D\+E\+\_\+\+S\+I\+ZE}!mc-\/linker-\/script.\+ldf@{mc-\/linker-\/script.\+ldf}}
+\subsubsection[{\texorpdfstring{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+C\+O\+D\+E\+\_\+\+S\+I\+ZE}{LD_EXTERNAL_CODE_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+C\+O\+D\+E\+\_\+\+S\+I\+ZE = 8M}\hypertarget{mc-linker-script_8ldf_a7ffb2a4d11dc3f8525118fda05b7ea6f}{}\label{mc-linker-script_8ldf_a7ffb2a4d11dc3f8525118fda05b7ea6f}
+External R\+AM used for code (.text, data, rodata, bss and .stack) \index{mc-\/linker-\/script.\+ldf@{mc-\/linker-\/script.\+ldf}!L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+L\+O\+A\+D\+\_\+\+S\+I\+ZE@{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}}
+\index{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+L\+O\+A\+D\+\_\+\+S\+I\+ZE@{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}!mc-\/linker-\/script.\+ldf@{mc-\/linker-\/script.\+ldf}}
+\subsubsection[{\texorpdfstring{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}{LD_EXTERNAL_LOAD_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+L\+O\+A\+D\+\_\+\+S\+I\+ZE = 8M}\hypertarget{mc-linker-script_8ldf_a473bdda595a0d9c1cd9203c5921f375b}{}\label{mc-linker-script_8ldf_a473bdda595a0d9c1cd9203c5921f375b}
+External R\+AM used for modules code \index{mc-\/linker-\/script.\+ldf@{mc-\/linker-\/script.\+ldf}!L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+H\+O\+S\+T\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+ZE@{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+H\+O\+S\+T\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+ZE}}
+\index{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+H\+O\+S\+T\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+ZE@{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+H\+O\+S\+T\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+ZE}!mc-\/linker-\/script.\+ldf@{mc-\/linker-\/script.\+ldf}}
+\subsubsection[{\texorpdfstring{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+H\+O\+S\+T\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+ZE}{LD_EXTERNAL_HOST_DATA_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+H\+O\+S\+T\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+ZE = 8M}\hypertarget{mc-linker-script_8ldf_a4e1cc83fd4bdc2f8d4043d234ccec467}{}\label{mc-linker-script_8ldf_a4e1cc83fd4bdc2f8d4043d234ccec467}
+External R\+AM used structured shared data with the host \index{mc-\/linker-\/script.\+ldf@{mc-\/linker-\/script.\+ldf}!L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+H\+O\+S\+T\+\_\+\+A\+L\+L\+O\+C\+\_\+\+S\+I\+ZE@{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+H\+O\+S\+T\+\_\+\+A\+L\+L\+O\+C\+\_\+\+S\+I\+ZE}}
+\index{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+H\+O\+S\+T\+\_\+\+A\+L\+L\+O\+C\+\_\+\+S\+I\+ZE@{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+H\+O\+S\+T\+\_\+\+A\+L\+L\+O\+C\+\_\+\+S\+I\+ZE}!mc-\/linker-\/script.\+ldf@{mc-\/linker-\/script.\+ldf}}
+\subsubsection[{\texorpdfstring{L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+H\+O\+S\+T\+\_\+\+A\+L\+L\+O\+C\+\_\+\+S\+I\+ZE}{LD_EXTERNAL_HOST_ALLOC_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}L\+D\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+H\+O\+S\+T\+\_\+\+A\+L\+L\+O\+C\+\_\+\+S\+I\+ZE = 8M}\hypertarget{mc-linker-script_8ldf_a3d73df27a342f2baa037692223d1c554}{}\label{mc-linker-script_8ldf_a3d73df27a342f2baa037692223d1c554}
+External R\+AM used dynamic allocated shared data with the host \index{mc-\/linker-\/script.\+ldf@{mc-\/linker-\/script.\+ldf}!L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+I\+V\+T\+\_\+\+S\+I\+ZE@{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+I\+V\+T\+\_\+\+S\+I\+ZE}}
+\index{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+I\+V\+T\+\_\+\+S\+I\+ZE@{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+I\+V\+T\+\_\+\+S\+I\+ZE}!mc-\/linker-\/script.\+ldf@{mc-\/linker-\/script.\+ldf}}
+\subsubsection[{\texorpdfstring{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+I\+V\+T\+\_\+\+S\+I\+ZE}{LD_CORE_IVT_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+I\+V\+T\+\_\+\+S\+I\+ZE = 0x30}\hypertarget{mc-linker-script_8ldf_a45d7e0f4e6a8c511db2e1abb759b99e2}{}\label{mc-linker-script_8ldf_a45d7e0f4e6a8c511db2e1abb759b99e2}
+Core interrupts vector table size \index{mc-\/linker-\/script.\+ldf@{mc-\/linker-\/script.\+ldf}!L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+C\+O\+D\+E\+\_\+\+S\+I\+ZE@{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+C\+O\+D\+E\+\_\+\+S\+I\+ZE}}
+\index{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+C\+O\+D\+E\+\_\+\+S\+I\+ZE@{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+C\+O\+D\+E\+\_\+\+S\+I\+ZE}!mc-\/linker-\/script.\+ldf@{mc-\/linker-\/script.\+ldf}}
+\subsubsection[{\texorpdfstring{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+C\+O\+D\+E\+\_\+\+S\+I\+ZE}{LD_CORE_CODE_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+C\+O\+D\+E\+\_\+\+S\+I\+ZE = 5k -\/ L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+I\+V\+T\+\_\+\+S\+I\+ZE}\hypertarget{mc-linker-script_8ldf_afa39e4e7de05fdfdc5a17517d9bc8cfb}{}\label{mc-linker-script_8ldf_afa39e4e7de05fdfdc5a17517d9bc8cfb}
+Core kernel + central user code size \index{mc-\/linker-\/script.\+ldf@{mc-\/linker-\/script.\+ldf}!L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE@{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}}
+\index{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE@{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}!mc-\/linker-\/script.\+ldf@{mc-\/linker-\/script.\+ldf}}
+\subsubsection[{\texorpdfstring{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}{LD_CORE_STACK_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE = 8k -\/ L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+C\+O\+D\+E\+\_\+\+S\+I\+Z\+E -\/ L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+I\+V\+T\+\_\+\+S\+I\+ZE}\hypertarget{mc-linker-script_8ldf_a492ce128797ec1c3e8b14f55135540c5}{}\label{mc-linker-script_8ldf_a492ce128797ec1c3e8b14f55135540c5}
+Core stack size \index{mc-\/linker-\/script.\+ldf@{mc-\/linker-\/script.\+ldf}!L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+I\+ZE@{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+I\+ZE}}
+\index{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+I\+ZE@{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+I\+ZE}!mc-\/linker-\/script.\+ldf@{mc-\/linker-\/script.\+ldf}}
+\subsubsection[{\texorpdfstring{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+I\+ZE}{LD_CORE_MODULE_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+S\+I\+ZE = 12k}\hypertarget{mc-linker-script_8ldf_a3e26dabbe57c89615c49524a784785e7}{}\label{mc-linker-script_8ldf_a3e26dabbe57c89615c49524a784785e7}
+Core module size \index{mc-\/linker-\/script.\+ldf@{mc-\/linker-\/script.\+ldf}!L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+A\+L\+L\+O\+C\+\_\+\+S\+I\+ZE@{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+A\+L\+L\+O\+C\+\_\+\+S\+I\+ZE}}
+\index{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+A\+L\+L\+O\+C\+\_\+\+S\+I\+ZE@{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+A\+L\+L\+O\+C\+\_\+\+S\+I\+ZE}!mc-\/linker-\/script.\+ldf@{mc-\/linker-\/script.\+ldf}}
+\subsubsection[{\texorpdfstring{L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+A\+L\+L\+O\+C\+\_\+\+S\+I\+ZE}{LD_CORE_ALLOC_SIZE}}]{\setlength{\rightskip}{0pt plus 5cm}L\+D\+\_\+\+C\+O\+R\+E\+\_\+\+A\+L\+L\+O\+C\+\_\+\+S\+I\+ZE = 12k}\hypertarget{mc-linker-script_8ldf_a4fd8385ed9642eeb8782b348cc628d61}{}\label{mc-linker-script_8ldf_a4fd8385ed9642eeb8782b348cc628d61}
+Core dynamic allocatable memory size 
