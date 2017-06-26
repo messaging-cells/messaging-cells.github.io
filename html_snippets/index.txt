@@ -31,7 +31,7 @@ The motivation for this software is to have a base librery to implement the new 
 <h1>Status</h1>
 
 <p>
-A first alpha version is running basic examples. It is planned to be refined and expanded as needed during the implementation of the parallel version of the <a href="https://ben-jose.github.io/" target="blank">Ben-Jose</a> algorithm. That means that, if the "futures" feature or anything else are not needed for that algorithm, you are wellcome to implement your needed/wanted feature for the library.
+A first alpha version is running basic examples. The API is not stable yet (there might be renaming of functions, methods of even classes). It is planned to be refined and expanded as needed during the implementation of the parallel version of the <a href="https://ben-jose.github.io/" target="blank">Ben-Jose</a> algorithm. That means that, if the "futures" feature or anything else are not needed for that algorithm, you are wellcome to implement your needed/wanted feature for the library.
 
 <h1>Features</h1>
 
