@@ -10,7 +10,7 @@ Include dependency graph for send\+\_\+msg.\+cpp\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=349pt]{d5/dc5/send__msg_8cpp__incl}
+\includegraphics[width=350pt]{d5/dc5/send__msg_8cpp__incl}
 \end{center}
 \end{figure}
 \subsection*{Functions}
@@ -42,10 +42,10 @@ Simple send missive example.
 \hyperlink{send__msg_8cpp_a62a0d4f39a307b53420dd89522b62a70}{recv\_cell\_handler}(\hyperlink{classmissive}{missive}* msg)\{
     \textcolor{comment}{//MCK\_UPDATE\_MIN\_SP();}
     EMU\_CODE(
-        EMU\_CK(mc\_addr\_is\_local(msg->dst));
-        mc\_core\_id\_t koid = kernel::get\_core\_id();
+        EMU\_CK(\hyperlink{shared__eph_8h_a39a45617dcf4c16d9968aa9294e8a9e7}{mc\_addr\_is\_local}(msg->dst));
+        mc\_core\_id\_t koid = \hyperlink{classkernel_ac3532ca84ebcf0d7f6aba1b8966acc72}{kernel::get\_core\_id}();
         MC\_MARK\_USED(koid);
-        mc\_core\_nn\_t konn = kernel::get\_core\_nn();
+        mc\_core\_nn\_t konn = \hyperlink{classkernel_a9bea88d9fe21bf2fb40d7c8a7656c30a}{kernel::get\_core\_nn}();
         MC\_MARK\_USED(konn);
         EMU\_LOG(\textcolor{stringliteral}{"recv\_cell\_handler. core\_id=%lx core\_nn=%d src=%p dst=%p \(\backslash\)n"}, 
                 koid, konn, msg->get\_source(), msg->dst);
@@ -81,8 +81,8 @@ Simple send missive example.
 
         \textcolor{comment}{// Next line is just to remaind that every single cell should have a valid handler\_idx. It was
        already 0.}
-        kernel::get\_core\_cell()->\hyperlink{classcell_a234bbd022db21480b428b2f63662fe95}{handler\_idx} = 0;    \textcolor{comment}{// This is recv\_cell\_handler's index in
-       the\_handlers.}
+        \hyperlink{classkernel_a525c68a30877cf40fc63bca8485f4eb8}{kernel::get\_core\_cell}()->\hyperlink{classcell_a234bbd022db21480b428b2f63662fe95}{handler\_idx} = 0;   \textcolor{comment}{// This is
+       recv\_cell\_handler's index in the\_handlers.}
 
         \hyperlink{classkernel_a438f0450a28abb54d058b88ef8cc3d3b}{kernel::run\_sys}();
     \}
@@ -90,13 +90,13 @@ Simple send missive example.
         \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"CORE (0,1) started\(\backslash\)n"});
         mc\_core\_id\_t dst = mc\_ro\_co\_to\_id(0, 0);
         
-        \hyperlink{classcell}{cell}* act1 = kernel::get\_core\_cell();
-        \hyperlink{classcell}{cell}* act2 = kernel::get\_core\_cell(dst);
+        \hyperlink{classcell}{cell}* act1 = \hyperlink{classkernel_a525c68a30877cf40fc63bca8485f4eb8}{kernel::get\_core\_cell}();
+        \hyperlink{classcell}{cell}* act2 = \hyperlink{classkernel_a525c68a30877cf40fc63bca8485f4eb8}{kernel::get\_core\_cell}(dst);
 
         \hyperlink{classmissive}{missive}* msv = \hyperlink{classmissive_a911a5d60180223ebff8d71966c483ee5}{missive::acquire}();
         msv->src = act1;
         msv->dst = act2;
-        msv->send();
+        msv->\hyperlink{classmissive_a642a46a0f5cce3c99dc17b1c1acb5f6f}{send}();
         \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"SENT MISSIVE\(\backslash\)n"});
 
         ker->\hyperlink{classkernel_a242721cf580dbdc8789b609534c95316}{set\_idle\_exit}();

@@ -1,4 +1,6 @@
 <map id="/home/jose/devel/messaging&#45;cells/src/cells/loader.h" name="/home/jose/devel/messaging&#45;cells/src/cells/loader.h">
-<area shape="rect" id="node2" href="$da/db4/shared_8h.html" title="C shared structures (by host and cores). It is included in global.h and cell.hh. " alt="" coords="134,95,206,121"/>
+<area shape="rect" id="node2" href="$da/db4/shared_8h.html" title="C shared structures (by host and cores). It is included in global.h and cell.hh. " alt="" coords="171,95,243,121"/>
 <area shape="rect" id="node6" href="$d7/d7f/log_8h.html" title="Defines log functions and macros. " alt="" coords="245,169,295,196"/>
+<area shape="rect" id="node7" href="$d3/de3/shared__eph_8h.html" title="Addressing functions for the epiphany architecture.. " alt="" coords="320,169,420,196"/>
+<area shape="rect" id="node8" href="$da/dd1/shared__eph3_8h.html" title="Addressing functions of the epiphany 3 architecture. " alt="" coords="317,244,423,271"/>
 </map>
