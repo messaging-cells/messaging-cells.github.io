@@ -22,8 +22,37 @@ This is first module of the \hyperlink{group__docgrp__modules}{modules example} 
 
 
 \begin{DoxyCodeInclude}
-\textcolor{comment}{//----------------------------------------------------------------------------}
-\textcolor{comment}{}\textcolor{preprocessor}{#include "\hyperlink{cell_8hh}{cell.hh}"}
+
+
+\textcolor{comment}{/*************************************************************}
+\textcolor{comment}{}
+\textcolor{comment}{This file is part of messaging-cells.}
+\textcolor{comment}{}
+\textcolor{comment}{messaging-cells is free software: you can redistribute it and/or modify}
+\textcolor{comment}{it under the terms of the version 3 of the GNU General Public }
+\textcolor{comment}{License as published by the Free Software Foundation.}
+\textcolor{comment}{}
+\textcolor{comment}{messaging-cells is distributed in the hope that it will be useful,}
+\textcolor{comment}{but WITHOUT ANY WARRANTY; without even the implied warranty of}
+\textcolor{comment}{MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}
+\textcolor{comment}{GNU General Public License for more details.}
+\textcolor{comment}{}
+\textcolor{comment}{You should have received a copy of the GNU General Public License}
+\textcolor{comment}{along with messaging-cells.  If not, see <http://www.gnu.org/licenses/>.}
+\textcolor{comment}{}
+\textcolor{comment}{------------------------------------------------------------}
+\textcolor{comment}{}
+\textcolor{comment}{Copyright (C) 2017-2018. QUIROGA BELTRAN, Jose Luis.}
+\textcolor{comment}{Id (cedula): 79523732 de Bogota - Colombia.}
+\textcolor{comment}{See https://messaging-cells.github.io/}
+\textcolor{comment}{}
+\textcolor{comment}{messaging-cells is free software thanks to The Glory of Our Lord }
+\textcolor{comment}{    Yashua Melej Hamashiaj.}
+\textcolor{comment}{Our Resurrected and Living, both in Body and Spirit, }
+\textcolor{comment}{    Prince of Peace.}
+\textcolor{comment}{}
+\textcolor{comment}{------------------------------------------------------------*/}
+\textcolor{preprocessor}{#include "\hyperlink{cell_8hh}{cell.hh}"}
 \textcolor{preprocessor}{#include "pru\_1.h"}
 \textcolor{preprocessor}{#include "common.h"}
 
@@ -35,8 +64,8 @@ This is first module of the \hyperlink{group__docgrp__modules}{modules example} 
     prts(\textcolor{stringliteral}{"m1\_f2\_shd \(\backslash\)n"});
 \}
 
-\textcolor{keywordtype}{char}* msg1 mc\_mod1\_dat = \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"m1\_f3\_core \(\backslash\)n"});
-\textcolor{keywordtype}{void} m1\_f3\_core()\{
+\textcolor{keywordtype}{char}* msg1 mc\_mod1\_dat = mc\_cstr(\textcolor{stringliteral}{"m1\_f3\_workeru \(\backslash\)n"});
+\textcolor{keywordtype}{void} m1\_f3\_workeru()\{
     prts(msg1);
 \}
 
@@ -45,10 +74,10 @@ This is first module of the \hyperlink{group__docgrp__modules}{modules example} 
     prts(\textcolor{stringliteral}{"STARTED m1\_main !!\(\backslash\)n"});
 
     m1\_f1\_shd();
-    m1\_f3\_core();
+    m1\_f3\_workeru();
     m1\_f2\_shd();
 
-    comm\_f1\_core();
+    comm\_f1\_workeru();
 
     prts(\textcolor{stringliteral}{"FINISHED m1\_main !!\(\backslash\)n"});
 \}
@@ -56,3 +85,4 @@ This is first module of the \hyperlink{group__docgrp__modules}{modules example} 
 
 \end{DoxyCodeInclude}
  
+

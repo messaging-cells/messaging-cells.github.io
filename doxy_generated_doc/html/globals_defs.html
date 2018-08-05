@@ -132,8 +132,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>mc_addr_has_local_id
 : <a class="el" href="d3/de3/shared__eph_8h.html#ab05773ff764a384d02f377cef8a2fe2e">shared_eph.h</a>
 </li>
-<li>mc_addr_in_host
-: <a class="el" href="da/db4/shared_8h.html#adfe18012a9c4655dbd0a0d2f6b95e8f4">shared.h</a>
+<li>mc_addr_in_manageru
+: <a class="el" href="da/db4/shared_8h.html#a5f8795d20f0f4aa3f7c279fc71d610c9">shared.h</a>
 </li>
 <li>mc_addr_is_local
 : <a class="el" href="d3/de3/shared__eph_8h.html#a39a45617dcf4c16d9968aa9294e8a9e7">shared_eph.h</a>
@@ -153,9 +153,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>mc_addr_set_id
 : <a class="el" href="da/dd1/shared__eph3_8h.html#a6894e5bde816e6d104c56ec5a8c8288a">shared_eph3.h</a>
 </li>
-<li>mc_core_pt_to_host_pt
-: <a class="el" href="da/db4/shared_8h.html#a9e08ea44e8f62251fe4b53180bbfa32d">shared.h</a>
-</li>
 <li>mc_dbg_e3_leaf
 : <a class="el" href="db/db8/loader_8h.html#aab4e934eac392b8e58d71ec304184d53">loader.h</a>
 </li>
@@ -170,9 +167,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>mc_dref_field
 : <a class="el" href="da/db4/shared_8h.html#acc3b6b8c7e98bd2f71365571ee65f27e">shared.h</a>
-</li>
-<li>mc_host_pt_to_core_pt
-: <a class="el" href="da/db4/shared_8h.html#a435824ddf21d1cf90aa82f49dd5145b6">shared.h</a>
 </li>
 <li>mc_init_arr_objs
 : <a class="el" href="da/db4/shared_8h.html#ae6d233c1a9b6eafd7eff6fe36d6f29e2">shared.h</a>
@@ -189,8 +183,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>MC_IS_ALIGNED_64
 : <a class="el" href="da/db4/shared_8h.html#aea4d37dafbd166cf46651295bcc642c7">shared.h</a>
 </li>
-<li>mc_set_off_core_var
-: <a class="el" href="da/db4/shared_8h.html#a93f939625cf4afc446aa8836e1fecae9">shared.h</a>
+<li>mc_loop_set_var
+: <a class="el" href="da/db4/shared_8h.html#aa53b0f7f84415e6ca7bbea9dee5d7e57">shared.h</a>
+</li>
+<li>mc_manageru_pt_to_workeru_pt
+: <a class="el" href="da/db4/shared_8h.html#ac866c36bcd6d05444a31b2fea10f74c7">shared.h</a>
 </li>
 <li>mc_std_e3_leaf
 : <a class="el" href="db/db8/loader_8h.html#a52e4875c8642a362a7b51b6a5a06a6ea">loader.h</a>
@@ -201,29 +198,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>mc_std_e3_tree
 : <a class="el" href="db/db8/loader_8h.html#a2475ce19a46720453d03e5b09664c1f4">loader.h</a>
 </li>
-<li>MC_VAL_CORE_MODULE_ORIG
-: <a class="el" href="db/db8/loader_8h.html#a7e8f83bfd0fd068414deb8862e749724">loader.h</a>
-</li>
-<li>MC_VAL_CORE_MODULE_SIZE
-: <a class="el" href="db/db8/loader_8h.html#a3a195c6ee96bfee8098d26d2def7090a">loader.h</a>
-</li>
 <li>MC_VAL_EXTERNAL_CODE_ORIG
 : <a class="el" href="db/db8/loader_8h.html#ac28f907e17ace6e830aedcc1d4c2c109">loader.h</a>
 </li>
 <li>MC_VAL_EXTERNAL_CODE_SIZE
 : <a class="el" href="db/db8/loader_8h.html#a781a181a266c29cdd11a75c7262a0e84">loader.h</a>
-</li>
-<li>MC_VAL_EXTERNAL_HOST_ALLOC_ORIG
-: <a class="el" href="db/db8/loader_8h.html#aea0bad0a7bcb5ab4b51018dafb6709a3">loader.h</a>
-</li>
-<li>MC_VAL_EXTERNAL_HOST_ALLOC_SIZE
-: <a class="el" href="db/db8/loader_8h.html#a2577c6073388362d0fba161bb9c841cb">loader.h</a>
-</li>
-<li>MC_VAL_EXTERNAL_HOST_DATA_ORIG
-: <a class="el" href="db/db8/loader_8h.html#a4f03f1dfe81cf76ddceafbf76f3edde7">loader.h</a>
-</li>
-<li>MC_VAL_EXTERNAL_HOST_DATA_SIZE
-: <a class="el" href="db/db8/loader_8h.html#a522ed3cc2bf1e3e8be44c06e3b829d55">loader.h</a>
 </li>
 <li>MC_VAL_EXTERNAL_LOAD_ORIG
 : <a class="el" href="db/db8/loader_8h.html#a857d1ad44b647ff85dc83b3603bb835d">loader.h</a>
@@ -231,11 +210,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>MC_VAL_EXTERNAL_LOAD_SIZE
 : <a class="el" href="db/db8/loader_8h.html#ad010315886a9e6f7112685c77ebda1c8">loader.h</a>
 </li>
+<li>MC_VAL_EXTERNAL_MANAGERU_ALLOC_ORIG
+: <a class="el" href="db/db8/loader_8h.html#acf0e918f4477be1ece5804db593bcab5">loader.h</a>
+</li>
+<li>MC_VAL_EXTERNAL_MANAGERU_ALLOC_SIZE
+: <a class="el" href="db/db8/loader_8h.html#a2053e3d1be1f62a6042826072e9b759f">loader.h</a>
+</li>
+<li>MC_VAL_EXTERNAL_MANAGERU_DATA_ORIG
+: <a class="el" href="db/db8/loader_8h.html#a4a868a55321b9cc58b61ccff13a3d321">loader.h</a>
+</li>
+<li>MC_VAL_EXTERNAL_MANAGERU_DATA_SIZE
+: <a class="el" href="db/db8/loader_8h.html#a9a3656fd58f3b49258d6e849a6cc63de">loader.h</a>
+</li>
 <li>MC_VAL_EXTERNAL_RAM_ORIG
 : <a class="el" href="db/db8/loader_8h.html#a77346d723d3096a483010ff04ce32466">loader.h</a>
 </li>
 <li>MC_VAL_EXTERNAL_RAM_SIZE
 : <a class="el" href="db/db8/loader_8h.html#afc50c6dec147f80d5d82b8211e9cf034">loader.h</a>
+</li>
+<li>MC_VAL_WORKERU_MODULE_ORIG
+: <a class="el" href="db/db8/loader_8h.html#a45faf398cf316116ffd2ab4688da185d">loader.h</a>
+</li>
+<li>MC_VAL_WORKERU_MODULE_SIZE
+: <a class="el" href="db/db8/loader_8h.html#a2647d022b50c8e8248d6dfb641756db6">loader.h</a>
+</li>
+<li>MC_VAL_WORKERU_STACK_ORIG
+: <a class="el" href="db/db8/loader_8h.html#a72c6c7144c0952e7c7db1d2edbf2f6ed">loader.h</a>
+</li>
+<li>mc_workeru_pt_to_manageru_pt
+: <a class="el" href="da/db4/shared_8h.html#a47e94dbcc4d510c2f44d86237684fdae">shared.h</a>
 </li>
 <li>mck_as_glb_pt
 : <a class="el" href="d3/de3/shared__eph_8h.html#a8ef19d40dea23cefb11b5cab943c1a28">shared_eph.h</a>
@@ -243,29 +246,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>mck_as_loc_pt
 : <a class="el" href="d3/de3/shared__eph_8h.html#a953cf2d6200e15cc40c95adcdb368fd9">shared_eph.h</a>
 </li>
+<li>mck_cond_slog2
+: <a class="el" href="d7/d7f/log_8h.html#a802d1a6ccf238ad3cce3610caa3e723b">log.h</a>
+</li>
 <li>MCK_DECLARE_MEM_METHODS
-: <a class="el" href="da/d7a/cell_8hh.html#ab43adc7961f0b5b06463b122ae598993">cell.hh</a>
+: <a class="el" href="da/d7a/cell_8hh.html#a16c403a50331aa5b5d01d33acc14ade4">cell.hh</a>
+</li>
+<li>MCK_DECLARE_MEM_METHODS_AND_GET_AVA
+: <a class="el" href="da/d7a/cell_8hh.html#ae09daa1f90e956b7c0b8667ff69cc1b4">cell.hh</a>
 </li>
 <li>MCK_DEFINE_ACQUIRE_ALLOC
 : <a class="el" href="da/d7a/cell_8hh.html#aad0dec1d661f1fdb5a2ccb767d712c75">cell.hh</a>
 </li>
 <li>MCK_DEFINE_MEM_METHODS
-: <a class="el" href="da/d7a/cell_8hh.html#a9095d9f262f63984c60799e4a3b135c5">cell.hh</a>
+: <a class="el" href="da/d7a/cell_8hh.html#aca3006fa8b9b5346c57139164f8e3591">cell.hh</a>
+</li>
+<li>MCK_DEFINE_MEM_METHODS_AND_GET_AVA
+: <a class="el" href="da/d7a/cell_8hh.html#a075cfd0eebf0fbb2f37036de2c71bb0a">cell.hh</a>
 </li>
 <li>mck_get_kernel
 : <a class="el" href="da/d7a/cell_8hh.html#af1eb47800585646e0caf6cb269111731">cell.hh</a>
 </li>
-<li>mck_is_id_core
-: <a class="el" href="d2/d49/global_8h.html#a5979acc7af98be816a16fafefe66c5a6">global.h</a>
+<li>mck_is_id_workeru
+: <a class="el" href="d2/d49/global_8h.html#a0882dcfebfa28c74882d71040dcefdfa">global.h</a>
 </li>
-<li>mck_is_nn_core
-: <a class="el" href="d2/d49/global_8h.html#a67668252473b4bc3b3bb8b8a0f1693cf">global.h</a>
+<li>mck_is_nn_workeru
+: <a class="el" href="d2/d49/global_8h.html#a6cddccfe80c3ae12a6f9ccab97f2ef5d">global.h</a>
 </li>
-<li>mck_is_ro_co_core
-: <a class="el" href="d2/d49/global_8h.html#a76824b23f4a177c4535d83c3b89e2f54">global.h</a>
+<li>mck_is_ro_co_workeru
+: <a class="el" href="d2/d49/global_8h.html#a2060aa9eee2682d8a9674b0a02338b22">global.h</a>
 </li>
 <li>MCK_KERNEL
 : <a class="el" href="da/d7a/cell_8hh.html#a61ba3f0f0028a638f3f2bf25f9b9b40f">cell.hh</a>
+</li>
+<li>mck_set_sub_module_id
+: <a class="el" href="d2/d49/global_8h.html#ab6e802beeef14ccde9e2906f89b7e721">global.h</a>
 </li>
 <li>mck_slog2
 : <a class="el" href="d7/d7f/log_8h.html#a8ec0c02a2d94dec909d9cdc8340f733f">log.h</a>
@@ -286,7 +301,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 26 2017 18:34:37 for Library-Documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 5 2018 16:13:25 for Library-Documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

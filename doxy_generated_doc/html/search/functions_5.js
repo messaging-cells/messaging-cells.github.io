@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['recv_5fcell_5fhandler',['recv_cell_handler',['../df/de0/send__msg_8cpp.html#a62a0d4f39a307b53420dd89522b62a70',1,'send_msg.cpp']]],
-  ['release',['release',['../d5/d08/classagent.html#a10d8b14221d243aa3906c2d65d3fe7e8',1,'agent']]],
-  ['run_5fsys',['run_sys',['../d3/d9f/classkernel.html#a438f0450a28abb54d058b88ef8cc3d3b',1,'kernel']]]
+  ['send',['send',['../d4/d9f/classmissive.html#a642a46a0f5cce3c99dc17b1c1acb5f6f',1,'missive']]],
+  ['set_5fhandlers',['set_handlers',['../d3/d9f/classkernel.html#a4af01f01c949a504cd3a6d574eced6a7',1,'kernel']]],
+  ['set_5fidle_5fexit',['set_idle_exit',['../d3/d9f/classkernel.html#a242721cf580dbdc8789b609534c95316',1,'kernel']]]
 ];

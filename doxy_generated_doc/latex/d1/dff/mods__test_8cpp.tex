@@ -24,17 +24,45 @@ Main file for the modules example.
 
 \begin{DoxyCodeInclude}
 
-\textcolor{comment}{//----------------------------------------------------------------------------}
-\textcolor{comment}{}\textcolor{preprocessor}{#include "\hyperlink{cell_8hh}{cell.hh}"}
+
+\textcolor{comment}{/*************************************************************}
+\textcolor{comment}{}
+\textcolor{comment}{This file is part of messaging-cells.}
+\textcolor{comment}{}
+\textcolor{comment}{messaging-cells is free software: you can redistribute it and/or modify}
+\textcolor{comment}{it under the terms of the version 3 of the GNU General Public }
+\textcolor{comment}{License as published by the Free Software Foundation.}
+\textcolor{comment}{}
+\textcolor{comment}{messaging-cells is distributed in the hope that it will be useful,}
+\textcolor{comment}{but WITHOUT ANY WARRANTY; without even the implied warranty of}
+\textcolor{comment}{MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}
+\textcolor{comment}{GNU General Public License for more details.}
+\textcolor{comment}{}
+\textcolor{comment}{You should have received a copy of the GNU General Public License}
+\textcolor{comment}{along with messaging-cells.  If not, see <http://www.gnu.org/licenses/>.}
+\textcolor{comment}{}
+\textcolor{comment}{------------------------------------------------------------}
+\textcolor{comment}{}
+\textcolor{comment}{Copyright (C) 2017-2018. QUIROGA BELTRAN, Jose Luis.}
+\textcolor{comment}{Id (cedula): 79523732 de Bogota - Colombia.}
+\textcolor{comment}{See https://messaging-cells.github.io/}
+\textcolor{comment}{}
+\textcolor{comment}{messaging-cells is free software thanks to The Glory of Our Lord }
+\textcolor{comment}{    Yashua Melej Hamashiaj.}
+\textcolor{comment}{Our Resurrected and Living, both in Body and Spirit, }
+\textcolor{comment}{    Prince of Peace.}
+\textcolor{comment}{}
+\textcolor{comment}{------------------------------------------------------------*/}
+\textcolor{preprocessor}{#include "\hyperlink{cell_8hh}{cell.hh}"}
 \textcolor{preprocessor}{#include "pru\_1.h"}
 \textcolor{preprocessor}{#include "pru\_2.h"}
 \textcolor{preprocessor}{#include "pru\_3.h"}
 
 mc\_c\_decl \textcolor{keywordtype}{int} main();
 
-\textcolor{keywordtype}{char}* m1\_nam mc\_external\_data\_ram = \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"module1"});
-\textcolor{keywordtype}{char}* m2\_nam mc\_external\_data\_ram = \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"module2"});
-\textcolor{keywordtype}{char}* m3\_nam mc\_external\_data\_ram = \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"module3"});
+\textcolor{keywordtype}{char}* m1\_nam mc\_external\_data\_ram = mc\_cstr(\textcolor{stringliteral}{"module1"});
+\textcolor{keywordtype}{char}* m2\_nam mc\_external\_data\_ram = mc\_cstr(\textcolor{stringliteral}{"module2"});
+\textcolor{keywordtype}{char}* m3\_nam mc\_external\_data\_ram = mc\_cstr(\textcolor{stringliteral}{"module3"});
 
 \textcolor{preprocessor}{#define TOT\_MODS 3}
 
@@ -43,7 +71,7 @@ mc\_c\_decl \textcolor{keywordtype}{int} main();
 \textcolor{preprocessor}{#define MOD3\_IDX 0}
 
 \textcolor{keywordtype}{char}* all\_mod\_nams[TOT\_MODS] mc\_external\_data\_ram;
-mc\_addr\_t* all\_mod\_addr;
+\hyperlink{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{mc\_addr\_t}* all\_mod\_addr;
 
 \textcolor{keywordtype}{void}
 init\_module\_nams() mc\_external\_code\_ram;
@@ -76,10 +104,9 @@ print\_module\_addrs() mc\_external\_code\_ram;
 
 \textcolor{keywordtype}{void}
 print\_module\_addrs()\{
-    uint32\_t to\_m = mck\_get\_tot\_modules();
     uint32\_t aa = 0;
     \hyperlink{log_8h_addbe1979a58d9f84d5a009c5543818c2}{mck\_sprt2}(\textcolor{stringliteral}{"ALL\_MODULE\_ADDRS=\(\backslash\)n"});
-    \textcolor{keywordflow}{for}(aa = 0; aa < to\_m; aa++)\{
+    \textcolor{keywordflow}{for}(aa = 0; aa < TOT\_MODS; aa++)\{
         \textcolor{keywordtype}{char}* nam0 = all\_mod\_nams[aa];
         \hyperlink{log_8h_addbe1979a58d9f84d5a009c5543818c2}{mck\_sprt2}(nam0);
         \hyperlink{log_8h_addbe1979a58d9f84d5a009c5543818c2}{mck\_sprt2}(\textcolor{stringliteral}{" addr\_\_\_\_"});
@@ -99,15 +126,16 @@ link\_all\_modules\_aux\_fn()\{
 \}
 
 \textcolor{keywordtype}{int} main() \{
-    mck\_glb\_init();
+    mck\_glb\_init(\textcolor{keyword}{false});
     \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"Modules main \(\backslash\)n"});
 
     init\_module\_nams();
-    uint32\_t tot\_m = mck\_get\_tot\_modules();
-    all\_mod\_addr = mc\_malloc32(mc\_addr\_t, tot\_m);
-    mck\_fill\_module\_external\_addresses(all\_mod\_nams, all\_mod\_addr);
+    PTD\_CK(mck\_get\_tot\_modules() >= TOT\_MODS);
 
-    \textcolor{keywordflow}{if}(MC\_CORE\_INFO->the\_core\_nn == 0)\{ 
+    all\_mod\_addr = mc\_malloc32(\hyperlink{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{mc\_addr\_t}, TOT\_MODS);
+    mck\_fill\_module\_external\_addresses(TOT\_MODS, all\_mod\_nams, all\_mod\_addr);
+
+    \textcolor{keywordflow}{if}(MC\_WORKERU\_INFO->the\_workeru\_nn == 0)\{   
         \textcolor{comment}{//print\_module\_nams();}
         \textcolor{comment}{//print\_module\_addrs();}
         \textcolor{keywordtype}{bool} ok = mck\_load\_module(all\_mod\_addr[MOD2\_IDX]);
@@ -115,7 +143,7 @@ link\_all\_modules\_aux\_fn()\{
             m2\_main();
         \}
     \}
-    \textcolor{keywordflow}{if}(MC\_CORE\_INFO->the\_core\_nn == 1)\{ 
+    \textcolor{keywordflow}{if}(MC\_WORKERU\_INFO->the\_workeru\_nn == 1)\{   
         \textcolor{comment}{//print\_module\_nams();}
         \textcolor{comment}{//print\_module\_addrs();}
         \textcolor{keywordtype}{bool} ok = mck\_load\_module(all\_mod\_addr[MOD1\_IDX]);
@@ -123,7 +151,7 @@ link\_all\_modules\_aux\_fn()\{
             m1\_main();
         \}
     \}
-    \textcolor{keywordflow}{if}(MC\_CORE\_INFO->the\_core\_nn == 3)\{ 
+    \textcolor{keywordflow}{if}(MC\_WORKERU\_INFO->the\_workeru\_nn == 3)\{   
         \textcolor{comment}{//print\_module\_nams();}
         \textcolor{comment}{//print\_module\_addrs();}
         \textcolor{keywordtype}{bool} ok = mck\_load\_module(all\_mod\_addr[MOD3\_IDX]);
@@ -139,3 +167,4 @@ link\_all\_modules\_aux\_fn()\{
 
 \end{DoxyCodeInclude}
  
+

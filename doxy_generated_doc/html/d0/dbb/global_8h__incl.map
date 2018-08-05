@@ -1,8 +1,8 @@
 <map id="/home/jose/devel/messaging&#45;cells/src/cells/global.h" name="/home/jose/devel/messaging&#45;cells/src/cells/global.h">
-<area shape="rect" id="node2" href="$da/db4/shared_8h.html" title="C shared structures (by host and cores). It is included in global.h and cell.hh. " alt="" coords="173,169,245,196"/>
-<area shape="rect" id="node9" href="$db/db8/loader_8h.html" title="Macros to access the linker script values. " alt="" coords="103,95,171,121"/>
-<area shape="rect" id="node10" href="$d1/d1b/trace_8h.html" title="Trace functions. " alt="" coords="5,169,68,196"/>
-<area shape="rect" id="node6" href="$d7/d7f/log_8h.html" title="Defines log functions and macros. " alt="" coords="153,244,203,271"/>
-<area shape="rect" id="node7" href="$d3/de3/shared__eph_8h.html" title="Addressing functions for the epiphany architecture.. " alt="" coords="368,244,468,271"/>
-<area shape="rect" id="node8" href="$da/dd1/shared__eph3_8h.html" title="Addressing functions of the epiphany 3 architecture. " alt="" coords="365,319,471,345"/>
+<area shape="rect" id="node2" href="$da/db4/shared_8h.html" title="C shared structures (by the manageru and all workerus). It is included in global.h and cell..." alt="" coords="129,169,201,196"/>
+<area shape="rect" id="node8" href="$db/db8/loader_8h.html" title="Macros to access the linker script values. " alt="" coords="75,95,143,121"/>
+<area shape="rect" id="node9" href="$d1/d1b/trace_8h.html" title="Trace functions. " alt="" coords="5,169,68,196"/>
+<area shape="rect" id="node5" href="$d7/d7f/log_8h.html" title="Defines log functions and macros. " alt="" coords="125,244,175,271"/>
+<area shape="rect" id="node6" href="$d3/de3/shared__eph_8h.html" title="Addressing functions for the epiphany architecture.. " alt="" coords="289,244,389,271"/>
+<area shape="rect" id="node7" href="$da/dd1/shared__eph3_8h.html" title="Addressing functions of the epiphany 3 architecture. " alt="" coords="286,319,393,345"/>
 </map>

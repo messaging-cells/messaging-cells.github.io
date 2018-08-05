@@ -2,7 +2,7 @@
 \label{philo_8cpp}\index{/home/jose/devel/messaging-\/cells/src/tests/eating\+\_\+philo/philo.\+cpp@{/home/jose/devel/messaging-\/cells/src/tests/eating\+\_\+philo/philo.\+cpp}}
 
 
-Implementation of the classical concurrency example of the \href{https://en.wikipedia.org/wiki/Dining_philosophers_problem}{\tt eating philosophers}.  
+Implementation of the classical concurrency example of the \href{https://en.wikipedia.org/wiki/Dining_philosophers_problem}{\tt eating philosophers. } 
 
 
 {\ttfamily \#include \char`\"{}cell.\+hh\char`\"{}}\\*
@@ -17,37 +17,66 @@ Include dependency graph for philo.\+cpp\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 class \hyperlink{classchopstick}{chopstick}
-\begin{DoxyCompactList}\small\item\em Class for chopsticks. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Class for chopsticks (\hyperlink{philo_8cpp}{philo.\+cpp} example). \end{DoxyCompactList}\item 
 class \hyperlink{classphilosopher}{philosopher}
-\begin{DoxyCompactList}\small\item\em Class for philosophers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Class for philosophers (\hyperlink{philo_8cpp}{philo.\+cpp} example ). \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{philo_8cpp_a80458da12ef75d2c9eb5f185b2e09d73}{glb\+\_\+stick}~(\&(glb\+\_\+philo\+\_\+core-\/$>$stick))\hypertarget{philo_8cpp_a80458da12ef75d2c9eb5f185b2e09d73}{}\label{philo_8cpp_a80458da12ef75d2c9eb5f185b2e09d73}
+\#define \hyperlink{philo_8cpp_a80458da12ef75d2c9eb5f185b2e09d73}{glb\+\_\+stick}~(\&(glb\+\_\+philo\+\_\+workeru-\/$>$stick))\hypertarget{philo_8cpp_a80458da12ef75d2c9eb5f185b2e09d73}{}\label{philo_8cpp_a80458da12ef75d2c9eb5f185b2e09d73}
 
 \begin{DoxyCompactList}\small\item\em Returns the local \hyperlink{classchopstick}{chopstick}. \end{DoxyCompactList}\item 
-\#define \hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\+\_\+philo}~(\&(glb\+\_\+philo\+\_\+core-\/$>$philo))\hypertarget{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{}\label{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}
+\#define \hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\+\_\+philo}~(\&(glb\+\_\+philo\+\_\+workeru-\/$>$philo))\hypertarget{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{}\label{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}
 
 \begin{DoxyCompactList}\small\item\em Returns the local \hyperlink{classphilosopher}{philosopher}. \end{DoxyCompactList}\item 
 \#define \hyperlink{philo_8cpp_a35a8b253ce444013c865600fd0694afa}{get\+\_\+stick}(id)~((\hyperlink{classchopstick}{chopstick}$\ast$)\hyperlink{shared__eph3_8h_a6894e5bde816e6d104c56ec5a8c8288a}{mc\+\_\+addr\+\_\+set\+\_\+id}(id, \hyperlink{philo_8cpp_a80458da12ef75d2c9eb5f185b2e09d73}{glb\+\_\+stick}))\hypertarget{philo_8cpp_a35a8b253ce444013c865600fd0694afa}{}\label{philo_8cpp_a35a8b253ce444013c865600fd0694afa}
 
-\begin{DoxyCompactList}\small\item\em Returns the \hyperlink{classchopstick}{chopstick} in core with \textquotesingle{}id\textquotesingle{}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Returns the \hyperlink{classchopstick}{chopstick} in workeru with \textquotesingle{}id\textquotesingle{}. \end{DoxyCompactList}\item 
 \#define \hyperlink{philo_8cpp_a0ccca4eb20a8d8be83aeb5822cc2d30c}{get\+\_\+philo}(id)~((\hyperlink{classphilosopher}{philosopher}$\ast$)\hyperlink{shared__eph3_8h_a6894e5bde816e6d104c56ec5a8c8288a}{mc\+\_\+addr\+\_\+set\+\_\+id}(id, \hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\+\_\+philo}))\hypertarget{philo_8cpp_a0ccca4eb20a8d8be83aeb5822cc2d30c}{}\label{philo_8cpp_a0ccca4eb20a8d8be83aeb5822cc2d30c}
 
-\begin{DoxyCompactList}\small\item\em Returns the \hyperlink{classphilosopher}{philosopher} in core with \textquotesingle{}id\textquotesingle{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Returns the \hyperlink{classphilosopher}{philosopher} in workeru with \textquotesingle{}id\textquotesingle{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Implementation of the classical concurrency example of the \href{https://en.wikipedia.org/wiki/Dining_philosophers_problem}{\tt eating philosophers}. 
+Implementation of the classical concurrency example of the \href{https://en.wikipedia.org/wiki/Dining_philosophers_problem}{\tt eating philosophers. }
 
 
 \begin{DoxyCodeInclude}
-\textcolor{comment}{//----------------------------------------------------------------------------}
-\textcolor{comment}{}\textcolor{preprocessor}{#include "\hyperlink{cell_8hh}{cell.hh}"}
+
+
+\textcolor{comment}{/*************************************************************}
+\textcolor{comment}{}
+\textcolor{comment}{This file is part of messaging-cells.}
+\textcolor{comment}{}
+\textcolor{comment}{messaging-cells is free software: you can redistribute it and/or modify}
+\textcolor{comment}{it under the terms of the version 3 of the GNU General Public }
+\textcolor{comment}{License as published by the Free Software Foundation.}
+\textcolor{comment}{}
+\textcolor{comment}{messaging-cells is distributed in the hope that it will be useful,}
+\textcolor{comment}{but WITHOUT ANY WARRANTY; without even the implied warranty of}
+\textcolor{comment}{MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}
+\textcolor{comment}{GNU General Public License for more details.}
+\textcolor{comment}{}
+\textcolor{comment}{You should have received a copy of the GNU General Public License}
+\textcolor{comment}{along with messaging-cells.  If not, see <http://www.gnu.org/licenses/>.}
+\textcolor{comment}{}
+\textcolor{comment}{------------------------------------------------------------}
+\textcolor{comment}{}
+\textcolor{comment}{Copyright (C) 2017-2018. QUIROGA BELTRAN, Jose Luis.}
+\textcolor{comment}{Id (cedula): 79523732 de Bogota - Colombia.}
+\textcolor{comment}{See https://messaging-cells.github.io/}
+\textcolor{comment}{}
+\textcolor{comment}{messaging-cells is free software thanks to The Glory of Our Lord }
+\textcolor{comment}{    Yashua Melej Hamashiaj.}
+\textcolor{comment}{Our Resurrected and Living, both in Body and Spirit, }
+\textcolor{comment}{    Prince of Peace.}
+\textcolor{comment}{}
+\textcolor{comment}{------------------------------------------------------------*/}
+\textcolor{preprocessor}{#include "\hyperlink{cell_8hh}{cell.hh}"}
 
 \textcolor{comment}{//define PHILO\_EPH\_DBG}
 
-\textcolor{preprocessor}{#ifdef MC\_IS\_EMU\_CODE}
+\textcolor{preprocessor}{#ifdef MC\_IS\_PTD\_CODE}
 \textcolor{preprocessor}{#define PHILO\_WITH\_DBG}
 \textcolor{preprocessor}{#endif}
 
@@ -80,11 +109,11 @@ Implementation of the classical concurrency example of the \href{https://en.wiki
 \textcolor{preprocessor}{#endif // END\_OF\_PHILO\_WITH\_DBG}
 
 \textcolor{keyword}{class }\hyperlink{classchopstick}{chopstick};
-\textcolor{keyword}{class }philosopher;
+\textcolor{keyword}{class }\hyperlink{classphilosopher}{philosopher};
 
 \textcolor{preprocessor}{#define MAX\_BITES 10}
 
-\textcolor{preprocessor}{#define PH\_DBG EMU\_PRT}
+\textcolor{preprocessor}{#define PH\_DBG PTD\_PRT}
 
 \textcolor{keyword}{enum} philo\_tok\_t : uint8\_t \{
     tok\_invalid,
@@ -106,43 +135,43 @@ Implementation of the classical concurrency example of the \href{https://en.wiki
     tok\_to\_str(philo\_tok\_t tok)\{
         \textcolor{keywordflow}{switch}(tok)\{
         \textcolor{keywordflow}{case} tok\_invalid:
-            \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"invalid"});
+            \textcolor{keywordflow}{return} mc\_cstr(\textcolor{stringliteral}{"invalid"});
         \textcolor{keywordflow}{break};
         \textcolor{keywordflow}{case} tok\_eat:
-            \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"eat"});
+            \textcolor{keywordflow}{return} mc\_cstr(\textcolor{stringliteral}{"eat"});
         \textcolor{keywordflow}{break};
         \textcolor{keywordflow}{case} tok\_take:
-            \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"take"});
+            \textcolor{keywordflow}{return} mc\_cstr(\textcolor{stringliteral}{"take"});
         \textcolor{keywordflow}{break};
         \textcolor{keywordflow}{case} tok\_taken:
-            \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"taken"});
+            \textcolor{keywordflow}{return} mc\_cstr(\textcolor{stringliteral}{"taken"});
         \textcolor{keywordflow}{break};
         \textcolor{keywordflow}{case} tok\_not\_taken:
-            \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"not\_taken"});
+            \textcolor{keywordflow}{return} mc\_cstr(\textcolor{stringliteral}{"not\_taken"});
         \textcolor{keywordflow}{break};
         \textcolor{keywordflow}{case} tok\_drop:
-            \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"drop"});
+            \textcolor{keywordflow}{return} mc\_cstr(\textcolor{stringliteral}{"drop"});
         \textcolor{keywordflow}{break};
         \textcolor{keywordflow}{case} tok\_droped:
-            \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"droped"});
+            \textcolor{keywordflow}{return} mc\_cstr(\textcolor{stringliteral}{"droped"});
         \textcolor{keywordflow}{break};
         \textcolor{keywordflow}{case} tok\_not\_droped:
-            \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"not\_droped"});
+            \textcolor{keywordflow}{return} mc\_cstr(\textcolor{stringliteral}{"not\_droped"});
         \textcolor{keywordflow}{break};
         \textcolor{keywordflow}{case} tok\_yes\_full:
-            \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"yes\_fll"});
+            \textcolor{keywordflow}{return} mc\_cstr(\textcolor{stringliteral}{"yes\_fll"});
         \textcolor{keywordflow}{break};
         \textcolor{keywordflow}{default}:
-            \hyperlink{global_8h_a6a6d1065bccc17077e1a6a0aeaa5f6dd}{mck\_abort}(1, const\_cast<char*>(\textcolor{stringliteral}{"BAD\_PHILO\_TOK"}));
+            \hyperlink{global_8h_a6a6d1065bccc17077e1a6a0aeaa5f6dd}{mck\_abort}(1, mc\_cstr(\textcolor{stringliteral}{"BAD\_PHILO\_TOK"}));
         \textcolor{keywordflow}{break};
         \}
-        \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{stringliteral}{"NO\_TOK"});
+        \textcolor{keywordflow}{return} mc\_cstr(\textcolor{stringliteral}{"NO\_TOK"});
     \}
 \textcolor{comment}{//endif // END\_OF\_PHILO\_WITH\_DBG}
 
 \textcolor{keyword}{class }\hyperlink{classchopstick}{chopstick} : \textcolor{keyword}{public} \hyperlink{classcell}{cell} \{
 \textcolor{keyword}{public}:
-    \hyperlink{cell_8hh_ab43adc7961f0b5b06463b122ae598993}{MCK\_DECLARE\_MEM\_METHODS}(\hyperlink{classchopstick}{chopstick})
+    MCK\_DECLARE\_MEM\_METHODS(\hyperlink{classchopstick}{chopstick}, mc\_mod0\_cod)
 
     \hyperlink{classcell}{cell}* owner;
 
@@ -166,11 +195,14 @@ Implementation of the classical concurrency example of the \href{https://en.wiki
     \}
 
     \textcolor{keywordtype}{void} handler(\hyperlink{classmissive}{missive}* msv);
+
+    \textcolor{keyword}{virtual} 
+    grip&   \hyperlink{classchopstick_ac7d6b96a8fa73a13464359b88eddc5c9}{get\_available}();
 \};
 
-\textcolor{keyword}{class }philosopher : \textcolor{keyword}{public} \hyperlink{classcell}{cell} \{
+\textcolor{keyword}{class }\hyperlink{classphilosopher}{philosopher} : \textcolor{keyword}{public} \hyperlink{classcell}{cell} \{
 \textcolor{keyword}{public}:
-    \hyperlink{cell_8hh_ab43adc7961f0b5b06463b122ae598993}{MCK\_DECLARE\_MEM\_METHODS}(philosopher)
+    \hyperlink{cell_8hh_a16c403a50331aa5b5d01d33acc14ade4}{MCK\_DECLARE\_MEM\_METHODS}(\hyperlink{classphilosopher}{philosopher}, mc\_mod0\_cod)
 
     \hyperlink{classchopstick}{chopstick}* left;
     \hyperlink{classchopstick}{chopstick}* right;
@@ -179,14 +211,14 @@ Implementation of the classical concurrency example of the \href{https://en.wiki
     \textcolor{keywordtype}{bool} lft\_ph\_full;
     \textcolor{keywordtype}{bool} rgt\_ph\_full;
 
-    mc\_core\_id\_t    lft\_stk\_id;
-    mc\_core\_id\_t    rgt\_stk\_id;
+    \hyperlink{shared__eph3_8h_ac84be73145b663d3392b6955cbc19c3b}{mc\_workeru\_id\_t}  lft\_stk\_id;
+    \hyperlink{shared__eph3_8h_ac84be73145b663d3392b6955cbc19c3b}{mc\_workeru\_id\_t}  rgt\_stk\_id;
     \hyperlink{classchopstick}{chopstick}*     lft\_stick;
     \hyperlink{classchopstick}{chopstick}*     rgt\_stick;
-    mc\_core\_id\_t    lft\_phi\_id;
-    mc\_core\_id\_t    rgt\_phi\_id;
-    philosopher*    lft\_philo;
-    philosopher*    rgt\_philo;
+    \hyperlink{shared__eph3_8h_ac84be73145b663d3392b6955cbc19c3b}{mc\_workeru\_id\_t}  lft\_phi\_id;
+    \hyperlink{shared__eph3_8h_ac84be73145b663d3392b6955cbc19c3b}{mc\_workeru\_id\_t}  rgt\_phi\_id;
+    \hyperlink{classphilosopher}{philosopher}* lft\_philo;
+    \hyperlink{classphilosopher}{philosopher}* rgt\_philo;
 
     philo\_tok\_t last\_sent;
     philo\_tok\_t last\_sent\_lft;
@@ -195,11 +227,11 @@ Implementation of the classical concurrency example of the \href{https://en.wiki
     philo\_tok\_t last\_recv\_lft;
     philo\_tok\_t last\_recv\_rgt;
 
-    philosopher()\{
+    \hyperlink{classphilosopher}{philosopher}()\{
         init\_philosopher();
     \}
 
-    ~philosopher()\{\}
+    ~\hyperlink{classphilosopher}{philosopher}()\{\}
 
     \textcolor{keywordtype}{void} init\_philosopher()\{
         \hyperlink{classcell_a234bbd022db21480b428b2f63662fe95}{handler\_idx} = 2;
@@ -240,25 +272,28 @@ Implementation of the classical concurrency example of the \href{https://en.wiki
     \}
 
     \textcolor{keywordtype}{void} call\_exit();
+
+    \textcolor{keyword}{virtual} 
+    grip&   \hyperlink{classchopstick_ac7d6b96a8fa73a13464359b88eddc5c9}{get\_available}();
 \};
 
-\textcolor{comment}{// For global data. DO NOT USE GLOBAL VARIABLES IF YOU WANT THE EMULATOR (cores as threads) TO WORK.}
-\textcolor{keyword}{class }philo\_core \{
+\textcolor{comment}{// For global data. DO NOT USE GLOBAL VARIABLES IF YOU WANT THE PTD (workerus as threads) TO WORK.}
+\textcolor{keyword}{class }philo\_workeru \{
 \textcolor{keyword}{public}:
-    \hyperlink{cell_8hh_ab43adc7961f0b5b06463b122ae598993}{MCK\_DECLARE\_MEM\_METHODS}(philo\_core)
+    \hyperlink{cell_8hh_a16c403a50331aa5b5d01d33acc14ade4}{MCK\_DECLARE\_MEM\_METHODS}(philo\_workeru, mc\_mod0\_cod)
 
-    philo\_core()\{       \textcolor{comment}{// NEED THIS SO THAT no memset func call}
-        init\_philo\_core();
+    philo\_workeru()\{        \textcolor{comment}{// NEED THIS SO THAT no memset func call}
+        init\_philo\_workeru();
     \}       
-    ~philo\_core()\{\}     \textcolor{comment}{// NEED THIS SO THAT no memset func call}
+    ~philo\_workeru()\{\}      \textcolor{comment}{// NEED THIS SO THAT no memset func call}
 
     \hyperlink{classchopstick}{chopstick} stick;
-    philosopher philo;
+    \hyperlink{classphilosopher}{philosopher} philo;
     grip ava\_chopstick;
     grip ava\_philosopher;
 
-    mc\_size\_t from\_host\_work\_sz;
-    mc\_size\_t to\_host\_work\_sz;
+    mc\_size\_t from\_manageru\_work\_sz;
+    mc\_size\_t to\_manageru\_work\_sz;
     mc\_size\_t in\_work\_sz;
     mc\_size\_t local\_work\_sz;
     mc\_size\_t out\_work\_sz;
@@ -268,9 +303,9 @@ Implementation of the classical concurrency example of the \href{https://en.wiki
     mc\_size\_t cls\_available\_agent\_ref\_sz;
     mc\_size\_t cls\_available\_agent\_grp\_sz;
 
-    \textcolor{keywordtype}{void} init\_philo\_core()\{
-        from\_host\_work\_sz = 0;
-        to\_host\_work\_sz = 0;
+    \textcolor{keywordtype}{void} init\_philo\_workeru()\{
+        from\_manageru\_work\_sz = 0;
+        to\_manageru\_work\_sz = 0;
         in\_work\_sz = 0;
         local\_work\_sz = 0;
         out\_work\_sz = 0;
@@ -282,16 +317,17 @@ Implementation of the classical concurrency example of the \href{https://en.wiki
     \}
 \};
 
-\hyperlink{cell_8hh_aad0dec1d661f1fdb5a2ccb767d712c75}{MCK\_DEFINE\_ACQUIRE\_ALLOC}(philo\_core, 32);   \textcolor{comment}{// defines philo\_core::acquire\_alloc}
+\hyperlink{cell_8hh_aad0dec1d661f1fdb5a2ccb767d712c75}{MCK\_DEFINE\_ACQUIRE\_ALLOC}(philo\_workeru, 32);    \textcolor{comment}{// defines
+       philo\_workeru::acquire\_alloc}
 
-\textcolor{preprocessor}{#define glb\_philo\_core ((philo\_core*)(mck\_get\_kernel()->user\_data))}
+\textcolor{preprocessor}{#define glb\_philo\_workeru ((philo\_workeru*)(mck\_get\_kernel()->user\_data))}
 
-\textcolor{preprocessor}{#define glb\_stick (&(glb\_philo\_core->stick))}
+\textcolor{preprocessor}{#define glb\_stick (&(glb\_philo\_workeru->stick))}
 
-\textcolor{preprocessor}{#define glb\_philo (&(glb\_philo\_core->philo))}
+\textcolor{preprocessor}{#define glb\_philo (&(glb\_philo\_workeru->philo))}
 
-\textcolor{preprocessor}{#define glb\_ava\_sticks (glb\_philo\_core->ava\_chopstick)}
-\textcolor{preprocessor}{#define glb\_ava\_philos (glb\_philo\_core->ava\_philosopher)}
+\textcolor{preprocessor}{#define glb\_ava\_sticks (glb\_philo\_workeru->ava\_chopstick)}
+\textcolor{preprocessor}{#define glb\_ava\_philos (glb\_philo\_workeru->ava\_philosopher)}
 
 \textcolor{preprocessor}{#define left\_chp\_nn(nn) (nn)}
 \textcolor{preprocessor}{#define right\_chp\_nn(nn) ((nn == 15)?(0):(nn + 1))}
@@ -303,12 +339,22 @@ Implementation of the classical concurrency example of the \href{https://en.wiki
 
 \textcolor{preprocessor}{#define get\_philo(id) ((philosopher*)mc\_addr\_set\_id(id, glb\_philo))}
 
-\hyperlink{cell_8hh_a9095d9f262f63984c60799e4a3b135c5}{MCK\_DEFINE\_MEM\_METHODS}(\hyperlink{classchopstick}{chopstick}, 32, glb\_ava\_sticks)
-\hyperlink{cell_8hh_a9095d9f262f63984c60799e4a3b135c5}{MCK\_DEFINE\_MEM\_METHODS}(philosopher, 32, glb\_ava\_philos)
+\hyperlink{cell_8hh_aca3006fa8b9b5346c57139164f8e3591}{MCK\_DEFINE\_MEM\_METHODS}(\hyperlink{classchopstick}{chopstick}, 32, glb\_ava\_sticks, 0)
+\hyperlink{cell_8hh_aca3006fa8b9b5346c57139164f8e3591}{MCK\_DEFINE\_MEM\_METHODS}(\hyperlink{classphilosopher}{philosopher}, 32, glb\_ava\_philos, 0)
+
+grip&
+\hyperlink{classchopstick}{chopstick}::\hyperlink{classchopstick_ac7d6b96a8fa73a13464359b88eddc5c9}{get\_available}()\{
+    \textcolor{keywordflow}{return} glb\_ava\_sticks;
+\}
+
+grip&
+\hyperlink{classphilosopher_a1efabe25b3e78f72610bacb408cf5518}{philosopher::get\_available}()\{
+    \textcolor{keywordflow}{return} glb\_ava\_philos;
+\}
 
 
 \textcolor{preprocessor}{#ifdef PHILO\_WITH\_DBG}
-    philo\_core* 
+    philo\_workeru* 
     dbg\_all\_philo[16] mc\_external\_code\_ram = \{
         mc\_null, mc\_null, mc\_null, mc\_null, 
         mc\_null, mc\_null, mc\_null, mc\_null, 
@@ -319,7 +365,7 @@ Implementation of the classical concurrency example of the \href{https://en.wiki
 
 \textcolor{keywordtype}{void} 
 philosopher\_handler(\hyperlink{classmissive}{missive}* msv)\{
-    MCK\_CALL\_HANDLER(philosopher, handler, msv);
+    MCK\_CALL\_HANDLER(\hyperlink{classphilosopher}{philosopher}, handler, msv);
 \}
 
 \textcolor{keywordtype}{void} 
@@ -341,7 +387,7 @@ chopstick::handler(\hyperlink{classmissive}{missive}* msv)\{
     last\_src = msv\_src;
     last\_recv = tok;
 
-    mc\_core\_nn\_t nn = \hyperlink{cell_8hh_af1eb47800585646e0caf6cb269111731}{mck\_get\_kernel}()->get\_core\_nn();
+    \hyperlink{shared__eph3_8h_a804158edcb9b5bc2c1b2fb19d14e80d5}{mc\_workeru\_nn\_t} nn = \hyperlink{cell_8hh_af1eb47800585646e0caf6cb269111731}{mck\_get\_kernel}()->get\_workeru\_nn();
     PH\_DBG\_COD(
         \textcolor{keywordflow}{if}(prt\_recv\_msgs)\{
             PH\_DBG(\textcolor{stringliteral}{"CHOP %d RECV %s \(\backslash\)n"}, nn, tok\_to\_str(tok));
@@ -349,11 +395,11 @@ chopstick::handler(\hyperlink{classmissive}{missive}* msv)\{
     )
     \textcolor{keywordflow}{if}((nn == 0) || (nn >= 14))\{
 \textcolor{preprocessor}{        #ifdef PHILO\_EPH\_DBG}
-            mc\_core\_id\_t src\_id = \hyperlink{shared__eph3_8h_a7318efe779877691f45272404b4f14b8}{mc\_addr\_get\_id}(msv\_src);
+            \hyperlink{shared__eph3_8h_ac84be73145b663d3392b6955cbc19c3b}{mc\_workeru\_id\_t} src\_id = \hyperlink{shared__eph3_8h_a7318efe779877691f45272404b4f14b8}{mc\_addr\_get\_id}(msv\_src);
             \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"CHOP\_RECV\_\_\_\_"});
             \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(tok\_to\_str(tok));
             \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"\_\_\_"});
-            \hyperlink{log_8h_aa4f0190d914cecf5db43914dc69f7129}{mck\_xlog}((mc\_addr\_t)msv\_src);
+            \hyperlink{log_8h_aa4f0190d914cecf5db43914dc69f7129}{mck\_xlog}((\hyperlink{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{mc\_addr\_t})msv\_src);
             \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"\_\_\_"});
             \hyperlink{log_8h_a14e1de1564f270c82ff08d1b9ad41a66}{mck\_ilog}(mc\_id\_to\_nn(src\_id));
             \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"\_\_\_\(\backslash\)n"});
@@ -364,7 +410,7 @@ chopstick::handler(\hyperlink{classmissive}{missive}* msv)\{
                 \textcolor{comment}{//long osz = ker->out\_work.calc\_size();}
                 \textcolor{comment}{//mck\_ack\_t loc\_dst\_ack\_pt = (ker->pw0\_routed\_ack\_arr)[0];}
                 \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"ADDR\_INI\_\_\_\_"});
-                \hyperlink{log_8h_aa4f0190d914cecf5db43914dc69f7129}{mck\_xlog}((mc\_addr\_t)(&(MC\_CORE\_INFO->inited\_core)));
+                \hyperlink{log_8h_aa4f0190d914cecf5db43914dc69f7129}{mck\_xlog}((\hyperlink{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{mc\_addr\_t})(&(MC\_WORKERU\_INFO->inited\_workeru)));
                 \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"\_\_\_\(\backslash\)n"});
 
                 \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"INI\_0\_\_\_\_"});
@@ -376,25 +422,25 @@ chopstick::handler(\hyperlink{classmissive}{missive}* msv)\{
 
     \textcolor{keywordflow}{switch}(tok)\{
         \textcolor{keywordflow}{case} tok\_take:
-            EMU\_CK(owner != msv\_src);
+            PTD\_CK(owner != msv\_src);
             \textcolor{keywordflow}{if}(owner == mc\_null)\{
                 owner = msv\_src;
                 last\_sent = tok\_taken;
                 respond(msv, tok\_taken);
             \} \textcolor{keywordflow}{else} \{
-                EMU\_CK(owner != mc\_null);
+                PTD\_CK(owner != mc\_null);
                 last\_sent = tok\_not\_taken;
                 respond(msv, tok\_not\_taken);
             \}
         \textcolor{keywordflow}{break};
         \textcolor{keywordflow}{case} tok\_drop:
-            EMU\_CK(owner == msv\_src);
+            PTD\_CK(owner == msv\_src);
             owner = mc\_null;
             last\_sent = tok\_droped;
             respond(msv, tok\_droped);
         \textcolor{keywordflow}{break};
         \textcolor{keywordflow}{default}:
-            \hyperlink{global_8h_a6a6d1065bccc17077e1a6a0aeaa5f6dd}{mck\_abort}(1, const\_cast<char*>(\textcolor{stringliteral}{"BAD\_STICK\_TOK"}));
+            \hyperlink{global_8h_a6a6d1065bccc17077e1a6a0aeaa5f6dd}{mck\_abort}(1, mc\_cstr(\textcolor{stringliteral}{"BAD\_STICK\_TOK"}));
         \textcolor{keywordflow}{break};
     \}
     
@@ -413,7 +459,7 @@ philosopher::send(\hyperlink{classcell}{cell}* dst, philo\_tok\_t tok)\{
     \textcolor{keywordflow}{if}(dst == lft\_stick)\{ last\_sent\_lft = tok; \}
     \textcolor{keywordflow}{if}(dst == rgt\_stick)\{ last\_sent\_rgt = tok; \}
 
-    \hyperlink{classmissive}{missive}* msv = \hyperlink{classmissive_a911a5d60180223ebff8d71966c483ee5}{missive::acquire}();
+    \hyperlink{classmissive}{missive}* msv = missive::acquire();
     msv->src = \textcolor{keyword}{this};
     msv->dst = dst;
     msv->tok = tok;
@@ -424,7 +470,7 @@ philosopher::send(\hyperlink{classcell}{cell}* dst, philo\_tok\_t tok)\{
 philosopher::handler(\hyperlink{classmissive}{missive}* msv)\{
     \hyperlink{classcell}{cell}* msv\_src = msv->src;
     philo\_tok\_t tok = (philo\_tok\_t)msv->tok;
-    mc\_core\_nn\_t nn = \hyperlink{cell_8hh_af1eb47800585646e0caf6cb269111731}{mck\_get\_kernel}()->get\_core\_nn();
+    \hyperlink{shared__eph3_8h_a804158edcb9b5bc2c1b2fb19d14e80d5}{mc\_workeru\_nn\_t} nn = \hyperlink{cell_8hh_af1eb47800585646e0caf6cb269111731}{mck\_get\_kernel}()->get\_workeru\_nn();
     MC\_MARK\_USED(nn);
 
     PH\_DBG\_COD(
@@ -440,17 +486,17 @@ philosopher::handler(\hyperlink{classmissive}{missive}* msv)\{
 
     \textcolor{keywordflow}{switch}(tok)\{
         \textcolor{keywordflow}{case} tok\_eat:
-            EMU\_CK(msv\_src == \textcolor{keyword}{this});
-            EMU\_CK(left == mc\_null);
-            EMU\_CK(right == mc\_null);
-            EMU\_CK(num\_bites < MAX\_BITES);
+            PTD\_CK(msv\_src == \textcolor{keyword}{this});
+            PTD\_CK(left == mc\_null);
+            PTD\_CK(right == mc\_null);
+            PTD\_CK(num\_bites < MAX\_BITES);
             send(lft\_stick, tok\_take);
         \textcolor{keywordflow}{break};
         \textcolor{keywordflow}{case} tok\_taken:
-            EMU\_CK((msv\_src == lft\_stick) || (msv\_src == rgt\_stick));
+            PTD\_CK((msv\_src == lft\_stick) || (msv\_src == rgt\_stick));
             \textcolor{keywordflow}{if}(msv\_src == lft\_stick)\{
-                EMU\_CK(left == mc\_null);
-                EMU\_CK(right == mc\_null);
+                PTD\_CK(left == mc\_null);
+                PTD\_CK(right == mc\_null);
                 left = lft\_stick;
                 send(rgt\_stick, tok\_take);
     
@@ -461,16 +507,16 @@ philosopher::handler(\hyperlink{classmissive}{missive}* msv)\{
 \textcolor{preprocessor}{                #endif}
             \}
             \textcolor{keywordflow}{if}(msv\_src == rgt\_stick)\{
-                EMU\_CK(left == lft\_stick);
-                EMU\_CK(right == mc\_null);
+                PTD\_CK(left == lft\_stick);
+                PTD\_CK(right == mc\_null);
                 right = rgt\_stick;
 
-                EMU\_CK(left != mc\_null);
-                EMU\_CK(right != mc\_null);
-                EMU\_CK(num\_bites < MAX\_BITES);
+                PTD\_CK(left != mc\_null);
+                PTD\_CK(right != mc\_null);
+                PTD\_CK(num\_bites < MAX\_BITES);
                 num\_bites++;
                 PH\_DBG(\textcolor{stringliteral}{"#BITES %d \(\backslash\)n"}, num\_bites);
-                EMU\_LOG(\textcolor{stringliteral}{"#BITES %d \(\backslash\)n"}, num\_bites);
+                PTD\_LOG(\textcolor{stringliteral}{"#BITES %d \(\backslash\)n"}, num\_bites);
 
 \textcolor{preprocessor}{                #ifdef PHILO\_EPH\_DBG}
                     \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"#BITES\_\_\_\_"});
@@ -483,37 +529,37 @@ philosopher::handler(\hyperlink{classmissive}{missive}* msv)\{
             \}
         \textcolor{keywordflow}{break};
         \textcolor{keywordflow}{case} tok\_not\_taken:
-            EMU\_CK((msv\_src == lft\_stick) || (msv\_src == rgt\_stick));
+            PTD\_CK((msv\_src == lft\_stick) || (msv\_src == rgt\_stick));
             \textcolor{keywordflow}{if}(msv\_src == lft\_stick)\{
-                EMU\_CK(left == mc\_null);
-                EMU\_CK(right == mc\_null);
+                PTD\_CK(left == mc\_null);
+                PTD\_CK(right == mc\_null);
                 send(\textcolor{keyword}{this}, tok\_eat);
             \}
             \textcolor{keywordflow}{if}(msv\_src == rgt\_stick)\{
-                EMU\_CK(left == lft\_stick);
-                EMU\_CK(right == mc\_null);
+                PTD\_CK(left == lft\_stick);
+                PTD\_CK(right == mc\_null);
                 send(lft\_stick, tok\_drop);
             \}
         \textcolor{keywordflow}{break};
         \textcolor{keywordflow}{case} tok\_droped:
-            EMU\_CK((msv\_src == lft\_stick) || (msv\_src == rgt\_stick));
+            PTD\_CK((msv\_src == lft\_stick) || (msv\_src == rgt\_stick));
             \textcolor{keywordflow}{if}(msv\_src == lft\_stick)\{
-                EMU\_CK(left == lft\_stick);
+                PTD\_CK(left == lft\_stick);
                 left = mc\_null;
             \}
             \textcolor{keywordflow}{if}(msv\_src == rgt\_stick)\{
-                EMU\_CK(right == rgt\_stick);
+                PTD\_CK(right == rgt\_stick);
                 right = mc\_null;
             \}
             \textcolor{keywordflow}{if}((left == mc\_null) && (right == mc\_null))\{
                 \textcolor{keywordflow}{if}(num\_bites == MAX\_BITES)\{
                     PH\_DBG(\textcolor{stringliteral}{"I AM FULL \(\backslash\)n"});
-                    EMU\_LOG(\textcolor{stringliteral}{"I AM FULL \(\backslash\)n"});
+                    PTD\_LOG(\textcolor{stringliteral}{"I AM FULL \(\backslash\)n"});
                     \hyperlink{log_8h_addbe1979a58d9f84d5a009c5543818c2}{mck\_sprt2}(\textcolor{stringliteral}{"I AM FULL\_\_\_\_"});
-                    \hyperlink{log_8h_a2d38dfdcdb36720d61e2ce089b3a1524}{mck\_iprt}(\hyperlink{cell_8hh_af1eb47800585646e0caf6cb269111731}{mck\_get\_kernel}()->get\_core\_nn());
+                    \hyperlink{log_8h_a2d38dfdcdb36720d61e2ce089b3a1524}{mck\_iprt}(\hyperlink{cell_8hh_af1eb47800585646e0caf6cb269111731}{mck\_get\_kernel}()->get\_workeru\_nn());
                     \hyperlink{log_8h_addbe1979a58d9f84d5a009c5543818c2}{mck\_sprt2}(\textcolor{stringliteral}{"\_\_\_\(\backslash\)n"});
 
-                    PH\_DBG\_COD(\hyperlink{shared_8h_a93f939625cf4afc446aa8836e1fecae9}{mc\_set\_off\_core\_var}(dbg\_all\_full[nn], \textcolor{keyword}{true});)
+                    PH\_DBG\_COD(\hyperlink{shared_8h_aa53b0f7f84415e6ca7bbea9dee5d7e57}{mc\_loop\_set\_var}(dbg\_all\_full[nn], \textcolor{keyword}{true});)
 
                     send(lft\_philo, tok\_yes\_full);
                     send(rgt\_philo, tok\_yes\_full);
@@ -527,13 +573,13 @@ philosopher::handler(\hyperlink{classmissive}{missive}* msv)\{
             \}
         \textcolor{keywordflow}{break};
         \textcolor{keywordflow}{case} tok\_yes\_full:
-            EMU\_CK((msv\_src == lft\_philo) || (msv\_src == rgt\_philo));
+            PTD\_CK((msv\_src == lft\_philo) || (msv\_src == rgt\_philo));
             \textcolor{keywordflow}{if}(msv\_src == lft\_philo)\{ 
-                EMU\_CK(! lft\_ph\_full);
+                PTD\_CK(! lft\_ph\_full);
                 lft\_ph\_full = \textcolor{keyword}{true}; 
             \}
             \textcolor{keywordflow}{if}(msv\_src == rgt\_philo)\{ 
-                EMU\_CK(! rgt\_ph\_full);
+                PTD\_CK(! rgt\_ph\_full);
                 rgt\_ph\_full = \textcolor{keyword}{true}; 
             \}
             \textcolor{keywordflow}{if}(can\_exit())\{
@@ -541,7 +587,7 @@ philosopher::handler(\hyperlink{classmissive}{missive}* msv)\{
             \}
         \textcolor{keywordflow}{break};
         \textcolor{keywordflow}{default}:
-            \hyperlink{global_8h_a6a6d1065bccc17077e1a6a0aeaa5f6dd}{mck\_abort}(1, const\_cast<char*>(\textcolor{stringliteral}{"BAD\_PHILO\_TOK"}));
+            \hyperlink{global_8h_a6a6d1065bccc17077e1a6a0aeaa5f6dd}{mck\_abort}(1, mc\_cstr(\textcolor{stringliteral}{"BAD\_PHILO\_TOK"}));
         \textcolor{keywordflow}{break};
     \} 
     
@@ -554,10 +600,10 @@ philosopher::call\_exit()\{
         prt\_full();
         prt\_all\_philo();
     )
-    EMU\_LOG(\textcolor{stringliteral}{"FINISHING \(\backslash\)n"});
+    PTD\_LOG(\textcolor{stringliteral}{"FINISHING \(\backslash\)n"});
 
     \textcolor{comment}{//mck\_sprt2("CALLING\_EXIT\_\_\_\_");}
-    \textcolor{comment}{//mck\_iprt(mck\_get\_kernel()->get\_core\_nn());}
+    \textcolor{comment}{//mck\_iprt(mck\_get\_kernel()->get\_workeru\_nn());}
     \textcolor{comment}{//mck\_sprt2("\_\_\_\(\backslash\)n");}
 
     \hyperlink{cell_8hh_af1eb47800585646e0caf6cb269111731}{mck\_get\_kernel}()->set\_idle\_exit();
@@ -592,7 +638,7 @@ philosopher::call\_exit()\{
         PH\_DBG(\textcolor{stringliteral}{"%s"}, full\_str);
     \}
 
-    \textcolor{keywordtype}{void} prt\_ph(\textcolor{keywordtype}{int} aa, philosopher* ph)\{
+    \textcolor{keywordtype}{void} prt\_ph(\textcolor{keywordtype}{int} aa, \hyperlink{classphilosopher}{philosopher}* ph)\{
         \textcolor{keywordtype}{char} full\_str[500];
         \textcolor{keywordtype}{char}* pt = full\_str;
         \textcolor{keywordtype}{bool} is\_fll = (ph->num\_bites == MAX\_BITES);
@@ -624,13 +670,17 @@ philosopher::call\_exit()\{
         PH\_DBG(full\_str);
     \}
 
-    \textcolor{keywordtype}{void} prt\_pc(\textcolor{keywordtype}{int} aa, philo\_core* pc)\{
+    \textcolor{keywordtype}{void} prt\_pc(\textcolor{keywordtype}{int} aa, philo\_workeru* pc)\{
         \textcolor{keywordtype}{char} full\_str[500];
         \textcolor{keywordtype}{char}* pt = full\_str;
-        pt += sprintf(pt, \textcolor{stringliteral}{"CORE %d=["}, aa);
-        EMU\_CODE(
+        pt += sprintf(pt, \textcolor{stringliteral}{"WORKERU %d=["}, aa);
+        PTD\_64\_CODE(
             pt += sprintf(pt, \textcolor{stringliteral}{"out\_work\_sz=%ld "}, pc->out\_work\_sz);
             pt += sprintf(pt, \textcolor{stringliteral}{"sent\_work\_sz=%ld "}, pc->sent\_work\_sz);
+        )
+        PTD\_32\_CODE(
+            pt += sprintf(pt, "out\_work\_sz=%d ", pc->out\_work\_sz);
+            pt += sprintf(pt, "sent\_work\_sz=%d ", pc->sent\_work\_sz);
         )
         EPH\_CODE(
             pt += sprintf(pt, "out\_work\_sz=%d ", pc->out\_work\_sz);
@@ -642,7 +692,7 @@ philosopher::call\_exit()\{
 
     \textcolor{keywordtype}{void} prt\_all\_philo()\{
         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} aa = 0; aa < 16; aa++)\{
-            philo\_core* phl = dbg\_all\_philo[aa];
+            philo\_workeru* phl = dbg\_all\_philo[aa];
             \textcolor{keywordflow}{if}(phl != mc\_null)\{
                 prt\_ch(aa, &(phl->stick));
                 prt\_ph(aa, &(phl->philo));
@@ -653,16 +703,16 @@ philosopher::call\_exit()\{
 
     \textcolor{keywordtype}{void} ker\_func()\{
         \hyperlink{classkernel}{kernel}* ker = \hyperlink{cell_8hh_af1eb47800585646e0caf6cb269111731}{mck\_get\_kernel}();
-        mc\_core\_nn\_t nn = ker->\hyperlink{classkernel_a9bea88d9fe21bf2fb40d7c8a7656c30a}{get\_core\_nn}();
+        \hyperlink{shared__eph3_8h_a804158edcb9b5bc2c1b2fb19d14e80d5}{mc\_workeru\_nn\_t} nn = ker->\hyperlink{classkernel_ac72d71034d07b7679c54fef29701c531}{get\_workeru\_nn}();
         \textcolor{keywordflow}{if}(! ker->did\_work && ! dbg\_all\_idle\_prt[nn])\{
-            \hyperlink{shared_8h_a93f939625cf4afc446aa8836e1fecae9}{mc\_set\_off\_core\_var}(dbg\_all\_idle\_prt[nn], \textcolor{keyword}{true});
+            \hyperlink{shared_8h_aa53b0f7f84415e6ca7bbea9dee5d7e57}{mc\_loop\_set\_var}(dbg\_all\_idle\_prt[nn], \textcolor{keyword}{true});
         \}
         \textcolor{keywordflow}{if}(ker->did\_work && dbg\_all\_idle\_prt[nn])\{
-            \hyperlink{shared_8h_a93f939625cf4afc446aa8836e1fecae9}{mc\_set\_off\_core\_var}(dbg\_all\_idle\_prt[nn], \textcolor{keyword}{false});
+            \hyperlink{shared_8h_aa53b0f7f84415e6ca7bbea9dee5d7e57}{mc\_loop\_set\_var}(dbg\_all\_idle\_prt[nn], \textcolor{keyword}{false});
         \}
-        philo\_core* phl = dbg\_all\_philo[nn];
+        philo\_workeru* phl = dbg\_all\_philo[nn];
 
-        phl->to\_host\_work\_sz = ker->to\_host\_work.calc\_size();
+        phl->to\_manageru\_work\_sz = ker->to\_manageru\_work.calc\_size();
         phl->in\_work\_sz = ker->in\_work.calc\_size();
         phl->local\_work\_sz = ker->local\_work.calc\_size();
         phl->out\_work\_sz = ker->out\_work.calc\_size();
@@ -674,28 +724,28 @@ philosopher::call\_exit()\{
     \}
 \textcolor{preprocessor}{#endif // END\_OF\_PHILO\_WITH\_DBG}
 
-\textcolor{keywordtype}{void} mc\_cores\_main() \{
-    \hyperlink{classkernel_a4ba03e734fb64b1215170531599a6754}{kernel::init\_sys}();
+\textcolor{keywordtype}{void} mc\_workerus\_main() \{
+    \hyperlink{classkernel_a666b3a9626eed4c1eb7a94130decda61}{kernel::init\_sys}();
     \hyperlink{classkernel}{kernel}* ker = \hyperlink{cell_8hh_af1eb47800585646e0caf6cb269111731}{mck\_get\_kernel}();
     MC\_MARK\_USED(ker);
 
-    mc\_core\_nn\_t nn = ker->\hyperlink{classkernel_a9bea88d9fe21bf2fb40d7c8a7656c30a}{get\_core\_nn}();
+    \hyperlink{shared__eph3_8h_a804158edcb9b5bc2c1b2fb19d14e80d5}{mc\_workeru\_nn\_t} nn = ker->\hyperlink{classkernel_ac72d71034d07b7679c54fef29701c531}{get\_workeru\_nn}();
 
     PH\_DBG\_COD(
-        \hyperlink{shared_8h_a93f939625cf4afc446aa8836e1fecae9}{mc\_set\_off\_core\_var}(dbg\_all\_idle\_prt[nn], \textcolor{keyword}{false});
-        \hyperlink{shared_8h_a93f939625cf4afc446aa8836e1fecae9}{mc\_set\_off\_core\_var}(dbg\_all\_full[nn], \textcolor{keyword}{false});
+        \hyperlink{shared_8h_aa53b0f7f84415e6ca7bbea9dee5d7e57}{mc\_loop\_set\_var}(dbg\_all\_idle\_prt[nn], \textcolor{keyword}{false});
+        \hyperlink{shared_8h_aa53b0f7f84415e6ca7bbea9dee5d7e57}{mc\_loop\_set\_var}(dbg\_all\_full[nn], \textcolor{keyword}{false});
     )
 
-    philo\_core* core\_dat = philo\_core::acquire\_alloc();
-    \textcolor{keywordflow}{if}(core\_dat == mc\_null)\{
-        \hyperlink{global_8h_a6a6d1065bccc17077e1a6a0aeaa5f6dd}{mck\_abort}(1, const\_cast<char*>(\textcolor{stringliteral}{"CAN NOT INIT GLB CORE DATA"}));
+    philo\_workeru* workeru\_dat = philo\_workeru::acquire\_alloc();
+    \textcolor{keywordflow}{if}(workeru\_dat == mc\_null)\{
+        \hyperlink{global_8h_a6a6d1065bccc17077e1a6a0aeaa5f6dd}{mck\_abort}(1, mc\_cstr(\textcolor{stringliteral}{"CAN NOT INIT GLB WORKERU DATA"}));
     \}
 
-    ker->user\_data = core\_dat;
+    ker->user\_data = workeru\_dat;
 
     PH\_DBG\_COD(
         ker->user\_func = ker\_func;
-        dbg\_all\_philo[nn] = core\_dat;
+        dbg\_all\_philo[nn] = workeru\_dat;
     );
 
     \hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\_philo}->lft\_stk\_id = mc\_nn\_to\_id(left\_chp\_nn(nn));
@@ -707,14 +757,15 @@ philosopher::call\_exit()\{
     \hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\_philo}->lft\_philo = \hyperlink{philo_8cpp_a0ccca4eb20a8d8be83aeb5822cc2d30c}{get\_philo}(\hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\_philo}->lft\_phi\_id);
     \hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\_philo}->rgt\_philo = \hyperlink{philo_8cpp_a0ccca4eb20a8d8be83aeb5822cc2d30c}{get\_philo}(\hyperlink{philo_8cpp_adcc662701c5f055b26a048484d17e2c6}{glb\_philo}->rgt\_phi\_id);
 
+    PTD\_PRT(\textcolor{stringliteral}{"the\_handlers[0] = %p \(\backslash\)n"}, (\textcolor{keywordtype}{void}*)(the\_handlers[0]));
     \hyperlink{classkernel_a4af01f01c949a504cd3a6d574eced6a7}{kernel::set\_handlers}(3, the\_handlers);
 
-    \hyperlink{classmissive_a9b9925cee46b73d4f9012ab72ce96c4c}{missive::separate}(mc\_out\_num\_cores);
-    \hyperlink{classagent__ref_a9cc42d67af5a3cf8ae01bfa6434489be}{agent\_ref::separate}(mc\_out\_num\_cores);
-    \hyperlink{classagent__grp_afa435a806a32ebba3554703581852db3}{agent\_grp::separate}(mc\_out\_num\_cores);
+    missive::separate(mc\_out\_num\_workerus);
+    agent\_ref::separate(mc\_out\_num\_workerus);
+    agent\_grp::separate(mc\_out\_num\_workerus);
 
-    \hyperlink{classcell_ad09500ef03d2ccb60de17f189ba59b9e}{chopstick::separate}(1);
-    \hyperlink{classcell_ad09500ef03d2ccb60de17f189ba59b9e}{philosopher::separate}(1);
+    chopstick::separate(1);
+    philosopher::separate(1);
 
     PH\_DBG(\textcolor{stringliteral}{"started\(\backslash\)n"});
 
@@ -722,7 +773,7 @@ philosopher::call\_exit()\{
     \hyperlink{classkernel_a438f0450a28abb54d058b88ef8cc3d3b}{kernel::run\_sys}();
 
     PH\_DBG(\textcolor{stringliteral}{"finished\(\backslash\)n"});
-    EMU\_LOG(\textcolor{stringliteral}{"PHILOSOPHER %d FINISHED !!\(\backslash\)n"}, nn);
+    PTD\_LOG(\textcolor{stringliteral}{"PHILOSOPHER %d FINISHED !!\(\backslash\)n"}, nn);
     \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"PHILOSOPHERS FINISHED !!\(\backslash\)n"});   
 
     \hyperlink{classkernel_a55fbe958137c0973a06da58fe491c9e6}{kernel::finish\_sys}();
@@ -730,3 +781,4 @@ philosopher::call\_exit()\{
 
 \end{DoxyCodeInclude}
  
+

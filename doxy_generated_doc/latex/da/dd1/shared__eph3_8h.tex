@@ -24,9 +24,9 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \#define \hyperlink{shared__eph3_8h_a6c65a868a865e5a5335406052ce6b7e3}{mc\+\_\+addr\+\_\+has\+\_\+id}(addr)~\hyperlink{shared__eph3_8h_acfac777017dc7e5711ba1bbcd607f1ac}{mc\+\_\+addr\+\_\+mask\+\_\+id}(addr)\hypertarget{shared__eph3_8h_a6c65a868a865e5a5335406052ce6b7e3}{}\label{shared__eph3_8h_a6c65a868a865e5a5335406052ce6b7e3}
 
 \begin{DoxyCompactList}\small\item\em True \textquotesingle{}addr\textquotesingle{} has \textquotesingle{}id\textquotesingle{} (not zero id) \end{DoxyCompactList}\item 
-\#define \hyperlink{shared__eph3_8h_a7318efe779877691f45272404b4f14b8}{mc\+\_\+addr\+\_\+get\+\_\+id}(addr)~((\hyperlink{shared__eph3_8h_a78c58d809b35d7f23f6e553f63501abc}{mc\+\_\+core\+\_\+id\+\_\+t})(\hyperlink{shared__eph3_8h_acfac777017dc7e5711ba1bbcd607f1ac}{mc\+\_\+addr\+\_\+mask\+\_\+id}(addr) $>$$>$ mc\+\_\+glb\+\_\+addr\+\_\+sz))\hypertarget{shared__eph3_8h_a7318efe779877691f45272404b4f14b8}{}\label{shared__eph3_8h_a7318efe779877691f45272404b4f14b8}
+\#define \hyperlink{shared__eph3_8h_a7318efe779877691f45272404b4f14b8}{mc\+\_\+addr\+\_\+get\+\_\+id}(addr)~((\hyperlink{shared__eph3_8h_ac84be73145b663d3392b6955cbc19c3b}{mc\+\_\+workeru\+\_\+id\+\_\+t})(\hyperlink{shared__eph3_8h_acfac777017dc7e5711ba1bbcd607f1ac}{mc\+\_\+addr\+\_\+mask\+\_\+id}(addr) $>$$>$ mc\+\_\+glb\+\_\+addr\+\_\+sz))\hypertarget{shared__eph3_8h_a7318efe779877691f45272404b4f14b8}{}\label{shared__eph3_8h_a7318efe779877691f45272404b4f14b8}
 
-\begin{DoxyCompactList}\small\item\em Returns the id part of \textquotesingle{}addr\textquotesingle{} as mc\+\_\+core\+\_\+id\+\_\+t value. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Returns the id part of \textquotesingle{}addr\textquotesingle{} as mc\+\_\+workeru\+\_\+id\+\_\+t value. \end{DoxyCompactList}\item 
 \#define \hyperlink{shared__eph3_8h_a6894e5bde816e6d104c56ec5a8c8288a}{mc\+\_\+addr\+\_\+set\+\_\+id}(id,  addr)~((\hyperlink{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{mc\+\_\+addr\+\_\+t})((((\hyperlink{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{mc\+\_\+addr\+\_\+t})(id)) $<$$<$ mc\+\_\+glb\+\_\+addr\+\_\+sz) $\vert$ \hyperlink{shared__eph3_8h_a5a38f49ed3413ef19a0d58665038d51f}{mc\+\_\+addr\+\_\+mask\+\_\+ad}(addr)))\hypertarget{shared__eph3_8h_a6894e5bde816e6d104c56ec5a8c8288a}{}\label{shared__eph3_8h_a6894e5bde816e6d104c56ec5a8c8288a}
 
 \begin{DoxyCompactList}\small\item\em Sets the id part of \textquotesingle{}addr\textquotesingle{} with \textquotesingle{}id\textquotesingle{}. \end{DoxyCompactList}\item 
@@ -45,17 +45,19 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 typedef uint32\+\_\+t \hyperlink{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{mc\+\_\+addr\+\_\+t}\hypertarget{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}{}\label{shared__eph3_8h_ac03d1f3968bb5c52cf1de5cd9f250e66}
 
 \begin{DoxyCompactList}\small\item\em Type for epiphany addresses. \end{DoxyCompactList}\item 
-typedef uint16\+\_\+t \hyperlink{shared__eph3_8h_a78c58d809b35d7f23f6e553f63501abc}{mc\+\_\+core\+\_\+id\+\_\+t}\hypertarget{shared__eph3_8h_a78c58d809b35d7f23f6e553f63501abc}{}\label{shared__eph3_8h_a78c58d809b35d7f23f6e553f63501abc}
+typedef uint16\+\_\+t \hyperlink{shared__eph3_8h_ac84be73145b663d3392b6955cbc19c3b}{mc\+\_\+workeru\+\_\+id\+\_\+t}\hypertarget{shared__eph3_8h_ac84be73145b663d3392b6955cbc19c3b}{}\label{shared__eph3_8h_ac84be73145b663d3392b6955cbc19c3b}
 
-\begin{DoxyCompactList}\small\item\em Type for core ids. \end{DoxyCompactList}\item 
-typedef uint16\+\_\+t \hyperlink{shared__eph3_8h_a5195d85d43fe92b801691270ac17ab80}{mc\+\_\+core\+\_\+co\+\_\+t}\hypertarget{shared__eph3_8h_a5195d85d43fe92b801691270ac17ab80}{}\label{shared__eph3_8h_a5195d85d43fe92b801691270ac17ab80}
+\begin{DoxyCompactList}\small\item\em Type for workeru ids. \end{DoxyCompactList}\item 
+typedef uint16\+\_\+t \hyperlink{shared__eph3_8h_ad0fcf14c0ee3fa953a3f9b3909665fec}{mc\+\_\+workeru\+\_\+co\+\_\+t}\hypertarget{shared__eph3_8h_ad0fcf14c0ee3fa953a3f9b3909665fec}{}\label{shared__eph3_8h_ad0fcf14c0ee3fa953a3f9b3909665fec}
 
-\begin{DoxyCompactList}\small\item\em Type for core coordinates (row and col) \end{DoxyCompactList}\item 
-typedef uint16\+\_\+t \hyperlink{shared__eph3_8h_a5e655de52cd3f3159d373c25daf3811e}{mc\+\_\+core\+\_\+nn\+\_\+t}\hypertarget{shared__eph3_8h_a5e655de52cd3f3159d373c25daf3811e}{}\label{shared__eph3_8h_a5e655de52cd3f3159d373c25daf3811e}
+\begin{DoxyCompactList}\small\item\em Type for workeru coordinates (row and col) \end{DoxyCompactList}\item 
+typedef uint16\+\_\+t \hyperlink{shared__eph3_8h_a804158edcb9b5bc2c1b2fb19d14e80d5}{mc\+\_\+workeru\+\_\+nn\+\_\+t}\hypertarget{shared__eph3_8h_a804158edcb9b5bc2c1b2fb19d14e80d5}{}\label{shared__eph3_8h_a804158edcb9b5bc2c1b2fb19d14e80d5}
 
-\begin{DoxyCompactList}\small\item\em Type for core numbers (starts in 0) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Type for workeru numbers (starts in 0) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Addressing functions of the epiphany 3 architecture. 
+
+
 

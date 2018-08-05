@@ -1,0 +1,144 @@
+\hypertarget{broadcast__maps_8c}{}\section{/home/jose/devel/messaging-\/cells/src/cells/broadcast\+\_\+maps.c File Reference}
+\label{broadcast__maps_8c}\index{/home/jose/devel/messaging-\/cells/src/cells/broadcast\+\_\+maps.\+c@{/home/jose/devel/messaging-\/cells/src/cells/broadcast\+\_\+maps.\+c}}
+
+
+Standard parallel broadcast maps (they are also used a parallel loading maps).  
+
+
+{\ttfamily \#include \char`\"{}global.\+h\char`\"{}}\\*
+Include dependency graph for broadcast\+\_\+maps.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/db9/broadcast__maps_8c__incl}
+\end{center}
+\end{figure}
+
+
+\subsection{Detailed Description}
+Standard parallel broadcast maps (they are also used a parallel loading maps). 
+
+
+\begin{DoxyCodeInclude}
+
+
+\textcolor{comment}{/*************************************************************}
+\textcolor{comment}{}
+\textcolor{comment}{This file is part of messaging-cells.}
+\textcolor{comment}{}
+\textcolor{comment}{messaging-cells is free software: you can redistribute it and/or modify}
+\textcolor{comment}{it under the terms of the version 3 of the GNU General Public }
+\textcolor{comment}{License as published by the Free Software Foundation.}
+\textcolor{comment}{}
+\textcolor{comment}{messaging-cells is distributed in the hope that it will be useful,}
+\textcolor{comment}{but WITHOUT ANY WARRANTY; without even the implied warranty of}
+\textcolor{comment}{MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}
+\textcolor{comment}{GNU General Public License for more details.}
+\textcolor{comment}{}
+\textcolor{comment}{You should have received a copy of the GNU General Public License}
+\textcolor{comment}{along with messaging-cells.  If not, see <http://www.gnu.org/licenses/>.}
+\textcolor{comment}{}
+\textcolor{comment}{------------------------------------------------------------}
+\textcolor{comment}{}
+\textcolor{comment}{Copyright (C) 2017-2018. QUIROGA BELTRAN, Jose Luis.}
+\textcolor{comment}{Id (cedula): 79523732 de Bogota - Colombia.}
+\textcolor{comment}{See https://messaging-cells.github.io/}
+\textcolor{comment}{}
+\textcolor{comment}{messaging-cells is free software thanks to The Glory of Our Lord }
+\textcolor{comment}{    Yashua Melej Hamashiaj.}
+\textcolor{comment}{Our Resurrected and Living, both in Body and Spirit, }
+\textcolor{comment}{    Prince of Peace.}
+\textcolor{comment}{}
+\textcolor{comment}{------------------------------------------------------------*/}
+\textcolor{preprocessor}{#include "\hyperlink{global_8h}{global.h}"}
+
+\hyperlink{loader_8h_aab4e934eac392b8e58d71ec304184d53}{mc\_dbg\_e3\_leaf}(15)
+\hyperlink{loader_8h_aab4e934eac392b8e58d71ec304184d53}{mc\_dbg\_e3\_leaf}(14)
+\hyperlink{loader_8h_aab4e934eac392b8e58d71ec304184d53}{mc\_dbg\_e3\_leaf}(13)
+\hyperlink{loader_8h_aab4e934eac392b8e58d71ec304184d53}{mc\_dbg\_e3\_leaf}(12)
+\hyperlink{loader_8h_aab4e934eac392b8e58d71ec304184d53}{mc\_dbg\_e3\_leaf}(11)
+\hyperlink{loader_8h_aab4e934eac392b8e58d71ec304184d53}{mc\_dbg\_e3\_leaf}(10)
+\hyperlink{loader_8h_aab4e934eac392b8e58d71ec304184d53}{mc\_dbg\_e3\_leaf}(9)
+\hyperlink{loader_8h_aab4e934eac392b8e58d71ec304184d53}{mc\_dbg\_e3\_leaf}(8)
+\hyperlink{loader_8h_aab4e934eac392b8e58d71ec304184d53}{mc\_dbg\_e3\_leaf}(7)
+\hyperlink{loader_8h_aab4e934eac392b8e58d71ec304184d53}{mc\_dbg\_e3\_leaf}(6)
+\hyperlink{loader_8h_aab4e934eac392b8e58d71ec304184d53}{mc\_dbg\_e3\_leaf}(5)
+\hyperlink{loader_8h_aab4e934eac392b8e58d71ec304184d53}{mc\_dbg\_e3\_leaf}(4)
+\hyperlink{loader_8h_aab4e934eac392b8e58d71ec304184d53}{mc\_dbg\_e3\_leaf}(3)
+\hyperlink{loader_8h_aab4e934eac392b8e58d71ec304184d53}{mc\_dbg\_e3\_leaf}(2)
+\hyperlink{loader_8h_aab4e934eac392b8e58d71ec304184d53}{mc\_dbg\_e3\_leaf}(1)
+
+\hyperlink{loader_8h_a0da032ad4f3b71b2e2c0fbf537dcf9fa}{mc\_dbg\_e3\_tree}(0, 
+    \hyperlink{loader_8h_a38250abc91eb4503da45773c22e79f54}{mc\_dbg\_e3\_node}(1),
+    mc\_dbg\_e3\_node(2),
+    mc\_dbg\_e3\_node(3),
+    mc\_dbg\_e3\_node(4),
+    mc\_dbg\_e3\_node(5),
+    mc\_dbg\_e3\_node(6),
+    mc\_dbg\_e3\_node(7),
+    mc\_dbg\_e3\_node(8),
+    mc\_dbg\_e3\_node(9),
+    mc\_dbg\_e3\_node(10),
+    mc\_dbg\_e3\_node(11),
+    mc\_dbg\_e3\_node(12),
+    mc\_dbg\_e3\_node(13),
+    mc\_dbg\_e3\_node(14),
+    mc\_dbg\_e3\_node(15)
+)
+
+
+\hyperlink{loader_8h_a52e4875c8642a362a7b51b6a5a06a6ea}{mc\_std\_e3\_leaf}(7)
+\hyperlink{loader_8h_a52e4875c8642a362a7b51b6a5a06a6ea}{mc\_std\_e3\_leaf}(8)
+\hyperlink{loader_8h_a52e4875c8642a362a7b51b6a5a06a6ea}{mc\_std\_e3\_leaf}(9)
+\hyperlink{loader_8h_a52e4875c8642a362a7b51b6a5a06a6ea}{mc\_std\_e3\_leaf}(10)
+\hyperlink{loader_8h_a52e4875c8642a362a7b51b6a5a06a6ea}{mc\_std\_e3\_leaf}(11)
+\hyperlink{loader_8h_a52e4875c8642a362a7b51b6a5a06a6ea}{mc\_std\_e3\_leaf}(12)
+\hyperlink{loader_8h_a52e4875c8642a362a7b51b6a5a06a6ea}{mc\_std\_e3\_leaf}(13)
+\hyperlink{loader_8h_a52e4875c8642a362a7b51b6a5a06a6ea}{mc\_std\_e3\_leaf}(14)
+\hyperlink{loader_8h_a52e4875c8642a362a7b51b6a5a06a6ea}{mc\_std\_e3\_leaf}(15)
+
+\hyperlink{loader_8h_a2475ce19a46720453d03e5b09664c1f4}{mc\_std\_e3\_tree}(3, 
+    \hyperlink{loader_8h_a3ad8756b349401b6ea9b3a60424a2e34}{mc\_std\_e3\_node}(7),
+    mc\_std\_e3\_node(8)
+)
+
+mc\_std\_e3\_tree(4, 
+    mc\_std\_e3\_node(9),
+    mc\_std\_e3\_node(10)
+)
+
+mc\_std\_e3\_tree(5, 
+    mc\_std\_e3\_node(11),
+    mc\_std\_e3\_node(12)
+)
+
+mc\_std\_e3\_tree(6, 
+    mc\_std\_e3\_node(13),
+    mc\_std\_e3\_node(14),
+    mc\_std\_e3\_node(15)
+)
+
+mc\_std\_e3\_tree(1, 
+    mc\_std\_e3\_node(3),
+    mc\_std\_e3\_node(4)
+)
+
+mc\_std\_e3\_tree(2, 
+    mc\_std\_e3\_node(5),
+    mc\_std\_e3\_node(6)
+)
+
+mc\_std\_e3\_tree(0, 
+    mc\_std\_e3\_node(1),
+    mc\_std\_e3\_node(2)
+)
+
+mc\_load\_map\_st*
+mc\_get\_first\_load\_map()\{
+    \textcolor{keywordflow}{return} \hyperlink{loader_8h_a3ad8756b349401b6ea9b3a60424a2e34}{mc\_std\_e3\_node}(0);
+\}
+
+
+\end{DoxyCodeInclude}
+ 
+

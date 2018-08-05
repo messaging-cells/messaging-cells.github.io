@@ -6,7 +6,6 @@ Global functions. It is included in \hyperlink{cell_8hh}{cell.\+hh}.
 
 
 {\ttfamily \#include \char`\"{}debug.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}err\+\_\+msgs.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}shared.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}loader.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}trace.\+h\char`\"{}}\\*
@@ -27,15 +26,18 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{global_8h_a76824b23f4a177c4535d83c3b89e2f54}{mck\+\_\+is\+\_\+ro\+\_\+co\+\_\+core}(ro,  co)~((M\+C\+\_\+\+C\+O\+R\+E\+\_\+\+I\+N\+FO-\/$>$the\+\_\+core\+\_\+ro == (ro)) \&\& (M\+C\+\_\+\+C\+O\+R\+E\+\_\+\+I\+N\+FO-\/$>$the\+\_\+core\+\_\+co == (co)))\hypertarget{global_8h_a76824b23f4a177c4535d83c3b89e2f54}{}\label{global_8h_a76824b23f4a177c4535d83c3b89e2f54}
+\#define \hyperlink{global_8h_ab6e802beeef14ccde9e2906f89b7e721}{mck\+\_\+set\+\_\+sub\+\_\+module\+\_\+id}(id)~\{ M\+C\+\_\+\+W\+O\+R\+K\+E\+R\+U\+\_\+\+I\+N\+FO-\/$>$current\+\_\+sub\+\_\+module\+\_\+id = (id); \}\hypertarget{global_8h_ab6e802beeef14ccde9e2906f89b7e721}{}\label{global_8h_ab6e802beeef14ccde9e2906f89b7e721}
 
-\begin{DoxyCompactList}\small\item\em True if this core is in row \textquotesingle{}ro\textquotesingle{} and column \textquotesingle{}co\textquotesingle{}. \end{DoxyCompactList}\item 
-\#define \hyperlink{global_8h_a67668252473b4bc3b3bb8b8a0f1693cf}{mck\+\_\+is\+\_\+nn\+\_\+core}(nn)~(M\+C\+\_\+\+C\+O\+R\+E\+\_\+\+I\+N\+FO-\/$>$the\+\_\+core\+\_\+nn == (nn))\hypertarget{global_8h_a67668252473b4bc3b3bb8b8a0f1693cf}{}\label{global_8h_a67668252473b4bc3b3bb8b8a0f1693cf}
+\begin{DoxyCompactList}\small\item\em Sets a sub module id to \textquotesingle{}id\textquotesingle{}. \end{DoxyCompactList}\item 
+\#define \hyperlink{global_8h_a2060aa9eee2682d8a9674b0a02338b22}{mck\+\_\+is\+\_\+ro\+\_\+co\+\_\+workeru}(ro,  co)~((M\+C\+\_\+\+W\+O\+R\+K\+E\+R\+U\+\_\+\+I\+N\+FO-\/$>$the\+\_\+workeru\+\_\+ro == (ro)) \&\& (M\+C\+\_\+\+W\+O\+R\+K\+E\+R\+U\+\_\+\+I\+N\+FO-\/$>$the\+\_\+workeru\+\_\+co == (co)))\hypertarget{global_8h_a2060aa9eee2682d8a9674b0a02338b22}{}\label{global_8h_a2060aa9eee2682d8a9674b0a02338b22}
 
-\begin{DoxyCompactList}\small\item\em True if this core has number \textquotesingle{}nn\textquotesingle{}. \end{DoxyCompactList}\item 
-\#define \hyperlink{global_8h_a5979acc7af98be816a16fafefe66c5a6}{mck\+\_\+is\+\_\+id\+\_\+core}(id)~(M\+C\+\_\+\+C\+O\+R\+E\+\_\+\+I\+N\+FO-\/$>$the\+\_\+core\+\_\+id == (id))\hypertarget{global_8h_a5979acc7af98be816a16fafefe66c5a6}{}\label{global_8h_a5979acc7af98be816a16fafefe66c5a6}
+\begin{DoxyCompactList}\small\item\em True if this workeru is in row \textquotesingle{}ro\textquotesingle{} and column \textquotesingle{}co\textquotesingle{}. \end{DoxyCompactList}\item 
+\#define \hyperlink{global_8h_a6cddccfe80c3ae12a6f9ccab97f2ef5d}{mck\+\_\+is\+\_\+nn\+\_\+workeru}(nn)~(M\+C\+\_\+\+W\+O\+R\+K\+E\+R\+U\+\_\+\+I\+N\+FO-\/$>$the\+\_\+workeru\+\_\+nn == (nn))\hypertarget{global_8h_a6cddccfe80c3ae12a6f9ccab97f2ef5d}{}\label{global_8h_a6cddccfe80c3ae12a6f9ccab97f2ef5d}
 
-\begin{DoxyCompactList}\small\item\em True if this core has id \textquotesingle{}id\textquotesingle{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em True if this workeru has number \textquotesingle{}nn\textquotesingle{}. \end{DoxyCompactList}\item 
+\#define \hyperlink{global_8h_a0882dcfebfa28c74882d71040dcefdfa}{mck\+\_\+is\+\_\+id\+\_\+workeru}(id)~(M\+C\+\_\+\+W\+O\+R\+K\+E\+R\+U\+\_\+\+I\+N\+FO-\/$>$the\+\_\+workeru\+\_\+id == (id))\hypertarget{global_8h_a0882dcfebfa28c74882d71040dcefdfa}{}\label{global_8h_a0882dcfebfa28c74882d71040dcefdfa}
+
+\begin{DoxyCompactList}\small\item\em True if this workeru has id \textquotesingle{}id\textquotesingle{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -48,6 +50,8 @@ Global functions. It is included in \hyperlink{cell_8hh}{cell.\+hh}.
 
 
 
+
+
 \subsection{Function Documentation}
 \index{global.\+h@{global.\+h}!mck\+\_\+abort@{mck\+\_\+abort}}
 \index{mck\+\_\+abort@{mck\+\_\+abort}!global.\+h@{global.\+h}}
@@ -57,13 +61,13 @@ Global functions. It is included in \hyperlink{cell_8hh}{cell.\+hh}.
 \item[{char $\ast$}]{msg}
 \end{DoxyParamCaption}
 )}\hypertarget{global_8h_a6a6d1065bccc17077e1a6a0aeaa5f6dd}{}\label{global_8h_a6a6d1065bccc17077e1a6a0aeaa5f6dd}
-This function aborts execution. It saves the stack trace and the host will print it after aborting. 
+This function aborts execution. It saves the stack trace and the Zynq side will print it after aborting. 
 
 Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=282pt]{d2/d49/global_8h_a6a6d1065bccc17077e1a6a0aeaa5f6dd_icgraph}
+\includegraphics[width=350pt]{d2/d49/global_8h_a6a6d1065bccc17077e1a6a0aeaa5f6dd_icgraph}
 \end{center}
 \end{figure}
 

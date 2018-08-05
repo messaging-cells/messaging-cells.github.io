@@ -3,6 +3,6 @@
 <area shape="rect" id="node3" href="$db/df1/classagent__ref.html" title="A class that is used internally to hold a reference (local or remote ) to missive s..." alt="" coords="108,80,184,107"/>
 <area shape="rect" id="node4" href="$d2/dbe/classcell.html" title="The base class for any user processing class that wishes send missive s. " alt="" coords="209,80,251,107"/>
 <area shape="rect" id="node7" href="$d4/d9f/classmissive.html" title="The base class for any user data class that wishes to be sent beetwen cell s. " alt="" coords="275,80,342,107"/>
-<area shape="rect" id="node5" href="$d0/d2d/classchopstick.html" title="Class for chopsticks. " alt="" coords="136,155,215,181"/>
-<area shape="rect" id="node6" href="$df/dc6/classphilosopher.html" title="Class for philosophers. " alt="" coords="239,155,327,181"/>
+<area shape="rect" id="node5" href="$d0/d2d/classchopstick.html" title="Class for chopsticks (philo.cpp example). " alt="" coords="136,155,215,181"/>
+<area shape="rect" id="node6" href="$df/dc6/classphilosopher.html" title="Class for philosophers (philo.cpp example ). " alt="" coords="239,155,327,181"/>
 </map>

@@ -23,15 +23,15 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{shared__eph_8h_ab05773ff764a384d02f377cef8a2fe2e}{mc\+\_\+addr\+\_\+has\+\_\+local\+\_\+id}(addr)~(\hyperlink{shared__eph3_8h_a7318efe779877691f45272404b4f14b8}{mc\+\_\+addr\+\_\+get\+\_\+id}(addr) == M\+C\+\_\+\+C\+O\+R\+E\+\_\+\+I\+N\+FO-\/$>$the\+\_\+core\+\_\+id)\hypertarget{shared__eph_8h_ab05773ff764a384d02f377cef8a2fe2e}{}\label{shared__eph_8h_ab05773ff764a384d02f377cef8a2fe2e}
+\#define \hyperlink{shared__eph_8h_ab05773ff764a384d02f377cef8a2fe2e}{mc\+\_\+addr\+\_\+has\+\_\+local\+\_\+id}(addr)~(\hyperlink{shared__eph3_8h_a7318efe779877691f45272404b4f14b8}{mc\+\_\+addr\+\_\+get\+\_\+id}(addr) == M\+C\+\_\+\+W\+O\+R\+K\+E\+R\+U\+\_\+\+I\+N\+FO-\/$>$the\+\_\+workeru\+\_\+id)\hypertarget{shared__eph_8h_ab05773ff764a384d02f377cef8a2fe2e}{}\label{shared__eph_8h_ab05773ff764a384d02f377cef8a2fe2e}
 
 \begin{DoxyCompactList}\small\item\em True if \textquotesingle{}addr\textquotesingle{} has local id. \end{DoxyCompactList}\item 
 \#define \hyperlink{shared__eph_8h_a39a45617dcf4c16d9968aa9294e8a9e7}{mc\+\_\+addr\+\_\+is\+\_\+local}(addr)~((! \hyperlink{shared__eph3_8h_a6c65a868a865e5a5335406052ce6b7e3}{mc\+\_\+addr\+\_\+has\+\_\+id}(addr)) $\vert$$\vert$ \hyperlink{shared__eph_8h_ab05773ff764a384d02f377cef8a2fe2e}{mc\+\_\+addr\+\_\+has\+\_\+local\+\_\+id}(addr))\hypertarget{shared__eph_8h_a39a45617dcf4c16d9968aa9294e8a9e7}{}\label{shared__eph_8h_a39a45617dcf4c16d9968aa9294e8a9e7}
 
 \begin{DoxyCompactList}\small\item\em True if \textquotesingle{}addr\textquotesingle{} is local. \end{DoxyCompactList}\item 
-\#define \hyperlink{shared__eph_8h_a8ef19d40dea23cefb11b5cab943c1a28}{mck\+\_\+as\+\_\+glb\+\_\+pt}(pt)~((void$\ast$)\hyperlink{shared__eph3_8h_a6894e5bde816e6d104c56ec5a8c8288a}{mc\+\_\+addr\+\_\+set\+\_\+id}(M\+C\+\_\+\+C\+O\+R\+E\+\_\+\+I\+N\+FO-\/$>$the\+\_\+core\+\_\+id, (pt)))\hypertarget{shared__eph_8h_a8ef19d40dea23cefb11b5cab943c1a28}{}\label{shared__eph_8h_a8ef19d40dea23cefb11b5cab943c1a28}
+\#define \hyperlink{shared__eph_8h_a8ef19d40dea23cefb11b5cab943c1a28}{mck\+\_\+as\+\_\+glb\+\_\+pt}(pt)~((void$\ast$)\hyperlink{shared__eph3_8h_a6894e5bde816e6d104c56ec5a8c8288a}{mc\+\_\+addr\+\_\+set\+\_\+id}(M\+C\+\_\+\+W\+O\+R\+K\+E\+R\+U\+\_\+\+I\+N\+FO-\/$>$the\+\_\+workeru\+\_\+id, (pt)))\hypertarget{shared__eph_8h_a8ef19d40dea23cefb11b5cab943c1a28}{}\label{shared__eph_8h_a8ef19d40dea23cefb11b5cab943c1a28}
 
-\begin{DoxyCompactList}\small\item\em Sets the id of \textquotesingle{}pt\textquotesingle{} to the local core id. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sets the id of \textquotesingle{}pt\textquotesingle{} to the local workeru id. \end{DoxyCompactList}\item 
 \#define \hyperlink{shared__eph_8h_a953cf2d6200e15cc40c95adcdb368fd9}{mck\+\_\+as\+\_\+loc\+\_\+pt}(pt)~((void$\ast$)\hyperlink{shared__eph3_8h_a5a38f49ed3413ef19a0d58665038d51f}{mc\+\_\+addr\+\_\+mask\+\_\+ad}(pt))\hypertarget{shared__eph_8h_a953cf2d6200e15cc40c95adcdb368fd9}{}\label{shared__eph_8h_a953cf2d6200e15cc40c95adcdb368fd9}
 
 \begin{DoxyCompactList}\small\item\em Sets to zero the id of \textquotesingle{}pt\textquotesingle{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -39,4 +39,6 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 
 \subsection{Detailed Description}
 Addressing functions for the epiphany architecture.. 
+
+
 

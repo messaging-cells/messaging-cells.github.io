@@ -8,7 +8,6 @@ The one and only include file necessarry to use the Messagging Cells library.
 {\ttfamily \#include $<$new$>$}\\*
 {\ttfamily \#include \char`\"{}dyn\+\_\+mem.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}binder.\+hh\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}err\+\_\+msgs.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}global.\+h\char`\"{}}\\*
 Include dependency graph for cell.\+hh\+:\nopagebreak
 \begin{figure}[H]
@@ -28,7 +27,7 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \begin{DoxyCompactItemize}
 \item 
 class \hyperlink{classkernel}{kernel}
-\begin{DoxyCompactList}\small\item\em The kernel of a core that is using the library. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The kernel of a workeru that is using the library. \end{DoxyCompactList}\item 
 class \hyperlink{classagent}{agent}
 \begin{DoxyCompactList}\small\item\em The base class for any library object including \hyperlink{classcell}{cell} s, \hyperlink{classmissive}{missive} s, \hyperlink{classagent__grp}{agent\+\_\+grp} s and \hyperlink{classagent__ref}{agent\+\_\+ref} s. \end{DoxyCompactList}\item 
 class \hyperlink{classcell}{cell}
@@ -45,15 +44,21 @@ class \hyperlink{classagent__ref}{agent\+\_\+ref}
 \#define \hyperlink{cell_8hh_aad0dec1d661f1fdb5a2ccb767d712c75}{M\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+A\+C\+Q\+U\+I\+R\+E\+\_\+\+A\+L\+L\+OC}(nam,  align)\hypertarget{cell_8hh_aad0dec1d661f1fdb5a2ccb767d712c75}{}\label{cell_8hh_aad0dec1d661f1fdb5a2ccb767d712c75}
 
 \begin{DoxyCompactList}\small\item\em Defines \textquotesingle{}acquire\+\_\+alloc\textquotesingle{} method for class \textquotesingle{}nam\textquotesingle{} with aligment \textquotesingle{}align\textquotesingle{} (32 or 64). \end{DoxyCompactList}\item 
-\#define \hyperlink{cell_8hh_ab43adc7961f0b5b06463b122ae598993}{M\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+\_\+\+M\+E\+T\+H\+O\+DS}(nam)\hypertarget{cell_8hh_ab43adc7961f0b5b06463b122ae598993}{}\label{cell_8hh_ab43adc7961f0b5b06463b122ae598993}
+\#define \hyperlink{cell_8hh_a16c403a50331aa5b5d01d33acc14ade4}{M\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+\_\+\+M\+E\+T\+H\+O\+DS}(nam,  module)\hypertarget{cell_8hh_a16c403a50331aa5b5d01d33acc14ade4}{}\label{cell_8hh_a16c403a50331aa5b5d01d33acc14ade4}
 
 \begin{DoxyCompactList}\small\item\em Declares dynamic memory methods for class \textquotesingle{}nam\textquotesingle{}. \end{DoxyCompactList}\item 
-\#define \hyperlink{cell_8hh_a9095d9f262f63984c60799e4a3b135c5}{M\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+M\+E\+M\+\_\+\+M\+E\+T\+H\+O\+DS}(nam,  align,  all\+\_\+ava)\hypertarget{cell_8hh_a9095d9f262f63984c60799e4a3b135c5}{}\label{cell_8hh_a9095d9f262f63984c60799e4a3b135c5}
+\#define \hyperlink{cell_8hh_aca3006fa8b9b5346c57139164f8e3591}{M\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+M\+E\+M\+\_\+\+M\+E\+T\+H\+O\+DS}(nam,  align,  all\+\_\+ava,  curr\+\_\+sep\+\_\+sz)\hypertarget{cell_8hh_aca3006fa8b9b5346c57139164f8e3591}{}\label{cell_8hh_aca3006fa8b9b5346c57139164f8e3591}
 
 \begin{DoxyCompactList}\small\item\em Defines dynamic memory methods for class \textquotesingle{}nam\textquotesingle{} with aligment \textquotesingle{}align\textquotesingle{} (32 or 64) and available list \textquotesingle{}all\+\_\+ava\textquotesingle{}. \end{DoxyCompactList}\item 
+\#define \hyperlink{cell_8hh_ae09daa1f90e956b7c0b8667ff69cc1b4}{M\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+\_\+\+M\+E\+T\+H\+O\+D\+S\+\_\+\+A\+N\+D\+\_\+\+G\+E\+T\+\_\+\+A\+VA}(nam,  module)\hypertarget{cell_8hh_ae09daa1f90e956b7c0b8667ff69cc1b4}{}\label{cell_8hh_ae09daa1f90e956b7c0b8667ff69cc1b4}
+
+\begin{DoxyCompactList}\small\item\em Calls M\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+\_\+\+M\+E\+T\+H\+O\+DS and M\+C\+K\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+G\+E\+T\+\_\+\+A\+V\+A\+I\+L\+A\+B\+LE. \end{DoxyCompactList}\item 
+\#define \hyperlink{cell_8hh_a075cfd0eebf0fbb2f37036de2c71bb0a}{M\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+M\+E\+M\+\_\+\+M\+E\+T\+H\+O\+D\+S\+\_\+\+A\+N\+D\+\_\+\+G\+E\+T\+\_\+\+A\+VA}(nam,  align,  all\+\_\+ava,  curr\+\_\+sep\+\_\+sz)\hypertarget{cell_8hh_a075cfd0eebf0fbb2f37036de2c71bb0a}{}\label{cell_8hh_a075cfd0eebf0fbb2f37036de2c71bb0a}
+
+\begin{DoxyCompactList}\small\item\em Calls M\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+M\+E\+M\+\_\+\+M\+E\+T\+H\+O\+DS and M\+C\+K\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+G\+E\+T\+\_\+\+A\+V\+A\+I\+L\+A\+B\+LE. \end{DoxyCompactList}\item 
 \#define \hyperlink{cell_8hh_a61ba3f0f0028a638f3f2bf25f9b9b40f}{M\+C\+K\+\_\+\+K\+E\+R\+N\+EL}~(\hyperlink{cell_8hh_ae8f2ca4a7955062cb1f79abe4cd0e7b0}{mck\+\_\+\+P\+T\+\_\+\+T\+H\+E\+\_\+\+K\+E\+R\+N\+EL})\hypertarget{cell_8hh_a61ba3f0f0028a638f3f2bf25f9b9b40f}{}\label{cell_8hh_a61ba3f0f0028a638f3f2bf25f9b9b40f}
 
-\begin{DoxyCompactList}\small\item\em Returns the kernel of this core. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Returns the kernel of this workeru. \end{DoxyCompactList}\item 
 \#define \hyperlink{cell_8hh_af1eb47800585646e0caf6cb269111731}{mck\+\_\+get\+\_\+kernel}()~\hyperlink{cell_8hh_a61ba3f0f0028a638f3f2bf25f9b9b40f}{M\+C\+K\+\_\+\+K\+E\+R\+N\+EL}\hypertarget{cell_8hh_af1eb47800585646e0caf6cb269111731}{}\label{cell_8hh_af1eb47800585646e0caf6cb269111731}
 
 \begin{DoxyCompactList}\small\item\em Gets the local kernel. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -72,9 +77,11 @@ typedef void($\ast$ \hyperlink{cell_8hh_ad48af79638ac0f2892ed41375e3aed54}{missi
 \item 
 \hyperlink{classkernel}{kernel} $\ast$ \hyperlink{cell_8hh_ae8f2ca4a7955062cb1f79abe4cd0e7b0}{mck\+\_\+\+P\+T\+\_\+\+T\+H\+E\+\_\+\+K\+E\+R\+N\+EL}\hypertarget{cell_8hh_ae8f2ca4a7955062cb1f79abe4cd0e7b0}{}\label{cell_8hh_ae8f2ca4a7955062cb1f79abe4cd0e7b0}
 
-\begin{DoxyCompactList}\small\item\em This core\textquotesingle{}s kernel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This workeru\textquotesingle{}s kernel. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 The one and only include file necessarry to use the Messagging Cells library. 
+
+
 

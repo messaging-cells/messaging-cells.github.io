@@ -33,23 +33,50 @@ Simple send missive example.
 
 \begin{DoxyCodeInclude}
 
-\textcolor{comment}{//----------------------------------------------------------------------------}
-\textcolor{comment}{}\textcolor{preprocessor}{#include "\hyperlink{cell_8hh}{cell.hh}"}
+
+\textcolor{comment}{/*************************************************************}
+\textcolor{comment}{}
+\textcolor{comment}{This file is part of messaging-cells.}
+\textcolor{comment}{}
+\textcolor{comment}{messaging-cells is free software: you can redistribute it and/or modify}
+\textcolor{comment}{it under the terms of the version 3 of the GNU General Public }
+\textcolor{comment}{License as published by the Free Software Foundation.}
+\textcolor{comment}{}
+\textcolor{comment}{messaging-cells is distributed in the hope that it will be useful,}
+\textcolor{comment}{but WITHOUT ANY WARRANTY; without even the implied warranty of}
+\textcolor{comment}{MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}
+\textcolor{comment}{GNU General Public License for more details.}
+\textcolor{comment}{}
+\textcolor{comment}{You should have received a copy of the GNU General Public License}
+\textcolor{comment}{along with messaging-cells.  If not, see <http://www.gnu.org/licenses/>.}
+\textcolor{comment}{}
+\textcolor{comment}{------------------------------------------------------------}
+\textcolor{comment}{}
+\textcolor{comment}{Copyright (C) 2017-2018. QUIROGA BELTRAN, Jose Luis.}
+\textcolor{comment}{Id (cedula): 79523732 de Bogota - Colombia.}
+\textcolor{comment}{See https://messaging-cells.github.io/}
+\textcolor{comment}{}
+\textcolor{comment}{messaging-cells is free software thanks to The Glory of Our Lord }
+\textcolor{comment}{    Yashua Melej Hamashiaj.}
+\textcolor{comment}{Our Resurrected and Living, both in Body and Spirit, }
+\textcolor{comment}{    Prince of Peace.}
+\textcolor{comment}{}
+\textcolor{comment}{------------------------------------------------------------*/}
+\textcolor{preprocessor}{#include "\hyperlink{cell_8hh}{cell.hh}"}
 
 \textcolor{keywordtype}{void} \hyperlink{send__msg_8cpp_a62a0d4f39a307b53420dd89522b62a70}{recv\_cell\_handler}(\hyperlink{classmissive}{missive}* msg);
 
 \textcolor{keywordtype}{void} 
 \hyperlink{send__msg_8cpp_a62a0d4f39a307b53420dd89522b62a70}{recv\_cell\_handler}(\hyperlink{classmissive}{missive}* msg)\{
-    \textcolor{comment}{//MCK\_UPDATE\_MIN\_SP();}
-    EMU\_CODE(
-        EMU\_CK(\hyperlink{shared__eph_8h_a39a45617dcf4c16d9968aa9294e8a9e7}{mc\_addr\_is\_local}(msg->dst));
-        mc\_core\_id\_t koid = \hyperlink{classkernel_ac3532ca84ebcf0d7f6aba1b8966acc72}{kernel::get\_core\_id}();
+    PTD\_CODE(
+        PTD\_CK(\hyperlink{shared__eph_8h_a39a45617dcf4c16d9968aa9294e8a9e7}{mc\_addr\_is\_local}(msg->dst));
+        \hyperlink{shared__eph3_8h_ac84be73145b663d3392b6955cbc19c3b}{mc\_workeru\_id\_t} koid = \hyperlink{classkernel_ad586b3700ecc7172635f1eeab8f6fca7}{kernel::get\_workeru\_id}();
         MC\_MARK\_USED(koid);
-        mc\_core\_nn\_t konn = \hyperlink{classkernel_a9bea88d9fe21bf2fb40d7c8a7656c30a}{kernel::get\_core\_nn}();
+        \hyperlink{shared__eph3_8h_a804158edcb9b5bc2c1b2fb19d14e80d5}{mc\_workeru\_nn\_t} konn = \hyperlink{classkernel_ac72d71034d07b7679c54fef29701c531}{kernel::get\_workeru\_nn}();
         MC\_MARK\_USED(konn);
-        EMU\_LOG(\textcolor{stringliteral}{"recv\_cell\_handler. core\_id=%lx core\_nn=%d src=%p dst=%p \(\backslash\)n"}, 
+        PTD\_LOG(\textcolor{stringliteral}{"recv\_cell\_handler. workeru\_id=%lx workeru\_nn=%d src=%p dst=%p \(\backslash\)n"}, 
                 koid, konn, msg->get\_source(), msg->dst);
-        EMU\_PRT(\textcolor{stringliteral}{"recv\_cell\_handler. core\_id=%lx core\_nn=%d src=%p dst=%p \(\backslash\)n"}, 
+        PTD\_PRT(\textcolor{stringliteral}{"recv\_cell\_handler. workeru\_id=%lx workeru\_nn=%d src=%p dst=%p \(\backslash\)n"}, 
                 koid, konn, msg->get\_source(), msg->dst);
     )
 
@@ -63,37 +90,37 @@ Simple send missive example.
        with this handler.}
 \};
 
-\textcolor{keywordtype}{void} mc\_cores\_main() \{
-    \hyperlink{classkernel_a4ba03e734fb64b1215170531599a6754}{kernel::init\_sys}();
+\textcolor{keywordtype}{void} mc\_workerus\_main() \{
+    \hyperlink{classkernel_a666b3a9626eed4c1eb7a94130decda61}{kernel::init\_sys}();
 
     \hyperlink{classkernel_a4af01f01c949a504cd3a6d574eced6a7}{kernel::set\_handlers}(1, the\_handlers);
 
-    \hyperlink{classcell_ad09500ef03d2ccb60de17f189ba59b9e}{cell::separate}(mc\_out\_num\_cores);
-    \hyperlink{classmissive_a9b9925cee46b73d4f9012ab72ce96c4c}{missive::separate}(mc\_out\_num\_cores);
-    \hyperlink{classagent__ref_a9cc42d67af5a3cf8ae01bfa6434489be}{agent\_ref::separate}(mc\_out\_num\_cores);
-    \hyperlink{classagent__grp_afa435a806a32ebba3554703581852db3}{agent\_grp::separate}(mc\_out\_num\_cores);
+    cell::separate(mc\_out\_num\_workerus);
+    missive::separate(mc\_out\_num\_workerus);
+    agent\_ref::separate(mc\_out\_num\_workerus);
+    agent\_grp::separate(mc\_out\_num\_workerus);
 
     \hyperlink{classkernel}{kernel}* ker = \hyperlink{cell_8hh_af1eb47800585646e0caf6cb269111731}{mck\_get\_kernel}();
     MC\_MARK\_USED(ker);
 
-    \textcolor{keywordflow}{if}(\hyperlink{global_8h_a76824b23f4a177c4535d83c3b89e2f54}{mck\_is\_ro\_co\_core}(0,0))\{
-        \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"CORE (0,0) started\(\backslash\)n"});
+    \textcolor{keywordflow}{if}(\hyperlink{global_8h_a2060aa9eee2682d8a9674b0a02338b22}{mck\_is\_ro\_co\_workeru}(0,0))\{
+        \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"WORKERU (0,0) started\(\backslash\)n"});
 
         \textcolor{comment}{// Next line is just to remaind that every single cell should have a valid handler\_idx. It was
        already 0.}
-        \hyperlink{classkernel_a525c68a30877cf40fc63bca8485f4eb8}{kernel::get\_core\_cell}()->\hyperlink{classcell_a234bbd022db21480b428b2f63662fe95}{handler\_idx} = 0;   \textcolor{comment}{// This is
+        \hyperlink{classkernel_a22ca8ecca4d7ab27775010cd47f96fdd}{kernel::get\_first\_cell}()->\hyperlink{classcell_a234bbd022db21480b428b2f63662fe95}{handler\_idx} = 0; \textcolor{comment}{// This is
        recv\_cell\_handler's index in the\_handlers.}
 
         \hyperlink{classkernel_a438f0450a28abb54d058b88ef8cc3d3b}{kernel::run\_sys}();
     \}
-    \textcolor{keywordflow}{if}(\hyperlink{global_8h_a76824b23f4a177c4535d83c3b89e2f54}{mck\_is\_ro\_co\_core}(0,1))\{
-        \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"CORE (0,1) started\(\backslash\)n"});
-        mc\_core\_id\_t dst = mc\_ro\_co\_to\_id(0, 0);
+    \textcolor{keywordflow}{if}(\hyperlink{global_8h_a2060aa9eee2682d8a9674b0a02338b22}{mck\_is\_ro\_co\_workeru}(0,1))\{
+        \hyperlink{log_8h_a8ec0c02a2d94dec909d9cdc8340f733f}{mck\_slog2}(\textcolor{stringliteral}{"WORKERU (0,1) started\(\backslash\)n"});
+        \hyperlink{shared__eph3_8h_ac84be73145b663d3392b6955cbc19c3b}{mc\_workeru\_id\_t} dst = mc\_ro\_co\_to\_id(0, 0);
         
-        \hyperlink{classcell}{cell}* act1 = \hyperlink{classkernel_a525c68a30877cf40fc63bca8485f4eb8}{kernel::get\_core\_cell}();
-        \hyperlink{classcell}{cell}* act2 = \hyperlink{classkernel_a525c68a30877cf40fc63bca8485f4eb8}{kernel::get\_core\_cell}(dst);
+        \hyperlink{classcell}{cell}* act1 = \hyperlink{classkernel_a22ca8ecca4d7ab27775010cd47f96fdd}{kernel::get\_first\_cell}();
+        \hyperlink{classcell}{cell}* act2 = \hyperlink{classkernel_a22ca8ecca4d7ab27775010cd47f96fdd}{kernel::get\_first\_cell}(dst);
 
-        \hyperlink{classmissive}{missive}* msv = \hyperlink{classmissive_a911a5d60180223ebff8d71966c483ee5}{missive::acquire}();
+        \hyperlink{classmissive}{missive}* msv = missive::acquire();
         msv->src = act1;
         msv->dst = act2;
         msv->\hyperlink{classmissive_a642a46a0f5cce3c99dc17b1c1acb5f6f}{send}();
@@ -110,3 +137,4 @@ Simple send missive example.
 
 \end{DoxyCodeInclude}
  
+

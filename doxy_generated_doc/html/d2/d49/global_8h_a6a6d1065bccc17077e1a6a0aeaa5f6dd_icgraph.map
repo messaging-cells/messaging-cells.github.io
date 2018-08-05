@@ -1,5 +1,7 @@
 <map id="mck_abort" name="mck_abort">
-<area shape="rect" id="node2" href="$d5/d08/classagent.html#af4bd30d8eb23b3f09e115e4efda993da" title="Method that must return the available grip for each agent derived class. " alt="" coords="136,5,275,32"/>
-<area shape="rect" id="node3" href="$d3/d9f/classkernel.html#a4af01f01c949a504cd3a6d574eced6a7" title="This methods sets kernel::all_handlers to &#39;hdlrs&#39; and it must have size &#39;tot_hdlrs&#39;. " alt="" coords="136,56,275,83"/>
-<area shape="rect" id="node4" href="$d3/d9f/classkernel.html#aeb77cff9986702ca542f327744b0401c" title="Returns the kernel. " alt="" coords="150,107,261,133"/>
+<area shape="rect" id="node2" href="$d5/d08/classagent.html#af4bd30d8eb23b3f09e115e4efda993da" title="Method that must return the available grip for each agent derived class. " alt="" coords="154,5,293,32"/>
+<area shape="rect" id="node3" href="$d3/d9f/classkernel.html#a882360ee07e1f57d8ebdb651785531a2" title="Returns the first_cell (see get_first_cell) of the manageru. " alt="" coords="136,56,311,83"/>
+<area shape="rect" id="node4" href="$d3/d9f/classkernel.html#a4af01f01c949a504cd3a6d574eced6a7" title="This methods sets kernel::all_handlers to &#39;hdlrs&#39; and it must have size &#39;tot_hdlrs&#39;. " alt="" coords="154,107,293,133"/>
+<area shape="rect" id="node5" href="$df/dc6/classphilosopher.html#a1efabe25b3e78f72610bacb408cf5518" title="Method that must return the available grip for each agent derived class. " alt="" coords="359,132,531,159"/>
+<area shape="rect" id="node6" href="$d1/d1b/trace_8h.html#a8090ce26e45526c1fd1947155a04398a" title="Gets the stack trace (commonly called &#39;backtrace&#39; in linux). " alt="" coords="154,209,293,250"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="cell" name="cell">
-<area shape="rect" id="node3" href="$d0/d2d/classchopstick.html" title="Class for chopsticks. " alt="" coords="5,155,84,181"/>
-<area shape="rect" id="node4" href="$df/dc6/classphilosopher.html" title="Class for philosophers. " alt="" coords="109,155,197,181"/>
+<area shape="rect" id="node3" href="$d0/d2d/classchopstick.html" title="Class for chopsticks (philo.cpp example). " alt="" coords="5,155,84,181"/>
+<area shape="rect" id="node4" href="$df/dc6/classphilosopher.html" title="Class for philosophers (philo.cpp example ). " alt="" coords="109,155,197,181"/>
 <area shape="rect" id="node2" href="$d5/d08/classagent.html" title="The base class for any library object including cell s, missive s, agent_grp s and agent_ref s..." alt="" coords="71,5,125,32"/>
 </map>

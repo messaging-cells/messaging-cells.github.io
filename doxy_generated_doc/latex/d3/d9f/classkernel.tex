@@ -2,7 +2,7 @@
 \label{classkernel}\index{kernel@{kernel}}
 
 
-The kernel of a core that is using the library.  
+The kernel of a workeru that is using the library.  
 
 
 
@@ -15,7 +15,7 @@ Collaboration diagram for kernel\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=229pt]{d1/d46/classkernel__coll__graph}
+\includegraphics[width=256pt]{d1/d46/classkernel__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -27,65 +27,71 @@ mc\+\_\+inline\+\_\+fn void \hyperlink{classkernel_a242721cf580dbdc8789b609534c9
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static void \hyperlink{classkernel_a4ba03e734fb64b1215170531599a6754}{init\+\_\+sys} () mc\+\_\+external\+\_\+code\+\_\+ram\hypertarget{classkernel_a4ba03e734fb64b1215170531599a6754}{}\label{classkernel_a4ba03e734fb64b1215170531599a6754}
+static void \hyperlink{classkernel_a666b3a9626eed4c1eb7a94130decda61}{init\+\_\+sys} (bool is\+\_\+the\+\_\+manageru=false) mc\+\_\+external\+\_\+code\+\_\+ram\hypertarget{classkernel_a666b3a9626eed4c1eb7a94130decda61}{}\label{classkernel_a666b3a9626eed4c1eb7a94130decda61}
 
-\begin{DoxyCompactList}\small\item\em Static method that inits this core kernel. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Static method that inits this workeru kernel. \end{DoxyCompactList}\item 
 static mc\+\_\+opt\+\_\+sz\+\_\+fn void \hyperlink{classkernel_a438f0450a28abb54d058b88ef8cc3d3b}{run\+\_\+sys} ()\hypertarget{classkernel_a438f0450a28abb54d058b88ef8cc3d3b}{}\label{classkernel_a438f0450a28abb54d058b88ef8cc3d3b}
 
 \begin{DoxyCompactList}\small\item\em Static method that starts handling \hyperlink{classmissive}{missive} s. No \hyperlink{classmissive}{missive} s are handled before. \end{DoxyCompactList}\item 
 static void \hyperlink{classkernel_a55fbe958137c0973a06da58fe491c9e6}{finish\+\_\+sys} () mc\+\_\+external\+\_\+code\+\_\+ram\hypertarget{classkernel_a55fbe958137c0973a06da58fe491c9e6}{}\label{classkernel_a55fbe958137c0973a06da58fe491c9e6}
 
-\begin{DoxyCompactList}\small\item\em Static method that finishes this core kernel. \end{DoxyCompactList}\item 
-static \hyperlink{classkernel}{kernel} $\ast$ \hyperlink{classkernel_aeb77cff9986702ca542f327744b0401c}{get\+\_\+sys} ()\hypertarget{classkernel_aeb77cff9986702ca542f327744b0401c}{}\label{classkernel_aeb77cff9986702ca542f327744b0401c}
+\begin{DoxyCompactList}\small\item\em Static method that finishes this workeru kernel. \end{DoxyCompactList}\item 
+static mc\+\_\+inline\+\_\+fn \hyperlink{classkernel}{kernel} $\ast$ \hyperlink{classkernel_aa6ee0d8eaa3607b1a31de2c1a2201444}{get\+\_\+sys} ()\hypertarget{classkernel_aa6ee0d8eaa3607b1a31de2c1a2201444}{}\label{classkernel_aa6ee0d8eaa3607b1a31de2c1a2201444}
 
 \begin{DoxyCompactList}\small\item\em Returns the kernel. \end{DoxyCompactList}\item 
-static mc\+\_\+inline\+\_\+fn mck\+\_\+glb\+\_\+sys\+\_\+st \& \hyperlink{classkernel_a1e6cc45f85983e8b5bbe625b52ac7788}{get\+\_\+core\+\_\+info} ()\hypertarget{classkernel_a1e6cc45f85983e8b5bbe625b52ac7788}{}\label{classkernel_a1e6cc45f85983e8b5bbe625b52ac7788}
+static mc\+\_\+inline\+\_\+fn mck\+\_\+glb\+\_\+sys\+\_\+st \& \hyperlink{classkernel_ad86ecbbc776450b3f3e14b3defa0b017}{get\+\_\+workeru\+\_\+info} ()\hypertarget{classkernel_ad86ecbbc776450b3f3e14b3defa0b017}{}\label{classkernel_ad86ecbbc776450b3f3e14b3defa0b017}
 
-\begin{DoxyCompactList}\small\item\em Returns the core global info. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Returns the workeru global info. \end{DoxyCompactList}\item 
 static mc\+\_\+inline\+\_\+fn mc\+\_\+sys\+\_\+sz\+\_\+st \& \hyperlink{classkernel_a344a7df0019bf730a17e07d6c54fdaf2}{get\+\_\+sys\+\_\+sz} ()\hypertarget{classkernel_a344a7df0019bf730a17e07d6c54fdaf2}{}\label{classkernel_a344a7df0019bf730a17e07d6c54fdaf2}
 
 \begin{DoxyCompactList}\small\item\em Returns the system size structure. \end{DoxyCompactList}\item 
-static mc\+\_\+inline\+\_\+fn \hyperlink{shared__eph3_8h_a5e655de52cd3f3159d373c25daf3811e}{mc\+\_\+core\+\_\+nn\+\_\+t} \hyperlink{classkernel_a9bea88d9fe21bf2fb40d7c8a7656c30a}{get\+\_\+core\+\_\+nn} ()\hypertarget{classkernel_a9bea88d9fe21bf2fb40d7c8a7656c30a}{}\label{classkernel_a9bea88d9fe21bf2fb40d7c8a7656c30a}
+static mc\+\_\+inline\+\_\+fn \hyperlink{shared__eph3_8h_a804158edcb9b5bc2c1b2fb19d14e80d5}{mc\+\_\+workeru\+\_\+nn\+\_\+t} \hyperlink{classkernel_ac72d71034d07b7679c54fef29701c531}{get\+\_\+workeru\+\_\+nn} ()\hypertarget{classkernel_ac72d71034d07b7679c54fef29701c531}{}\label{classkernel_ac72d71034d07b7679c54fef29701c531}
 
-\begin{DoxyCompactList}\small\item\em Returns the core number. \end{DoxyCompactList}\item 
-static mc\+\_\+inline\+\_\+fn \hyperlink{shared__eph3_8h_a5195d85d43fe92b801691270ac17ab80}{mc\+\_\+core\+\_\+co\+\_\+t} \hyperlink{classkernel_a456ce2b1fc55ff1331efe5123f5909c0}{get\+\_\+core\+\_\+ro} ()\hypertarget{classkernel_a456ce2b1fc55ff1331efe5123f5909c0}{}\label{classkernel_a456ce2b1fc55ff1331efe5123f5909c0}
+\begin{DoxyCompactList}\small\item\em Returns the workeru number. \end{DoxyCompactList}\item 
+static mc\+\_\+inline\+\_\+fn \hyperlink{shared__eph3_8h_ad0fcf14c0ee3fa953a3f9b3909665fec}{mc\+\_\+workeru\+\_\+co\+\_\+t} \hyperlink{classkernel_a5073c1cd9001a1d9778493aa9c825fc9}{get\+\_\+workeru\+\_\+ro} ()\hypertarget{classkernel_a5073c1cd9001a1d9778493aa9c825fc9}{}\label{classkernel_a5073c1cd9001a1d9778493aa9c825fc9}
 
-\begin{DoxyCompactList}\small\item\em Returns the core row. \end{DoxyCompactList}\item 
-static mc\+\_\+inline\+\_\+fn \hyperlink{shared__eph3_8h_a5195d85d43fe92b801691270ac17ab80}{mc\+\_\+core\+\_\+co\+\_\+t} \hyperlink{classkernel_af49544d9671c40990b06cf0583c35ed2}{get\+\_\+core\+\_\+co} ()\hypertarget{classkernel_af49544d9671c40990b06cf0583c35ed2}{}\label{classkernel_af49544d9671c40990b06cf0583c35ed2}
+\begin{DoxyCompactList}\small\item\em Returns the workeru row. \end{DoxyCompactList}\item 
+static mc\+\_\+inline\+\_\+fn \hyperlink{shared__eph3_8h_ad0fcf14c0ee3fa953a3f9b3909665fec}{mc\+\_\+workeru\+\_\+co\+\_\+t} \hyperlink{classkernel_a0550d428ef98bed76ced01ad389359f2}{get\+\_\+workeru\+\_\+co} ()\hypertarget{classkernel_a0550d428ef98bed76ced01ad389359f2}{}\label{classkernel_a0550d428ef98bed76ced01ad389359f2}
 
-\begin{DoxyCompactList}\small\item\em Returns the core column. \end{DoxyCompactList}\item 
-static mc\+\_\+inline\+\_\+fn \hyperlink{shared__eph3_8h_a78c58d809b35d7f23f6e553f63501abc}{mc\+\_\+core\+\_\+id\+\_\+t} \hyperlink{classkernel_ac3532ca84ebcf0d7f6aba1b8966acc72}{get\+\_\+core\+\_\+id} ()\hypertarget{classkernel_ac3532ca84ebcf0d7f6aba1b8966acc72}{}\label{classkernel_ac3532ca84ebcf0d7f6aba1b8966acc72}
+\begin{DoxyCompactList}\small\item\em Returns the workeru column. \end{DoxyCompactList}\item 
+static mc\+\_\+inline\+\_\+fn \hyperlink{shared__eph3_8h_ac84be73145b663d3392b6955cbc19c3b}{mc\+\_\+workeru\+\_\+id\+\_\+t} \hyperlink{classkernel_ad586b3700ecc7172635f1eeab8f6fca7}{get\+\_\+workeru\+\_\+id} ()\hypertarget{classkernel_ad586b3700ecc7172635f1eeab8f6fca7}{}\label{classkernel_ad586b3700ecc7172635f1eeab8f6fca7}
 
-\begin{DoxyCompactList}\small\item\em Returns the core id. \end{DoxyCompactList}\item 
-static mc\+\_\+inline\+\_\+fn \hyperlink{classcell}{cell} $\ast$ \hyperlink{classkernel_a525c68a30877cf40fc63bca8485f4eb8}{get\+\_\+core\+\_\+cell} ()\hypertarget{classkernel_a525c68a30877cf40fc63bca8485f4eb8}{}\label{classkernel_a525c68a30877cf40fc63bca8485f4eb8}
+\begin{DoxyCompactList}\small\item\em Returns the workeru id. \end{DoxyCompactList}\item 
+static mc\+\_\+inline\+\_\+fn \hyperlink{shared__eph3_8h_ac84be73145b663d3392b6955cbc19c3b}{mc\+\_\+workeru\+\_\+id\+\_\+t} \hyperlink{classkernel_a1da4a5eca43585fdb475fbba2fed1d17}{get\+\_\+parent\+\_\+workeru\+\_\+id} ()\hypertarget{classkernel_a1da4a5eca43585fdb475fbba2fed1d17}{}\label{classkernel_a1da4a5eca43585fdb475fbba2fed1d17}
+
+\begin{DoxyCompactList}\small\item\em Returns the parent workeru id. \end{DoxyCompactList}\item 
+static mc\+\_\+inline\+\_\+fn \hyperlink{classcell}{cell} $\ast$ \hyperlink{classkernel_a22ca8ecca4d7ab27775010cd47f96fdd}{get\+\_\+first\+\_\+cell} ()\hypertarget{classkernel_a22ca8ecca4d7ab27775010cd47f96fdd}{}\label{classkernel_a22ca8ecca4d7ab27775010cd47f96fdd}
 
 \begin{DoxyCompactList}\small\item\em Returns this kernel first created \hyperlink{classcell}{cell}. \end{DoxyCompactList}\item 
-static \hyperlink{classcell}{cell} $\ast$ \hyperlink{classkernel_a5d32872fef146526fd14b9b543fddfef}{get\+\_\+core\+\_\+cell} (\hyperlink{shared__eph3_8h_a78c58d809b35d7f23f6e553f63501abc}{mc\+\_\+core\+\_\+id\+\_\+t} dst\+\_\+id)\hypertarget{classkernel_a5d32872fef146526fd14b9b543fddfef}{}\label{classkernel_a5d32872fef146526fd14b9b543fddfef}
+static \hyperlink{classcell}{cell} $\ast$ \hyperlink{classkernel_abb84a33dc57dcafc141698cd471299de}{get\+\_\+first\+\_\+cell} (\hyperlink{shared__eph3_8h_ac84be73145b663d3392b6955cbc19c3b}{mc\+\_\+workeru\+\_\+id\+\_\+t} dst\+\_\+id)\hypertarget{classkernel_abb84a33dc57dcafc141698cd471299de}{}\label{classkernel_abb84a33dc57dcafc141698cd471299de}
 
-\begin{DoxyCompactList}\small\item\em Returns the core\+\_\+cell (see \hyperlink{classkernel_a525c68a30877cf40fc63bca8485f4eb8}{get\+\_\+core\+\_\+cell}) of the core with id \textquotesingle{}dst\+\_\+id\textquotesingle{}. \end{DoxyCompactList}\item 
-static \hyperlink{classcell}{cell} $\ast$ \hyperlink{classkernel_a242f0813bcf6018ff480d6944888e635}{get\+\_\+host\+\_\+cell} () mc\+\_\+external\+\_\+code\+\_\+ram\hypertarget{classkernel_a242f0813bcf6018ff480d6944888e635}{}\label{classkernel_a242f0813bcf6018ff480d6944888e635}
+\begin{DoxyCompactList}\small\item\em Returns the first\+\_\+cell (see \hyperlink{classkernel_a22ca8ecca4d7ab27775010cd47f96fdd}{get\+\_\+first\+\_\+cell}) of the workeru with id \textquotesingle{}dst\+\_\+id\textquotesingle{}. \end{DoxyCompactList}\item 
+static \hyperlink{classcell}{cell} $\ast$ \hyperlink{classkernel_a882360ee07e1f57d8ebdb651785531a2}{get\+\_\+manageru\+\_\+cell} () mc\+\_\+external\+\_\+code\+\_\+ram\hypertarget{classkernel_a882360ee07e1f57d8ebdb651785531a2}{}\label{classkernel_a882360ee07e1f57d8ebdb651785531a2}
 
-\begin{DoxyCompactList}\small\item\em Returns the core\+\_\+cell (see \hyperlink{classkernel_a525c68a30877cf40fc63bca8485f4eb8}{get\+\_\+core\+\_\+cell}) of the host. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Returns the first\+\_\+cell (see \hyperlink{classkernel_a22ca8ecca4d7ab27775010cd47f96fdd}{get\+\_\+first\+\_\+cell}) of the manageru. \end{DoxyCompactList}\item 
 static void \hyperlink{classkernel_a4af01f01c949a504cd3a6d574eced6a7}{set\+\_\+handlers} (uint8\+\_\+t tot\+\_\+hdlrs, \hyperlink{cell_8hh_ad48af79638ac0f2892ed41375e3aed54}{missive\+\_\+handler\+\_\+t} $\ast$hdlrs) mc\+\_\+external\+\_\+code\+\_\+ram\hypertarget{classkernel_a4af01f01c949a504cd3a6d574eced6a7}{}\label{classkernel_a4af01f01c949a504cd3a6d574eced6a7}
 
 \begin{DoxyCompactList}\small\item\em This methods sets \hyperlink{classkernel_a0a82a4b3bc2a0e2e93987f89732b6be8}{kernel\+::all\+\_\+handlers} to \textquotesingle{}hdlrs\textquotesingle{} and it must have size \textquotesingle{}tot\+\_\+hdlrs\textquotesingle{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{cell_8hh_a8c7a35c2bfc796f6d471a64886f8e58e}{mck\+\_\+handler\+\_\+idx\+\_\+t} \hyperlink{classkernel_a062439ac18b2a667a84d39c11111ece4}{tot\+\_\+handlers}\hypertarget{classkernel_a062439ac18b2a667a84d39c11111ece4}{}\label{classkernel_a062439ac18b2a667a84d39c11111ece4}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classkernel_a0a82a4b3bc2a0e2e93987f89732b6be8}{kernel\+::all\+\_\+handlers} size. \end{DoxyCompactList}\item 
 \hyperlink{cell_8hh_ad48af79638ac0f2892ed41375e3aed54}{missive\+\_\+handler\+\_\+t} $\ast$ \hyperlink{classkernel_a0a82a4b3bc2a0e2e93987f89732b6be8}{all\+\_\+handlers}\hypertarget{classkernel_a0a82a4b3bc2a0e2e93987f89732b6be8}{}\label{classkernel_a0a82a4b3bc2a0e2e93987f89732b6be8}
 
-\begin{DoxyCompactList}\small\item\em Current array of \hyperlink{classmissive}{missive} handlers of \hyperlink{classcell}{cell} s for this core. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Current array of \hyperlink{classmissive}{missive} handlers of \hyperlink{classcell}{cell} s for this workeru. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-The kernel of a core that is using the library. 
+The kernel of a workeru that is using the library. 
 
-Every core must have one and only one kernel inited with \hyperlink{classkernel_a4ba03e734fb64b1215170531599a6754}{kernel\+::init\+\_\+sys}. 
+Every workeru must have one and only one kernel inited with \hyperlink{classkernel_a666b3a9626eed4c1eb7a94130decda61}{kernel\+::init\+\_\+sys}. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 /home/jose/devel/messaging-\/cells/src/cells/\hyperlink{cell_8hh}{cell.\+hh}\item 
 /home/jose/devel/messaging-\/cells/src/cells/cell.\+cpp\item 
-/home/jose/devel/messaging-\/cells/src/cells/cell\+\_\+emu.\+cpp\item 
-/home/jose/devel/messaging-\/cells/src/cells/cell\+\_\+eph.\+cpp\item 
-/home/jose/devel/messaging-\/cells/src/cells/cell\+\_\+znq.\+cpp\end{DoxyCompactItemize}
+/home/jose/devel/messaging-\/cells/src/parallella/manageru/cells/cell\+\_\+znq.\+cpp\item 
+/home/jose/devel/messaging-\/cells/src/parallella/workerus/cell\+\_\+eph.\+cpp\item 
+/home/jose/devel/messaging-\/cells/src/pthreads/cells/cell\+\_\+ptd.\+cpp\end{DoxyCompactItemize}

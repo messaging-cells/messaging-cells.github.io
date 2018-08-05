@@ -13,16 +13,16 @@ A minimalistic asynchronous messaging aproach to <a href="https://en.wikipedia.o
 <li>
 Free Software and Open Source Software.
 <li>
-For the <a href="https://www.parallella.org/" target="blank">Parallella board</a>.
-<li>
-Optimized for the <a href="http://parallel.princeton.edu/openpiton/">OpenPiton architecture</a> as soon as possible.
+Designed to work over: <a href="https://en.wikipedia.org/wiki/POSIX_Threads" target="blank">pthreads</a> and the <a href="https://www.parallella.org/" target="blank">Parallella board</a>.
 <li>
 Inspired by the <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a> and 
 <a href="https://en.wikipedia.org/wiki/Concurrent_object-oriented_programming">Concurrent object-oriented programming</a>.
+<li>
+Optimized for the <a href="http://parallel.princeton.edu/openpiton/">OpenPiton architecture</a> as soon as possible.
 </ol>
 
 <p>
-The library is designed to be used as a support library for applications or libraries that need to comunicate concurrent pieces of software in an <a href="http://www.adapteva.com/epiphany-multicore-intellectual-property/">Epiphany</a> based system (<a href="https://www.parallella.org/" target="blank">Parallella_E3</a> board only for now). 
+The library is designed to be used as a support library for applications or libraries that implement concurrent algorithms that have many concurrent pieces of software. 
 
 <p>
 The expected user is a C/C++ programmer that needs to implement a parallel algorithm. 
@@ -30,20 +30,16 @@ The expected user is a C/C++ programmer that needs to implement a parallel algor
 <p>
 The motivation for this software is to have a base librery to implement the new parallel algorithm of <a href="https://ben-jose.github.io/" target="blank">Ben-Jose SAT Solver</a>.
 
+<p>
+Initially designed for the <a href="https://www.parallella.org/" target="blank">Parallella board</a> is now turning to a modeling library (based in pthreads) to design concurrent algorithms.
+
 <h1>Status</h1>
 
 <p>
 A first alpha version is running basic examples. The API is not stable yet (there might be renaming of functions, methods of even classes). It is planned to be refined and expanded as needed during the implementation of the parallel version of the <a href="https://ben-jose.github.io/" target="blank">Ben-Jose</a> algorithm. That means that, if the "futures" feature or anything else are not needed for that algorithm, you are wellcome to implement your needed/wanted feature for the library.
 
-<h1>Features</h1>
-
+<h1>General Features</h1>
 <ol>
-<li>
-Small in-core footprint (8Kb including code + stack).
-<li>
-Loads in parallel (loading tree definable in your code).
-<li>
-Your code can be partinioned in loadable modules that run in-core.
 <li>
 Deterministic behaviour. No indeterminism. Unlike the <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a>. For a any pair of cells Cell_A and Cell_B:
 	<ul>
@@ -55,36 +51,46 @@ Deterministic behaviour. No indeterminism. Unlike the <a href="https://en.wikipe
 	Cell_A (sending) always does local core writing and Cell_B (receiving) always does remote core reading. No message copying.
 	</ul>
 <li>
-Cell references are just Epiphany addresses (you must be address aware).
+Cell references are just memory addresses (you must be address aware).
 <li>
 Optimized dynamic memory allocation/deallocation (pools of reusable classes).
 <li>
 Every library object is local-core dynamically groupable (see class binder). Local core complex structures (trees, graphs) can be constructed with the base classes of the library.
 <li>
-Configurable in-core RAM memory usage from link script (see examples).
-<li>
-Designed for eMesh Network usage for messaging and synchronization (as opposed to off-core memory usage).
-<li>
 No locks at all for synchronization (no mutexes, no semaphores, etc). Like the <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a>.
 <li>
 Asynchronous massaging. Like the Actor Model.
 <li>
-Single user epiphany usage oriented (it is assumed that your code will be the only one running in the epiphany architecture).
-<li>
-Debugging tools:
-	<ul>
-	<li>
-	Per-core synchronized logs (if it is not in the log it has not happened in the core).
-	<li>
-	Epiphany backtrace function to know your stack state.
-	</ul>
-<li>
-Emulating library (based on threads) to develop and debug without the epiphany architecture. You can develop in a "normal" linux and then run in the Parallella.
-<li>
-Host side implementation of the system can/may do all io to the epiphany architecture in a consistent way. That is: Messaging cells in the host (Zynq side) can/may communicate back and forth with messaging cells in the epiphany (E3 side) to do all io to the epiphany.
+Per-worker processing unit (workeru) synchronized logs (if it is not in the log it has not happened in the workeru) that help debugging
 </ol>
 
-<h1>Bare metal programming</h1>
+<h1>Features for Parallella</h1>
+
+<p>
+The <a href="https://www.parallella.org/" target="blank">parallella board</a> is an <a href="http://www.adapteva.com/epiphany-multicore-intellectual-property/">Epiphany</a> based system, so:
+
+<ol>
+<li>
+Small in-core footprint (8Kb including code + stack).
+<li>
+Loads in parallel (loading tree definable in your code).
+<li>
+Your code can be partinioned in loadable modules that run in-core.
+<li>
+Cell references are just Epiphany addresses (you must be address aware).
+<li>
+Configurable in-core RAM memory usage from link script (see examples).
+<li>
+Designed for eMesh Network usage for messaging and synchronization (as opposed to off-core memory usage).
+<li>
+Single user epiphany usage oriented (it is assumed that your code will be the only one running in the epiphany architecture).
+<li>
+Epiphany backtrace function to know your stack state helps debugging.
+<li>
+Zynq side implementation called manageru (for manager unit) of the system can/may do all input/output to the epiphany architecture in a consistent way. That is: Messaging cells in the host (Zynq side) can/may communicate back and forth with messaging cells in the epiphany (E3 side) to do all io to the epiphany.
+</ol>
+
+<h5>Bare metal programming</h5>
 
 <p>
 Despite all these wonderful features. You still are supposed to understand the epiphany architecture. You still are supposed to know exactly what is happening with your code even at machine level (epiphany assembler level) and how the emulating library works if you are using it. 
