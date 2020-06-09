@@ -88,38 +88,35 @@ Messaging Cells is:
 
 <ol>
 <li>
-A GNU C/C++ software library.
+A personal project. Not alpha (usable) yet.
+<li>
+A software library.
+<li>
+A sublanguage of c++ as a <a href="https://en.wikipedia.org/wiki/Domain-specific_language" target="blank"> DSL </a>.
 <li>
 A minimalistic asynchronous messaging aproach to <a href="https://en.wikipedia.org/wiki/Concurrency_(computer_science)" target="blank">concurrency</a> and parallelism.
 <li>
-Free Software and Open Source Software.
+Free Software and Open Source Software with a GNU C/C++ license.
 <li>
-Designed to work over: <a href="https://en.wikipedia.org/wiki/POSIX_Threads" target="blank">pthreads</a> and the <a href="https://www.parallella.org/" target="blank">Parallella board</a>.
+Developed to work over: <a href="https://en.wikipedia.org/wiki/POSIX_Threads" target="blank">pthreads</a> and to generate 
+<a href="https://en.wikipedia.org/wiki/Verilog" target="blank">Verilog</a> code for the user's running pthread model.
 <li>
 Inspired by the <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a> and 
 <a href="https://en.wikipedia.org/wiki/Concurrent_object-oriented_programming">Concurrent object-oriented programming</a>.
-<li>
-Optimized for the <a href="http://parallel.princeton.edu/openpiton/">OpenPiton architecture</a> as soon as possible.
 </ol>
 
 <p>
-The library is designed to be used as a support library for applications or libraries that implement concurrent algorithms that have many concurrent pieces of software. 
+The library is just a personal project of a modeling library for concurrent algorithms with many concurrent pieces of software (cells). 
 
 <p>
-The expected user is a C/C++ programmer that needs to implement a parallel algorithm. 
-
-<p>
-The motivation for this software is to have a base librery to implement the new parallel algorithm of <a href="https://ben-jose.github.io/" target="blank">Ben-Jose SAT Solver</a>.
-
-<p>
-Initially designed for the <a href="https://www.parallella.org/" target="blank">Parallella board</a> is now turning to a modeling library (based in pthreads) to design concurrent algorithms.
+The motivation for this software is to have a base library to implement a parallel algorithm for <a href="https://ben-jose.github.io/" target="blank">Ben-Jose SAT Solver</a>.
 
 <h1>Status</h1>
 
 <p>
-A first alpha version is running basic examples. The API is not stable yet (there might be renaming of functions, methods of even classes). It is planned to be refined and expanded as needed during the implementation of the parallel version of the <a href="https://ben-jose.github.io/" target="blank">Ben-Jose</a> algorithm. That means that, if the "futures" feature or anything else are not needed for that algorithm, you are wellcome to implement your needed/wanted feature for the library.
+Not alpha yet. Working on the DSL and the verilog generation of code and this means the whole code base is very unstable.
 
-<h1>General Features</h1>
+<h1>General features so far</h1>
 <ol>
 <li>
 Deterministic behaviour. No indeterminism. Unlike the <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a>. For a any pair of cells Cell_A and Cell_B:
@@ -129,169 +126,16 @@ Deterministic behaviour. No indeterminism. Unlike the <a href="https://en.wikipe
 	<li>
 	Messages are always received by Cell_B in the same order they are sent by Cell_A.
 	<li>
-	Cell_A (sending) always does local core writing and Cell_B (receiving) always does remote core reading. No message copying.
+	Message disposal is handled by the system and the user cannot modify it once it has been sent.
 	</ul>
-<li>
-Cell references are just memory addresses (you must be address aware).
-<li>
-Optimized dynamic memory allocation/deallocation (pools of reusable classes).
-<li>
-Every library object is local-core dynamically groupable (see class binder). Local core complex structures (trees, graphs) can be constructed with the base classes of the library.
 <li>
 No locks at all for synchronization (no mutexes, no semaphores, etc). Like the <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a>.
 <li>
-Asynchronous massaging. Like the Actor Model.
-<li>
-Per-worker processing unit (workeru) synchronized logs (if it is not in the log it has not happened in the workeru) that help debugging
-</ol>
-
-<h1>Features for Parallella</h1>
-
-<p>
-The <a href="https://www.parallella.org/" target="blank">parallella board</a> is an <a href="http://www.adapteva.com/epiphany-multicore-intellectual-property/">Epiphany</a> based system, so:
-
-<ol>
-<li>
-Small in-core footprint (8Kb including code + stack).
-<li>
-Loads in parallel (loading tree definable in your code).
-<li>
-Your code can be partinioned in loadable modules that run in-core.
-<li>
-Cell references are just Epiphany addresses (you must be address aware).
-<li>
-Configurable in-core RAM memory usage from link script (see examples).
-<li>
-Designed for eMesh Network usage for messaging and synchronization (as opposed to off-core memory usage).
-<li>
-Single user epiphany usage oriented (it is assumed that your code will be the only one running in the epiphany architecture).
-<li>
-Epiphany backtrace function to know your stack state helps debugging.
-<li>
-Zynq side implementation called manageru (for manager unit) of the system can/may do all input/output to the epiphany architecture in a consistent way. That is: Messaging cells in the host (Zynq side) can/may communicate back and forth with messaging cells in the epiphany (E3 side) to do all io to the epiphany.
-</ol>
-
-<h5>Bare metal programming</h5>
-
-<p>
-Despite all these wonderful features. You still are supposed to understand the epiphany architecture. You still are supposed to know exactly what is happening with your code even at machine level (epiphany assembler level) and how the emulating library works if you are using it. 
-
-<p>
-The user is expected to be aware of the kind of addressing been used for a library object at any given time.
-
-<p>
-Whether it is: 
-
-<ul>
-<li>
-From the epiphany side (hardware addresses).
-	<ol>
-	<li>
-	local-core. 
-		<ul>
-		<li>
-		Zero based (without core id).
-		<li>
-		With local core id.
-		</ul>
-	<li>
-	remote-core. 
-	<li>
-	off-core (outside of the epiphany system in the shared mem with the host)
-	</ol>
-<li>
-From the host side (linux virtual addresses mapped to hardware addresses).
-	<ol>
-	<li>
-	in-core. Inside the RAM of a core of the epiphany system (no register mem). 
-	<li>
-	off-core 
-	</ol>
-</ul>
-
-<p>
-The library provides functions to map all of these kinds of addressing, but the user must be aware of his own use of them and of course there is no protection against steping on your own toes (writing the wrong address).
-
-<p>
-It is bare metal programing with abstraction.
-
-<h1>Recommended Use</h1>
-
-<p>
-The recommended use for this library is in the implementation of discrete mathematics parallel algorithms because these kind of algorithms will not need much use of memory outside of the Epiphany-system (neither in code nor in data). They can be implemented just using the Epiphany system (core's RAM and the eMesh Network) by partitioning them in loadable modules kept anywhere in memory (off-sys or form other core). And that means optimal parallel use of the system.
-
-<h1>Download and Install</h1>
-
-In the command line:
-<pre>
-	git clone https://github.com/messaging-cells/messaging-cells.git
-	cd messaging-cells
-	./build
-</pre>
-
-<p>
-These commands will compile, built, put the library directory in the PATH environment variable, list all files of the library and finally 'exit' the command line so the changes to the path take effect (.bashrc is ran again) the next time you open a command line.
-
-<h3>Required Software</h3>
-<ol>
-	<li>A Linux system.
-	<li>GNU C++ (g++). 
-	<li>GNU Make (Make). 
+Asynchronous messaging. Like the Actor Model.
 </ol>
 
 <p>
-For Mint and in the command line (probably the same for other debian based distros):
-
-<pre>
-	sudo apt-get install gcc
-	sudo apt-get install g++
-	sudo apt-get install make
-</pre>
-
-<p>
-These commands are safe to be run even if the packages are already installed because it will just tell you so.
-
-<h1 id="Getting-Started">Getting Started</h1>
-
-<p>
-In the command line and in a Parallella system (after installing);
-
-<p>
-To run the hello world example:
-<pre>
-	./hello_world.sh
-</pre>
-
-<p>
-To run the eating philosophers example:
-<pre>
-	./philo.sh
-</pre>
-
-<p>
-To run the modules example:
-<pre>
-	./modules.sh
-</pre>
-
-<p>
-See the output of the examples:
-<pre>
-	cat src/tests/bin/log_*
-</pre>
-
-<p>
-See the source code of examples with 
-
-<pre>
-	<a href="https://github.com/messaging-cells/messaging-cells/tree/master/src/tests" target="blank">cd src/tests</a>
-</pre>.
-
-<h1>Feedback</h1>
-
-You can send your feedback using the 
-<a href="https://github.com/messaging-cells/messaging-cells/issues">issues</a> page of the 
-<a href="https://github.com/messaging-cells/messaging-cells">project</a>.
+The source code is available in the github <a href="https://github.com/messaging-cells/messaging-cells">repository</a>.
 
 <br>
 <br>
