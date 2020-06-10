@@ -8,11 +8,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 4 meta tags *must* come first in the head -->
 
-	<meta name="description" content="Messaging Cells Library">
+	<meta name="description" content="Messaging-Cells Library">
 	<meta name="author" content="">
 	<link rel="icon" href="images/the_icon.png">
 
-	<title>Messaging Cells Software Library</title>
+	<title>Messaging-Cells Software Library</title>
 
 	<link href="css/bootstrap.css" rel="stylesheet">
 	<link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -72,7 +72,7 @@
 	<td width="5%">
 	</td>
 	<td width="95%">
-		<h1>Messaging Cells Library</h1>
+		<h1>Messaging-Cells Library</h1>
 	</td>
 	<td><img src="images/the_logo.png" alt=""></td>
 </tr>
@@ -84,7 +84,7 @@
 <h1>Introduction</h1>
 
 <p>
-Messaging Cells is:
+Messaging-Cells is:
 
 <ol>
 <li>
@@ -98,11 +98,14 @@ A minimalistic asynchronous messaging aproach to <a href="https://en.wikipedia.o
 <li>
 Free Software and Open Source Software with a GNU C/C++ license.
 <li>
-Developed to work over: <a href="https://en.wikipedia.org/wiki/POSIX_Threads" target="blank">pthreads</a> and to generate 
+Developed to work over <a href="https://en.wikipedia.org/wiki/POSIX_Threads" target="blank">pthreads</a> and to generate 
 <a href="https://en.wikipedia.org/wiki/Verilog" target="blank">Verilog</a> code for the user's running pthread model.
 <li>
-Inspired by the <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a> and 
-<a href="https://en.wikipedia.org/wiki/Concurrent_object-oriented_programming">Concurrent object-oriented programming</a>.
+Inspired by the ideas of the 
+<a href="https://www.khanacademy.org/science/biology/cell-signaling/mechanisms-of-cell-signaling/a/introduction-to-cell-signaling" target="blank">
+biological cell communication</a>, the <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a>, the 
+<a href="https://en.wikipedia.org/wiki/Concurrent_object-oriented_programming" target="blank">Concurrent object-oriented programming</a> paradigm, and the
+<a href="https://en.wikipedia.org/wiki/Message_Passing_Interface#MPI-2_concepts" target="blank">MPI-2</a> standard.
 </ol>
 
 <p>
@@ -114,7 +117,7 @@ The motivation for this software is to have a base library to implement a parall
 <h1>Status</h1>
 
 <p>
-Not alpha yet. Working on the DSL and the verilog generation of code and this means the whole code base is very unstable.
+Not alpha yet. Working on the DSL and the generation of verilog code. This means the whole code base is very unstable.
 
 <h1>General features so far</h1>
 <ol>
@@ -129,9 +132,15 @@ Deterministic behaviour. No indeterminism. Unlike the <a href="https://en.wikipe
 	Message disposal is handled by the system and the user cannot modify it once it has been sent.
 	</ul>
 <li>
-No locks at all for synchronization (no mutexes, no semaphores, etc). Like the <a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a>.
+No locks at all for synchronization (no mutexes, no semaphores, etc). Like the 
+<a href="https://en.wikipedia.org/wiki/Actor_model" target="blank">Actor Model</a>.
 <li>
 Asynchronous messaging. Like the Actor Model.
+<li>
+Unlike the 
+<a href="https://en.wikipedia.org/wiki/Actor_model#Unbounded_nondeterminism_controversy" target="blank">
+Actor Model</a>, Messaging-Cells has a 
+<a href="https://www.cs.usfca.edu/~srollins/courses/cs682-s08/web/notes/timeandstates.html" target="blank">global state</a> meaning it is a deterministically debuggable model.
 </ol>
 
 <h1>Code</h1>

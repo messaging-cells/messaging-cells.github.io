@@ -5,7 +5,7 @@
 	<td width="5%">
 	</td>
 	<td width="95%">
-		<h1>Messaging Cells Library</h1>
+		<h1>Messaging-Cells Library</h1>
 	</td>
 	<td><img src="images/the_logo.png" alt=""></td>
 </tr>
